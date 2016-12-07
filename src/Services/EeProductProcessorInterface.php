@@ -20,6 +20,8 @@
 
 namespace TechDivision\Import\Product\Ee\Services;
 
+use TechDivision\Import\Product\Services\ProductProcessorInterface;
+
 /**
  * A SLSB providing methods to load product data using a PDO connection.
  *

@@ -20,6 +20,8 @@
 
 namespace TechDivision\Import\Product\Ee\Actions\Processors;
 
+use TechDivision\Import\Product\Actions\Processors\AbstractProductPersistProcessor;
+
 /**
  * The sequence product persist processor implementation.
  *

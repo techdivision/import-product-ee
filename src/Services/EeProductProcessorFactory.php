@@ -22,8 +22,8 @@ namespace TechDivision\Import\Product\Ee\Services;
 
 use TechDivision\Import\ConfigurationInterface;
 use TechDivision\Import\Product\Services\ProductProcessorFactory;
-use TechDivision\Import\Product\Ee\Actions\Processors\SequenceProductPersistProcessor;
 use TechDivision\Import\Product\Ee\Actions\SequenceProductAction;
+use TechDivision\Import\Product\Ee\Actions\Processors\SequenceProductPersistProcessor;
 
 /**
  * A SLSB providing methods to load product data using a PDO connection.
@@ -38,13 +38,13 @@ class EeProductProcessorFactory extends ProductProcessorFactory
 {
 
     /**
-     * Return's the processor instance.
+     * Return's the processor class name.
      *
-     * @return object The processor instance
+     * @return string The processor class name
      */
-    protected static newProcessor()
+    protected static function getProcessorType()
     {
-        return new EeProductProcessor::class();
+        return 'TechDivision\Import\Product\Ee\Services\EeProductProcessor';
     }
 
     /**
@@ -61,8 +61,12 @@ class EeProductProcessorFactory extends ProductProcessorFactory
         // initialize the product processor
         $productProcessor = parent::factory($connection, $configuration);
 
+        // extract Magento edition/version
+        $magentoEdition = $configuration->getMagentoEdition();
+        $magentoVersion = $configuration->getMagentoVersion();
+
         // initialize the action that provides sequence product CRUD functionality
-        $sequenceProductPersistProcessor = new SequenceProductPersistProcessor()PersistProcessor();
+        $sequenceProductPersistProcessor = new SequenceProductPersistProcessor();
         $sequenceProductPersistProcessor->setMagentoEdition($magentoEdition);
         $sequenceProductPersistProcessor->setMagentoVersion($magentoVersion);
         $sequenceProductPersistProcessor->setConnection($connection);
