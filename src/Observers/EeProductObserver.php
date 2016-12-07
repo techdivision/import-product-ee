@@ -21,6 +21,7 @@
 namespace TechDivision\Import\Product\Ee\Observers;
 
 use TechDivision\Import\Product\Utils\ColumnKeys;
+use TechDivision\Import\Product\Utils\MemberNames;
 use TechDivision\Import\Product\Observers\ProductObserver;
 
 /**
@@ -70,6 +71,9 @@ class EeProductObserver extends ProductObserver
         $attributeSet = $this->getAttributeSetByAttributeSetName($row[$headers[ColumnKeys::ATTRIBUTE_SET_CODE]]);
 
         // initialize the product values
+        $entityId = $this->nextIdentifier();
+        $createdIn = 1;
+        $updatedIn = strtotime('+20 years');
         $sku = $row[$headers[ColumnKeys::SKU]];
         $productType = $row[$headers[ColumnKeys::PRODUCT_TYPE]];
         $attributeSetId = $attributeSet[MemberNames::ATTRIBUTE_SET_ID];
@@ -83,5 +87,15 @@ class EeProductObserver extends ProductObserver
 
         // returns the row
         return $row;
+    }
+
+    /**
+     * Return's the next available product entity ID.
+     *
+     * @return integer The next available product entity ID
+     */
+    public function nextIdentifier()
+    {
+        return $this->getSubject()->nextIdentifier();
     }
 }

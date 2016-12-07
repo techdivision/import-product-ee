@@ -12,7 +12,7 @@
 	],
 	"autoload" : {
 		"psr-4" : {
-			"TechDivision\\Import\\Product\\" : [ "src/", "tests/" ]
+			"TechDivision\\Import\\Product\\Ee\\" : [ "src/", "tests/" ]
 		}
 	},
     "repositories" : [{

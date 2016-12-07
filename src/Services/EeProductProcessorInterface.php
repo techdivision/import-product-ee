@@ -39,5 +39,12 @@ interface EeProductProcessorInterface extends ProductProcessorInterface
      *
      * @return \TechDivision\Import\Product\Ee\Actions\SequenceProductAction The action instance
      */
-    public function getSequenceValueAction();
+    public function getSequenceProductAction();
+
+    /**
+     * Return's the next available product entity ID.
+     *
+     * @return integer The next available product entity ID
+     */
+    public function nextIdentifier();
 }

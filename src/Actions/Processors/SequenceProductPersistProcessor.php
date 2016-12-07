@@ -20,7 +20,9 @@
 
 namespace TechDivision\Import\Product\Ee\Actions\Processors;
 
+use TechDivision\Import\Product\Ee\Utils\SqlStatements;
 use TechDivision\Import\Product\Actions\Processors\AbstractProductPersistProcessor;
+use TechDivision\Import\Actions\Processors\AbstractPersistProcessor;
 
 /**
  * The sequence product persist processor implementation.
@@ -31,7 +33,7 @@ use TechDivision\Import\Product\Actions\Processors\AbstractProductPersistProcess
  * @link      https://github.com/wagnert/csv-import
  * @link      http://www.appserver.io
  */
-class SequenceProductPersistProcessor extends AbstractProductPersistProcessor
+class SequenceProductPersistProcessor extends AbstractPersistProcessor
 {
 
     /**

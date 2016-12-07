@@ -20,7 +20,7 @@
 
 namespace TechDivision\Import\Product\Ee\Services;
 
-use TechDivision\Import\ConfigurationInterface;
+use TechDivision\Import\Configuration\SubjectInterface;
 use TechDivision\Import\Product\Services\ProductProcessorFactory;
 use TechDivision\Import\Product\Ee\Actions\SequenceProductAction;
 use TechDivision\Import\Product\Ee\Actions\Processors\SequenceProductPersistProcessor;
@@ -50,25 +50,23 @@ class EeProductProcessorFactory extends ProductProcessorFactory
     /**
      * Factory method to create a new product processor instance.
      *
-     * @param \PDO                                       $connection    The PDO connection to use
-     * @param TechDivision\Import\ConfigurationInterface $configuration The subject configuration
+     * @param \PDO                                               $connection    The PDO connection to use
+     * @param TechDivision\Import\Configuration\SubjectInterface $configuration The subject configuration
      *
      * @return \TechDivision\Import\Product\Services\ProductProcessor The processor instance
      */
-    public function factory(\PDO $connection, ConfigurationInterface $configuration)
+    public static function factory(\PDO $connection, SubjectInterface $configuration)
     {
 
         // initialize the product processor
         $productProcessor = parent::factory($connection, $configuration);
 
-        // extract Magento edition/version
-        $magentoEdition = $configuration->getMagentoEdition();
-        $magentoVersion = $configuration->getMagentoVersion();
+        // load the utility class name
+        $utilityClassName = $configuration->getUtilityClassName();
 
         // initialize the action that provides sequence product CRUD functionality
         $sequenceProductPersistProcessor = new SequenceProductPersistProcessor();
-        $sequenceProductPersistProcessor->setMagentoEdition($magentoEdition);
-        $sequenceProductPersistProcessor->setMagentoVersion($magentoVersion);
+        $sequenceProductPersistProcessor->setUtilityClassName($utilityClassName);
         $sequenceProductPersistProcessor->setConnection($connection);
         $sequenceProductPersistProcessor->init();
         $sequenceProductAction = new SequenceProductAction();

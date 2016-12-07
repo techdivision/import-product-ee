@@ -48,7 +48,7 @@ class EeProductProcessor extends ProductProcessor implements EeProductProcessorI
      *
      * @return void
      */
-    public function setSequenceValueAction($sequenceProductAction)
+    public function setSequenceProductAction($sequenceProductAction)
     {
         $this->sequenceProductAction = $sequenceProductAction;
     }
@@ -58,8 +58,19 @@ class EeProductProcessor extends ProductProcessor implements EeProductProcessorI
      *
      * @return \TechDivision\Import\Product\Ee\Actions\SequenceProductAction The action instance
      */
-    public function getSequenceValueAction()
+    public function getSequenceProductAction()
     {
         return $this->sequenceProductAction;
+    }
+
+
+    /**
+     * Return's the next available product entity ID.
+     *
+     * @return integer The next available product entity ID
+     */
+    public function nextIdentifier()
+    {
+        return $this->getSequenceProductAction()->nextIdentifier();
     }
 }

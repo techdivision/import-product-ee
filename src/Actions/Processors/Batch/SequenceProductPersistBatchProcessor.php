@@ -50,7 +50,8 @@ class SequenceProductPersistBatchProcessor extends AbstractPersistBatchProcessor
      */
     protected function getStatement()
     {
-        return SqlStatements::CREATE_SEQUENCE_PRODUCT;
+        $utilityClassName = $this->getUtilityClassName();
+        return $utilityClassName::CREATE_SEQUENCE_PRODUCT;
     }
 
     /**
