@@ -20,8 +20,6 @@
 
 namespace TechDivision\Import\Product\Ee\Actions\Processors;
 
-use TechDivision\Import\Product\Ee\Utils\SqlStatements;
-use TechDivision\Import\Product\Actions\Processors\AbstractProductPersistProcessor;
 use TechDivision\Import\Actions\Processors\AbstractPersistProcessor;
 
 /**

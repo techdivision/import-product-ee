@@ -20,7 +20,6 @@
 
 namespace TechDivision\Import\Product\Ee\Actions\Processors\Batch;
 
-use TechDivision\Import\Product\Ee\Utils\SqlStatements;
 use TechDivision\Import\Actions\Processors\Batch\AbstractPersistBatchProcessor;
 
 /**

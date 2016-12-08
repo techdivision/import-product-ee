@@ -46,7 +46,7 @@ class EeCleanUpObserver extends CleanUpObserver
         $headers = $this->getHeaders();
 
         // add the SKU => entity ID mapping
-        $this->addSkuRowIdMapping($sku = $row[$headers[ColumnKeys::SKU]]);
+        $this->addSkuRowIdMapping($row[$headers[ColumnKeys::SKU]]);
 
         // invoke the parent method
         return parent::handle($row);
