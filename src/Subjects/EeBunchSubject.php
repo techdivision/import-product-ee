@@ -42,6 +42,31 @@ class EeBunchSubject extends BunchSubject
     protected $lastRowId;
 
     /**
+     * The mapping for the SKUs to the created row IDs.
+     *
+     * @var array
+     */
+    protected $skuRowIdMapping = array();
+
+    /**
+     * Clean up the global data after importing the bunch.
+     *
+     * @return void
+     */
+    public function tearDown()
+    {
+
+        // call parent method
+        parent::tearDown();
+
+        // load the registry processor
+        $registryProcessor = $this->getRegistryProcessor();
+
+        // update the status up the actual import with SKU => row ID mapping
+        $registryProcessor->mergeAttributesRecursive($this->serial, array('skuRowIdMapping' => $this->skuRowIdMapping));
+    }
+
+    /**
      * Set's the row ID of the product that has been created recently.
      *
      * @param string $lastRowId The row ID
@@ -61,6 +86,18 @@ class EeBunchSubject extends BunchSubject
     public function getLastRowId()
     {
         return $this->lastRowId;
+    }
+
+    /**
+     * Add the passed SKU => row ID mapping.
+     *
+     * @param string $sku The SKU
+     *
+     * @return void
+     */
+    public function addSkuRowIdMapping($sku)
+    {
+        $this->skuRowIdMapping[$sku] = $this->getLastRowId();
     }
 
     /**

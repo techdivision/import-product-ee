@@ -85,7 +85,7 @@ class SqlStatements extends FallbackStatements
      */
     const CREATE_PRODUCT_DATETIME = 'INSERT
                                        INTO catalog_product_entity_datetime (
-                                                entity_id,
+                                                row_id,
                                                 attribute_id,
                                                 store_id,
                                                 value

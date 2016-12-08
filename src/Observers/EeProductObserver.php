@@ -99,7 +99,7 @@ class EeProductObserver extends ProductObserver
      */
     public function setLastRowId($rowId)
     {
-        $this->getSubject()->setLastRowId();
+        $this->getSubject()->setLastRowId($rowId);
     }
 
     /**
