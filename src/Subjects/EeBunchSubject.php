@@ -20,6 +20,7 @@
 
 namespace TechDivision\Import\Product\Ee\Subjects;
 
+use TechDivision\Import\Utils\RegistryKeys;
 use TechDivision\Import\Product\Subjects\BunchSubject;
 
 /**
@@ -63,7 +64,7 @@ class EeBunchSubject extends BunchSubject
         $registryProcessor = $this->getRegistryProcessor();
 
         // update the status up the actual import with SKU => row ID mapping
-        $registryProcessor->mergeAttributesRecursive($this->serial, array('skuRowIdMapping' => $this->skuRowIdMapping));
+        $registryProcessor->mergeAttributesRecursive($this->serial, array(RegistryKeys::SKU_ROW_ID_MAPPING => $this->skuRowIdMapping));
     }
 
     /**
