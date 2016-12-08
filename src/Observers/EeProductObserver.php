@@ -82,11 +82,24 @@ class EeProductObserver extends ProductObserver
         $params = array($entityId, $createdIn, $updatedIn, $sku, $createdAt, $updatedAt, 0, 0, $productType, $attributeSetId);
 
         // insert the entity and set the entity ID, SKU and attribute set
-        $this->setLastEntityId($this->persistProduct($params));
+        $this->setLastRowId($this->persistProduct($params));
+        $this->setLastEntityId($entityId);
         $this->setAttributeSet($attributeSet);
 
         // returns the row
         return $row;
+    }
+
+    /**
+     * Set's the row ID of the product that has been created recently.
+     *
+     * @param string $lastRowId The row ID
+     *
+     * @return void
+     */
+    public function setLastRowId($rowId)
+    {
+        $this->getSubject()->setLastRowId();
     }
 
     /**

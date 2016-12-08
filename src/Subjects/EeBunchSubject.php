@@ -35,6 +35,35 @@ class EeBunchSubject extends BunchSubject
 {
 
     /**
+     * The row ID of the product that has been created recently.
+     *
+     * @var integer
+     */
+    protected $lastRowId;
+
+    /**
+     * Set's the row ID of the product that has been created recently.
+     *
+     * @param string $lastRowId The row ID
+     *
+     * @return void
+     */
+    public function setLastRowId($lastRowId)
+    {
+        $this->lastRowId = $lastRowId;
+    }
+
+    /**
+     * Return's the row ID of the product that has been created recently.
+     *
+     * @return string The row Id
+     */
+    public function getLastRowId()
+    {
+        return $this->lastRowId;
+    }
+
+    /**
      * Return's the next available product entity ID.
      *
      * @return integer The next available product entity ID
