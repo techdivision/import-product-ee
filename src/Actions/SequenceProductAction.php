@@ -37,25 +37,27 @@ class SequenceProductAction extends AbstractAction
     /**
      * Persist's the passed row.
      *
-     * @param array $row The row to persist
+     * @param array       $row  The row to persist
+     * @param string|null $name The name of the prepared statement that has to be executed
      *
      * @return string The last inserted ID
      */
-    public function persist($row)
+    public function persist($row, $name = null)
     {
-        return $this->getPersistProcessor()->execute($row);
+        return $this->getPersistProcessor()->execute($row, $name);
     }
 
     /**
      * Remove's the entity with the passed attributes.
      *
-     * @param array $row The attributes of the entity to remove
+     * @param array       $row  The attributes of the entity to remove
+     * @param string|null $name The name of the prepared statement that has to be executed
      *
      * @return void
      */
-    public function remove($row)
+    public function remove($row, $name = null)
     {
-        return $this->getRemoveProcessor()->execute($row);
+        return $this->getRemoveProcessor()->execute($row, $name);
     }
 
     /**
