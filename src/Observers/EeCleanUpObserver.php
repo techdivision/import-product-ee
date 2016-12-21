@@ -1,7 +1,7 @@
 <?php
 
 /**
- * TechDivision\Import\Product\Ee\Observers\PostImport\EeCleanUpObserver
+ * TechDivision\Import\Product\Ee\Observers\EeCleanUpObserver
  *
  * NOTICE OF LICENSE
  *
@@ -18,10 +18,10 @@
  * @link      http://www.techdivision.com
  */
 
-namespace TechDivision\Import\Product\Ee\Observers\PostImport;
+namespace TechDivision\Import\Product\Ee\Observers;
 
 use TechDivision\Import\Product\Utils\ColumnKeys;
-use TechDivision\Import\Product\Observers\PostImport\CleanUpObserver;
+use TechDivision\Import\Product\Observers\CleanUpObserver;
 
 /**
  * A SLSB that handles the process to import product bunches.
