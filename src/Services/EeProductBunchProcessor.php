@@ -1,7 +1,7 @@
 <?php
 
 /**
- * TechDivision\Import\Product\Ee\Services\ProductProcessorInterface
+ * TechDivision\Import\Product\Ee\Services\EeProductBunchProcessor
  *
  * NOTICE OF LICENSE
  *
@@ -20,10 +20,10 @@
 
 namespace TechDivision\Import\Product\Ee\Services;
 
-use TechDivision\Import\Product\Services\ProductProcessorInterface;
+use TechDivision\Import\Product\Services\ProductBunchProcessor;
 
 /**
- * A SLSB providing methods to load product data using a PDO connection.
+ * A SLSB providing methods to load sequence product data using a PDO connection.
  *
  * @author    Tim Wagner <t.wagner@techdivision.com>
  * @copyright 2016 TechDivision GmbH <info@techdivision.com>
@@ -31,20 +31,46 @@ use TechDivision\Import\Product\Services\ProductProcessorInterface;
  * @link      https://github.com/techdivision/import-product-ee
  * @link      http://www.techdivision.com
  */
-interface EeProductProcessorInterface extends ProductProcessorInterface
+class EeProductBunchProcessor extends ProductBunchProcessor implements EeProductBunchProcessorInterface
 {
+
+    /**
+     * The action for sequence product CRUD methods.
+     *
+     * @var \TechDivision\Import\Product\Ee\Actions\SequenceProductAction
+     */
+    protected $sequenceProductAction;
+
+    /**
+     * Set's the action with the sequence product CRUD methods.
+     *
+     * @param \TechDivision\Import\Product\Ee\Actions\SequenceProductAction $sequenceProductAction The action with the sequence product CRUD methods
+     *
+     * @return void
+     */
+    public function setSequenceProductAction($sequenceProductAction)
+    {
+        $this->sequenceProductAction = $sequenceProductAction;
+    }
 
     /**
      * Return's the action with the sequence product CRUD methods.
      *
      * @return \TechDivision\Import\Product\Ee\Actions\SequenceProductAction The action instance
      */
-    public function getSequenceProductAction();
+    public function getSequenceProductAction()
+    {
+        return $this->sequenceProductAction;
+    }
+
 
     /**
      * Return's the next available product entity ID.
      *
      * @return integer The next available product entity ID
      */
-    public function nextIdentifier();
+    public function nextIdentifier()
+    {
+        return $this->getSequenceProductAction()->nextIdentifier();
+    }
 }
