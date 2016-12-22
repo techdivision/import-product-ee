@@ -1,3 +1,14 @@
+# Version 1.0.0-alpha4
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Renaming processors because of changes in techdivision/import-product
+* Add Robo.li composer dependeny + task configuration
+
 # Version 1.0.0-alpha3
 
 ## Bugfixes
