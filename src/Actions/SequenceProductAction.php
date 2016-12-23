@@ -23,7 +23,7 @@ namespace TechDivision\Import\Product\Ee\Actions;
 use TechDivision\Import\Actions\AbstractAction;
 
 /**
- * A SLSB providing repository functionality for sequence product CRUD actions.
+ * An action implementation that provides CRUD functionality for EE product sequence block.
  *
  * @author    Tim Wagner <tw@appserver.io>
  * @copyright 2015 TechDivision GmbH <info@appserver.io>
@@ -35,29 +35,16 @@ class SequenceProductAction extends AbstractAction
 {
 
     /**
-     * Persist's the passed row.
+     * Creates's the entity with the passed attributes.
      *
-     * @param array       $row  The row to persist
+     * @param array       $row  The attributes of the entity to create
      * @param string|null $name The name of the prepared statement that has to be executed
      *
      * @return string The last inserted ID
      */
-    public function persist($row, $name = null)
+    public function create($row, $name = null)
     {
-        return $this->getPersistProcessor()->execute($row, $name);
-    }
-
-    /**
-     * Remove's the entity with the passed attributes.
-     *
-     * @param array       $row  The attributes of the entity to remove
-     * @param string|null $name The name of the prepared statement that has to be executed
-     *
-     * @return void
-     */
-    public function remove($row, $name = null)
-    {
-        return $this->getRemoveProcessor()->execute($row, $name);
+        return $this->getCreateProcessor()->execute($row, $name);
     }
 
     /**
@@ -67,6 +54,6 @@ class SequenceProductAction extends AbstractAction
      */
     public function nextIdentifier()
     {
-        return $this->getPersistProcessor()->execute(array());
+        return $this->getCreateProcessor()->execute(array());
     }
 }
