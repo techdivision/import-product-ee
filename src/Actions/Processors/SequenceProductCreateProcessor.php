@@ -1,7 +1,7 @@
 <?php
 
 /**
- * TechDivision\Import\Product\Ee\Actions\Processors\SequenceProductPersistProcessor
+ * TechDivision\Import\Product\Ee\Actions\Processors\SequenceProductCreateProcessor
  *
  * NOTICE OF LICENSE
  *
@@ -20,10 +20,10 @@
 
 namespace TechDivision\Import\Product\Ee\Actions\Processors;
 
-use TechDivision\Import\Actions\Processors\AbstractPersistProcessor;
+use TechDivision\Import\Actions\Processors\AbstractCreateProcessor;
 
 /**
- * The sequence product persist processor implementation.
+ * The sequence product create processor implementation.
  *
  * @author    Tim Wagner <tw@appserver.io>
  * @copyright 2015 TechDivision GmbH <info@appserver.io>
@@ -31,7 +31,7 @@ use TechDivision\Import\Actions\Processors\AbstractPersistProcessor;
  * @link      https://github.com/wagnert/csv-import
  * @link      http://www.appserver.io
  */
-class SequenceProductPersistProcessor extends AbstractPersistProcessor
+class SequenceProductCreateProcessor extends AbstractCreateProcessor
 {
 
     /**
