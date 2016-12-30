@@ -35,6 +35,24 @@ class SequenceProductAction extends AbstractAction
 {
 
     /**
+     * Helper method that create/update the passed entity, depending on
+     * the entity's status.
+     *
+     * @param array $row The entity data to create/update
+     *
+     * @return string The last inserted ID
+     */
+    public function persist(array $row)
+    {
+
+        // load the method name
+        $methodName = $row[EntityStatus::MEMBER_NAME];
+
+        // invoke the method
+        return $this->$methodName($row);
+    }
+
+    /**
      * Creates's the entity with the passed attributes.
      *
      * @param array       $row  The attributes of the entity to create

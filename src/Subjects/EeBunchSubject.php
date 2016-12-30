@@ -50,6 +50,19 @@ class EeBunchSubject extends BunchSubject
     protected $skuRowIdMapping = array();
 
     /**
+     * The mapping for the supported backend types (for the product entity) => persist methods.
+     *
+     * @var array
+     */
+    protected $backendTypes = array(
+        'datetime' => array('persistProductDatetimeAttribute', 'loadProductDatetimeAttributeByRowIdAndAttributeIdAndStoreId'),
+        'decimal'  => array('persistProductDecimalAttribute', 'loadProductDecimalAttributeByRowIdAndAttributeIdAndStoreId'),
+        'int'      => array('persistProductIntAttribute', 'loadProductIntAttributeByRowIdAndAttributeIdAndStoreId'),
+        'text'     => array('persistProductTextAttribute', 'loadProductTextAttributeByRowIdAndAttributeIdAndStoreId'),
+        'varchar'  => array('persistProductVarcharAttribute', 'loadProductVarcharAttributeByRowIdAndAttributeIdAndStoreId')
+    );
+
+    /**
      * Clean up the global data after importing the bunch.
      *
      * @return void
@@ -109,5 +122,88 @@ class EeBunchSubject extends BunchSubject
     public function nextIdentifier()
     {
         return $this->getProductProcessor()->nextIdentifier();
+    }
+
+    /**
+     * Load's and return's the product with the passed SKU and timestamp.
+     *
+     * @param string  $sku       The SKU of the product to return
+     * @param integer $timestamp The timestamp to find the matching scheduled update
+     *
+     * @return array The product
+     */
+    public function loadProductBySkuAndTimestamp($sku, $timestamp)
+    {
+        return $this->getProductProcessor()->loadProductBySkuAndTimestamp($sku, $timestamp);
+    }
+
+    /**
+     * Load's and return's the datetime attribute with the passed row/attribute/store ID.
+     *
+     * @param integer $row         The row ID of the attribute
+     * @param integer $attributeId The attribute ID of the attribute
+     * @param integer $storeId     The store ID of the attribute
+     *
+     * @return array|null The datetime attribute
+     */
+    public function loadProductDatetimeAttributeByRowIdAndAttributeIdAndStoreId($rowId, $attributeId, $storeId)
+    {
+        return  $this->getProductProcessor()->loadProductDatetimeAttributeByRowIdAndAttributeIdAndStoreId($rowId, $attributeId, $storeId);
+    }
+
+    /**
+     * Load's and return's the decimal attribute with the passed row/attribute/store ID.
+     *
+     * @param integer $row         The row ID of the attribute
+     * @param integer $attributeId The attribute ID of the attribute
+     * @param integer $storeId     The store ID of the attribute
+     *
+     * @return array|null The decimal attribute
+     */
+    public function loadProductDecimalAttributeByRowIdAndAttributeIdAndStoreId($rowId, $attributeId, $storeId)
+    {
+        return  $this->getProductProcessor()->loadProductDecimalAttributeByRowIdAndAttributeIdAndStoreId($rowId, $attributeId, $storeId);
+    }
+
+    /**
+     * Load's and return's the integer attribute with the passed row/attribute/store ID.
+     *
+     * @param integer $row         The row ID of the attribute
+     * @param integer $attributeId The attribute ID of the attribute
+     * @param integer $storeId     The store ID of the attribute
+     *
+     * @return array|null The integer attribute
+     */
+    public function loadProductIntAttributeByRowIdAndAttributeIdAndStoreId($rowId, $attributeId, $storeId)
+    {
+        return $this->getProductProcessor()->loadProductIntAttributeByRowIdAndAttributeIdAndStoreId($rowId, $attributeId, $storeId);
+    }
+
+    /**
+     * Load's and return's the text attribute with the passed row/attribute/store ID.
+     *
+     * @param integer $row         The row ID of the attribute
+     * @param integer $attributeId The attribute ID of the attribute
+     * @param integer $storeId     The store ID of the attribute
+     *
+     * @return array|null The text attribute
+     */
+    public function loadProductTextAttributeByRowIdAndAttributeIdAndStoreId($rowId, $attributeId, $storeId)
+    {
+        return $this->getProductProcessor()->loadProductTextAttributeByRowIdAndAttributeIdAndStoreId($rowId, $attributeId, $storeId);
+    }
+
+    /**
+     * Load's and return's the varchar attribute with the passed row/attribute/store ID.
+     *
+     * @param integer $row         The row ID of the attribute
+     * @param integer $attributeId The attribute ID of the attribute
+     * @param integer $storeId     The store ID of the attribute
+     *
+     * @return array|null The varchar attribute
+     */
+    public function loadProductVarcharAttributeByRowIdAndAttributeIdAndStoreId($rowId, $attributeId, $storeId)
+    {
+        return $this->getProductProcessor()->loadProductVarcharAttributeByRowIdAndAttributeIdAndStoreId($rowId, $attributeId, $storeId);
     }
 }
