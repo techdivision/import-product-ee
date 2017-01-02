@@ -33,6 +33,17 @@ class SqlStatements extends \TechDivision\Import\Product\Utils\SqlStatements
 {
 
     /**
+     * The SQL statement to load the actual product with the passed SKU.
+     *
+     * @var string
+     */
+    const PRODUCT = 'SELECT *
+                       FROM catalog_product_entity
+                      WHERE sku = :sku
+                        AND updated_in > unix_timestamp(now())
+                   ORDER BY created_in ASC';
+
+    /**
      * The SQL statement to load the product datetime attribute with the passed row/attribute/store ID.
      *
      * @var string
@@ -86,19 +97,6 @@ class SqlStatements extends \TechDivision\Import\Product\Utils\SqlStatements
                               WHERE row_id = :row_id
                                 AND attribute_id = :attribute_id
                                 AND store_id = :store_id';
-
-    /**
-     * The SQL statement to load the product with the passed SKU.
-     *
-     * @var string
-     */
-    const PRODUCT_BY_SKU_AND_TIMESTAMP = 'SELECT t0.*
-                                            FROM catalog_product_entity t0
-                                      INNER JOIN staging_update t1
-                                              ON unix_timestamp(t1.start_time) > ?
-                                             AND t0.created_in = t1.id
-                                             AND t0.sku = ?
-                                        ORDER BY unix_timestamp(t1.start_time) ASC';
 
     /**
      * The SQL statement to create a new sequence product value.
@@ -296,4 +294,98 @@ class SqlStatements extends \TechDivision\Import\Product\Utils\SqlStatements
                                         store_id = :store_id,
                                         value = :value
                                   WHERE value_id = :value_id';
+
+    /**
+     * The SQL statement to create a product's stock status.
+     *
+     * @var string
+     */
+    const CREATE_STOCK_ITEM = 'INSERT
+                                 INTO cataloginventory_stock_item (
+                                          product_id,
+                                          stock_id,
+                                          website_id,
+                                          qty,
+                                          min_qty,
+                                          use_config_min_qty,
+                                          is_qty_decimal,
+                                          backorders,
+                                          use_config_backorders,
+                                          min_sale_qty,
+                                          use_config_min_sale_qty,
+                                          max_sale_qty,
+                                          use_config_max_sale_qty,
+                                          is_in_stock,
+                                          notify_stock_qty,
+                                          use_config_notify_stock_qty,
+                                          manage_stock,
+                                          use_config_manage_stock,
+                                          use_config_qty_increments,
+                                          qty_increments,
+                                          use_config_enable_qty_inc,
+                                          enable_qty_increments,
+                                          is_decimal_divided,
+                                          deferred_stock_update,
+                                          use_config_deferred_stock_update
+                                      )
+                               VALUES (:product_id,
+                                       :stock_id,
+                                       :website_id,
+                                       :qty,
+                                       :min_qty,
+                                       :use_config_min_qty,
+                                       :is_qty_decimal,
+                                       :backorders,
+                                       :use_config_backorders,
+                                       :min_sale_qty,
+                                       :use_config_min_sale_qty,
+                                       :max_sale_qty,
+                                       :use_config_max_sale_qty,
+                                       :is_in_stock,
+                                       :notify_stock_qty,
+                                       :use_config_notify_stock_qty,
+                                       :manage_stock,
+                                       :use_config_manage_stock,
+                                       :use_config_qty_increments,
+                                       :qty_increments,
+                                       :use_config_enable_qty_inc,
+                                       :enable_qty_increments,
+                                       :is_decimal_divided,
+                                       :deferred_stock_update,
+                                       :use_config_deferred_stock_update)';
+
+    /**
+     * The SQL statement to create a product's stock status.
+     *
+     * @var string
+     */
+    const UPDATE_STOCK_ITEM = 'UPDATE cataloginventory_stock_item
+                                  SET product_id = :product_id,
+                                      stock_id = :stock_id,
+                                      website_id = :website_id,
+                                      qty = :qty,
+                                      min_qty = :min_qty,
+                                      use_config_min_qty = :use_config_min_qty,
+                                      is_qty_decimal = :is_qty_decimal,
+                                      backorders = :backorders,
+                                      use_config_backorders = :use_config_backorders,
+                                      min_sale_qty = :min_sale_qty,
+                                      use_config_min_sale_qty = :use_config_min_sale_qty,
+                                      max_sale_qty = :max_sale_qty,
+                                      use_config_max_sale_qty = :use_config_max_sale_qty,
+                                      is_in_stock = :is_in_stock,
+                                      low_stock_date = :low_stock_date,
+                                      notify_stock_qty = :notify_stock_qty,
+                                      use_config_notify_stock_qty = :use_config_notify_stock_qty,
+                                      manage_stock = :manage_stock,
+                                      use_config_manage_stock = :use_config_manage_stock,
+                                      stock_status_changed_auto = :stock_status_changed_auto,
+                                      use_config_qty_increments = :use_config_qty_increments,
+                                      qty_increments = :qty_increments,
+                                      use_config_enable_qty_inc = :use_config_enable_qty_inc,
+                                      enable_qty_increments = :enable_qty_increments,
+                                      is_decimal_divided = :is_decimal_divided,
+                                      deferred_stock_update = :deferred_stock_update,
+                                      use_config_deferred_stock_update = :use_config_deferred_stock_update
+                                WHERE item_id = :item_id';
 }

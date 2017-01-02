@@ -40,7 +40,7 @@ class EeProductObserver extends ProductObserver
      *
      * @return array The processed row
      */
-    public function process()
+    protected function process()
     {
 
         // prepare the static entity values
@@ -56,21 +56,21 @@ class EeProductObserver extends ProductObserver
      *
      * @return array The prepared attributes
      */
-    public function prepareAttributes()
+    protected function prepareAttributes()
     {
 
-       // load the parent attributes
-       $parentAttr = parent::prepareAttributes();
+        // load the parent attributes
+        $parentAttr = parent::prepareAttributes();
 
-       // initialize the product values
-       $attr = array(
-           MemberNames::ENTITY_ID  => $this->nextIdentifier(),
-           MemberNames::CREATED_IN => 1,
-           MemberNames::UPDATED_IN => strtotime('+20 years')
-       );
+        // initialize the product values
+        $attr = array(
+            MemberNames::ENTITY_ID  => $this->nextIdentifier(),
+            MemberNames::CREATED_IN => 1,
+            MemberNames::UPDATED_IN => strtotime('+20 years')
+        );
 
-       // merge and return the attributes
-       return array_merge($parentAttr, $attr);
+        // merge and return the attributes
+        return array_merge($parentAttr, $attr);
     }
 
     /**
@@ -80,7 +80,7 @@ class EeProductObserver extends ProductObserver
      *
      * @return void
      */
-    public function setLastRowId($rowId)
+    protected function setLastRowId($rowId)
     {
         $this->getSubject()->setLastRowId($rowId);
     }
@@ -90,7 +90,7 @@ class EeProductObserver extends ProductObserver
      *
      * @return integer The next available product entity ID
      */
-    public function nextIdentifier()
+    protected function nextIdentifier()
     {
         return $this->getSubject()->nextIdentifier();
     }

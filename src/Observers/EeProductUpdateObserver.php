@@ -21,6 +21,7 @@
 namespace TechDivision\Import\Product\Ee\Observers;
 
 use TechDivision\Import\Product\Ee\Utils\MemberNames;
+use TechDivision\Import\Product\Observers\ProductUpdateObserver;
 
 /**
  * Observer that create's the product itself for the Magento 2 EE edition.
@@ -31,41 +32,34 @@ use TechDivision\Import\Product\Ee\Utils\MemberNames;
  * @link      https://github.com/techdivision/import-product-ee
  * @link      http://www.techdivision.com
  */
-class EeProductUpdateObserver extends EeProductObserver
+class EeProductUpdateObserver extends ProductUpdateObserver
 {
 
     /**
-     * Initialize the product with the passed attributes and returns an instance.
+     * Process the observer's business logic.
      *
-     * @param array $attr The product attributes
-     *
-     * @return array The initialized product
+     * @return array The processed row
      */
-    public function initializeProduct(array $attr)
+    protected function process()
     {
 
-        // load the actual date/time
-        $now = new \DateTime();
+        // prepare the static entity values
+        $product = $this->initializeProduct($this->prepareAttributes());
 
-        // load the product with the passed SKU and merge it with the data
-        if ($entity = $this->loadProductBySkuAndTimestamp($attr[MemberNames::SKU], $now->getTimestamp())) {
-            return array_merge($entity, $attr);
-        }
-
-        // otherwise simply return the attributes
-        return $attr;
+        // insert the entity and set the entity ID, SKU and attribute set
+        $this->setLastRowId($this->persistProduct($product));
+        $this->setLastEntityId($product[MemberNames::ENTITY_ID]);
     }
 
     /**
-     * Return's the product with the passed SKU and for the also passed timestamp.
+     * Set's the row ID of the product that has been created recently.
      *
-     * @param string  $sku       The SKU of the product to return
-     * @param integer $timestamp The timestamp to find the matching scheduled update
+     * @param string $rowId The row ID
      *
-     * @return array The product
+     * @return void
      */
-    public function loadProductBySkuAndTimestamp($sku, $timestamp)
+    protected function setLastRowId($rowId)
     {
-        return $this->getSubject()->loadProductBySkuAndTimestamp($sku, $timestamp);
+        $this->getSubject()->setLastRowId($rowId);
     }
 }

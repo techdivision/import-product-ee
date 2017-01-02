@@ -49,16 +49,6 @@ interface EeProductBunchProcessorInterface extends ProductBunchProcessorInterfac
     public function nextIdentifier();
 
     /**
-     * Return's the product with the passed SKU and for the also passed timestamp.
-     *
-     * @param string  $sku       The SKU of the product to return
-     * @param integer $timestamp The timestamp to find the matching scheduled update
-     *
-     * @return array The product
-     */
-    public function loadProductBySkuAndTimestamp($sku, $timestamp);
-
-    /**
      * Load's and return's the datetime attribute with the passed row/attribute/store ID.
      *
      * @param integer $row         The row ID of the attribute

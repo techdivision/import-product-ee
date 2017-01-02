@@ -21,7 +21,6 @@
 namespace TechDivision\Import\Product\Ee\Services;
 
 use TechDivision\Import\Product\Services\ProductBunchProcessor;
-use TechDivision\Import\Product\Ee\Utils\MemberNames;
 
 /**
  * A SLSB providing methods to load sequence product data using a PDO connection.
@@ -72,19 +71,6 @@ class EeProductBunchProcessor extends ProductBunchProcessor implements EeProduct
     public function nextIdentifier()
     {
         return $this->getSequenceProductAction()->nextIdentifier();
-    }
-
-    /**
-     * Return's the product with the passed SKU and for the also passed timestamp.
-     *
-     * @param string  $sku       The SKU of the product to return
-     * @param integer $timestamp The timestamp to find the matching scheduled update
-     *
-     * @return array The product
-     */
-    public function loadProductBySkuAndTimestamp($sku, $timestamp)
-    {
-        return $this->getProductRepository()->findOneBySkuAndTimestamp($sku, $timestamp);
     }
 
     /**

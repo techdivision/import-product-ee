@@ -20,6 +20,7 @@
 
 namespace TechDivision\Import\Product\Ee\Actions;
 
+use TechDivision\Import\Utils\EntityStatus;
 use TechDivision\Import\Actions\AbstractAction;
 
 /**

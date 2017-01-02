@@ -63,6 +63,36 @@ class EeBunchSubject extends BunchSubject
     );
 
     /**
+     * Mappings for the table column => CSV column header.
+     *
+     * @var array
+     */
+    protected $headerStockMappings = array(
+        'qty'                              => array('qty', 'float'),
+        'min_qty'                          => array('out_of_stock_qty', 'float'),
+        'use_config_min_qty'               => array('use_config_min_qty', 'int'),
+        'is_qty_decimal'                   => array('is_qty_decimal', 'int'),
+        'backorders'                       => array('allow_backorders', 'int'),
+        'use_config_backorders'            => array('use_config_backorders', 'int'),
+        'min_sale_qty'                     => array('min_cart_qty', 'float'),
+        'use_config_min_sale_qty'          => array('use_config_min_sale_qty', 'int'),
+        'max_sale_qty'                     => array('max_cart_qty', 'float'),
+        'use_config_max_sale_qty'          => array('use_config_max_sale_qty', 'int'),
+        'is_in_stock'                      => array('is_in_stock', 'int'),
+        'notify_stock_qty'                 => array('notify_on_stock_below', 'float'),
+        'use_config_notify_stock_qty'      => array('use_config_notify_stock_qty', 'int'),
+        'manage_stock'                     => array('manage_stock', 'int'),
+        'use_config_manage_stock'          => array('use_config_manage_stock', 'int'),
+        'use_config_qty_increments'        => array('use_config_qty_increments', 'int'),
+        'qty_increments'                   => array('qty_increments', 'float'),
+        'use_config_enable_qty_inc'        => array('use_config_enable_qty_inc', 'int'),
+        'enable_qty_increments'            => array('enable_qty_increments', 'int'),
+        'is_decimal_divided'               => array('is_decimal_divided', 'int'),
+        'deferred_stock_update'            => array('deferred_stock_update', 'int'),
+        'use_config_deferred_stock_update' => array('use_config_deferred_stock_update', 'int'),
+    );
+
+    /**
      * Clean up the global data after importing the bunch.
      *
      * @return void
@@ -112,6 +142,18 @@ class EeBunchSubject extends BunchSubject
     public function addSkuRowIdMapping($sku)
     {
         $this->skuRowIdMapping[$sku] = $this->getLastRowId();
+    }
+
+    /**
+     * Return's the product rows with the passed SKU.
+     *
+     * @param string $sku The SKU of the product rows to return
+     *
+     * @return array The product rows
+     */
+    public function getProductRowsBySku($sku)
+    {
+        return $this->getProductProcessor()->getProductRowsBySku($sku);
     }
 
     /**
