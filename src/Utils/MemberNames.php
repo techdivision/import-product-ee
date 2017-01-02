@@ -1,7 +1,7 @@
 <?php
 
 /**
- * TechDivision\Import\Product\Ee\Observers\EeProductAttributeObserver
+ * TechDivision\Import\Product\Ee\Utils\MemberNames
  *
  * NOTICE OF LICENSE
  *
@@ -18,12 +18,10 @@
  * @link      http://www.techdivision.com
  */
 
-namespace TechDivision\Import\Product\Ee\Observers;
-
-use TechDivision\Import\Product\Observers\ProductAttributeObserver;
+namespace TechDivision\Import\Product\Ee\Utils;
 
 /**
- * Observer that provides product attribute functionality.
+ * Utitlity class that provides entity member names.
  *
  * @author    Tim Wagner <t.wagner@techdivision.com>
  * @copyright 2016 TechDivision GmbH <info@techdivision.com>
@@ -31,12 +29,27 @@ use TechDivision\Import\Product\Observers\ProductAttributeObserver;
  * @link      https://github.com/techdivision/import-product-ee
  * @link      http://www.techdivision.com
  */
-class EeProductAttributeObserver extends ProductAttributeObserver
+class MemberNames extends \TechDivision\Import\Product\Utils\MemberNames
 {
+
     /**
-     * The trait providing basic EE product attribute functionality.
+     * Name for the member 'row_id'.
      *
-     * @var \TechDivision\Import\Product\Ee\Observers\EeProductAttributeObserverTrait
+     * @var string
      */
-    use EeProductAttributeObserverTrait;
+    const ROW_ID = 'row_id';
+
+    /**
+     * Name for the member 'created_in'.
+     *
+     * @var string
+     */
+    const CREATED_IN = 'created_in';
+
+    /**
+     * Name for the member 'updated_in'.
+     *
+     * @var string
+     */
+    const UPDATED_IN = 'updated_in';
 }

@@ -47,4 +47,59 @@ interface EeProductBunchProcessorInterface extends ProductBunchProcessorInterfac
      * @return integer The next available product entity ID
      */
     public function nextIdentifier();
+
+    /**
+     * Load's and return's the datetime attribute with the passed row/attribute/store ID.
+     *
+     * @param integer $rowId       The row ID of the attribute
+     * @param integer $attributeId The attribute ID of the attribute
+     * @param integer $storeId     The store ID of the attribute
+     *
+     * @return array|null The datetime attribute
+     */
+    public function loadProductDatetimeAttributeByRowIdAndAttributeIdAndStoreId($rowId, $attributeId, $storeId);
+
+    /**
+     * Load's and return's the decimal attribute with the passed row/attribute/store ID.
+     *
+     * @param integer $rowId       The row ID of the attribute
+     * @param integer $attributeId The attribute ID of the attribute
+     * @param integer $storeId     The store ID of the attribute
+     *
+     * @return array|null The decimal attribute
+     */
+    public function loadProductDecimalAttributeByRowIdAndAttributeIdAndStoreId($rowId, $attributeId, $storeId);
+
+    /**
+     * Load's and return's the integer attribute with the passed row/attribute/store ID.
+     *
+     * @param integer $rowId       The row ID of the attribute
+     * @param integer $attributeId The attribute ID of the attribute
+     * @param integer $storeId     The store ID of the attribute
+     *
+     * @return array|null The integer attribute
+     */
+    public function loadProductIntAttributeByRowIdAndAttributeIdAndStoreId($rowId, $attributeId, $storeId);
+
+    /**
+     * Load's and return's the text attribute with the passed row/attribute/store ID.
+     *
+     * @param integer $rowId       The row ID of the attribute
+     * @param integer $attributeId The attribute ID of the attribute
+     * @param integer $storeId     The store ID of the attribute
+     *
+     * @return array|null The text attribute
+     */
+    public function loadProductTextAttributeByRowIdAndAttributeIdAndStoreId($rowId, $attributeId, $storeId);
+
+    /**
+     * Load's and return's the varchar attribute with the passed row/attribute/store ID.
+     *
+     * @param integer $rowId       The row ID of the attribute
+     * @param integer $attributeId The attribute ID of the attribute
+     * @param integer $storeId     The store ID of the attribute
+     *
+     * @return array|null The varchar attribute
+     */
+    public function loadProductVarcharAttributeByRowIdAndAttributeIdAndStoreId($rowId, $attributeId, $storeId);
 }

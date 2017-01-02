@@ -1,7 +1,7 @@
 <?php
 
 /**
- * TechDivision\Import\Product\Ee\Observers\EeProductAttributeObserver
+ * TechDivision\Import\Product\Ee\Actions\Processors\ProductUpdateProcessor
  *
  * NOTICE OF LICENSE
  *
@@ -18,12 +18,12 @@
  * @link      http://www.techdivision.com
  */
 
-namespace TechDivision\Import\Product\Ee\Observers;
+namespace TechDivision\Import\Product\Ee\Actions\Processors;
 
-use TechDivision\Import\Product\Observers\ProductAttributeObserver;
+use TechDivision\Import\Product\Ee\Utils\MemberNames;
 
 /**
- * Observer that provides product attribute functionality.
+ * The product update processor implementation.
  *
  * @author    Tim Wagner <t.wagner@techdivision.com>
  * @copyright 2016 TechDivision GmbH <info@techdivision.com>
@@ -31,12 +31,20 @@ use TechDivision\Import\Product\Observers\ProductAttributeObserver;
  * @link      https://github.com/techdivision/import-product-ee
  * @link      http://www.techdivision.com
  */
-class EeProductAttributeObserver extends ProductAttributeObserver
+class ProductUpdateProcessor extends \TechDivision\Import\Product\Actions\Processors\ProductUpdateProcessor
 {
+
     /**
-     * The trait providing basic EE product attribute functionality.
+     * Update's the passed row.
      *
-     * @var \TechDivision\Import\Product\Ee\Observers\EeProductAttributeObserverTrait
+     * @param array       $row  The row to update
+     * @param string|null $name The name of the prepared statement that has to be executed
+     *
+     * @return string The ID of the updated product
      */
-    use EeProductAttributeObserverTrait;
+    public function execute($row, $name = null)
+    {
+        parent::execute($row, $name);
+        return $row[MemberNames::ROW_ID];
+    }
 }

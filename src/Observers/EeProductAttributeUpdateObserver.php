@@ -1,7 +1,7 @@
 <?php
 
 /**
- * TechDivision\Import\Product\Ee\Services\EeProductBunchProcessor
+ * TechDivision\Import\Product\Ee\Observers\EeProductAttributeUpdateObserver
  *
  * NOTICE OF LICENSE
  *
@@ -18,12 +18,13 @@
  * @link      http://www.techdivision.com
  */
 
-namespace TechDivision\Import\Product\Ee\Services;
+namespace TechDivision\Import\Product\Ee\Observers;
 
-use TechDivision\Import\Product\Services\ProductBunchProcessor;
+use TechDivision\Import\Product\Ee\Utils\MemberNames;
+use TechDivision\Import\Product\Observers\ProductAttributeUpdateObserver;
 
 /**
- * A SLSB providing methods to load sequence product data using a PDO connection.
+ * Observer that provides product attribute update functionality.
  *
  * @author    Tim Wagner <t.wagner@techdivision.com>
  * @copyright 2016 TechDivision GmbH <info@techdivision.com>
@@ -31,46 +32,45 @@ use TechDivision\Import\Product\Services\ProductBunchProcessor;
  * @link      https://github.com/techdivision/import-product-ee
  * @link      http://www.techdivision.com
  */
-class EeProductBunchProcessor extends ProductBunchProcessor implements EeProductBunchProcessorInterface
+class EeProductAttributeUpdateObserver extends ProductAttributeUpdateObserver
 {
 
     /**
-     * The action for sequence product CRUD methods.
+     * The trait providing basic EE product attribute functionality.
      *
-     * @var \TechDivision\Import\Product\Ee\Actions\SequenceProductAction
+     * @var \TechDivision\Import\Product\Ee\Observers\EeProductAttributeObserverTrait
      */
-    protected $sequenceProductAction;
+    use EeProductAttributeObserverTrait;
 
     /**
-     * Set's the action with the sequence product CRUD methods.
+     * Initialize the category product with the passed attributes and returns an instance.
      *
-     * @param \TechDivision\Import\Product\Ee\Actions\SequenceProductAction $sequenceProductAction The action with the sequence product CRUD methods
+     * @param array $attr The category product attributes
      *
-     * @return void
+     * @return array The initialized category product
      */
-    public function setSequenceProductAction($sequenceProductAction)
+    public function initializeAttribute(array $attr)
     {
-        $this->sequenceProductAction = $sequenceProductAction;
-    }
 
-    /**
-     * Return's the action with the sequence product CRUD methods.
-     *
-     * @return \TechDivision\Import\Product\Ee\Actions\SequenceProductAction The action instance
-     */
-    public function getSequenceProductAction()
-    {
-        return $this->sequenceProductAction;
-    }
+        // load the supported backend types
+        $backendTypes = $this->getBackendTypes();
 
-    /**
-     * Return's the next available product entity ID.
-     *
-     * @return integer The next available product entity ID
-     */
-    public function nextIdentifier()
-    {
-        return $this->getSequenceProductAction()->nextIdentifier();
+        // initialize the persist method for the found backend type
+        list (, $loadMethod) = $backendTypes[$this->getBackendType()];
+
+        // load row/store/attribute ID
+        $rowId = $attr[MemberNames::ROW_ID];
+        $storeId = $attr[MemberNames::STORE_ID];
+        $attributeId = $attr[MemberNames::ATTRIBUTE_ID];
+
+        // try to load the attribute with the passed row/attribute/store ID
+        // and merge it with the attributes
+        if ($entity = $this->$loadMethod($rowId, $attributeId, $storeId)) {
+            return $this->mergeEntity($entity, $attr);
+        }
+
+        // otherwise simply return the attributes
+        return $attr;
     }
 
     /**
@@ -84,7 +84,7 @@ class EeProductBunchProcessor extends ProductBunchProcessor implements EeProduct
      */
     public function loadProductDatetimeAttributeByRowIdAndAttributeIdAndStoreId($rowId, $attributeId, $storeId)
     {
-        return  $this->getProductDatetimeRepository()->findOneByRowIdAndAttributeIdAndStoreId($rowId, $attributeId, $storeId);
+        return  $this->getSubject()->loadProductDatetimeAttributeByRowIdAndAttributeIdAndStoreId($rowId, $attributeId, $storeId);
     }
 
     /**
@@ -98,7 +98,7 @@ class EeProductBunchProcessor extends ProductBunchProcessor implements EeProduct
      */
     public function loadProductDecimalAttributeByRowIdAndAttributeIdAndStoreId($rowId, $attributeId, $storeId)
     {
-        return  $this->getProductDecimalRepository()->findOneByRowIdAndAttributeIdAndStoreId($rowId, $attributeId, $storeId);
+        return  $this->getSubject()->loadProductDecimalAttributeByRowIdAndAttributeIdAndStoreId($rowId, $attributeId, $storeId);
     }
 
     /**
@@ -112,7 +112,7 @@ class EeProductBunchProcessor extends ProductBunchProcessor implements EeProduct
      */
     public function loadProductIntAttributeByRowIdAndAttributeIdAndStoreId($rowId, $attributeId, $storeId)
     {
-        return $this->getProductIntRepository()->findOneByRowIdAndAttributeIdAndStoreId($rowId, $attributeId, $storeId);
+        return $this->getSubject()->loadProductIntAttributeByRowIdAndAttributeIdAndStoreId($rowId, $attributeId, $storeId);
     }
 
     /**
@@ -126,7 +126,7 @@ class EeProductBunchProcessor extends ProductBunchProcessor implements EeProduct
      */
     public function loadProductTextAttributeByRowIdAndAttributeIdAndStoreId($rowId, $attributeId, $storeId)
     {
-        return $this->getProductTextRepository()->findOneByRowIdAndAttributeIdAndStoreId($rowId, $attributeId, $storeId);
+        return $this->getSubject()->loadProductTextAttributeByRowIdAndAttributeIdAndStoreId($rowId, $attributeId, $storeId);
     }
 
     /**
@@ -140,6 +140,6 @@ class EeProductBunchProcessor extends ProductBunchProcessor implements EeProduct
      */
     public function loadProductVarcharAttributeByRowIdAndAttributeIdAndStoreId($rowId, $attributeId, $storeId)
     {
-        return $this->getProductVarcharRepository()->findOneByRowIdAndAttributeIdAndStoreId($rowId, $attributeId, $storeId);
+        return $this->getSubject()->loadProductVarcharAttributeByRowIdAndAttributeIdAndStoreId($rowId, $attributeId, $storeId);
     }
 }

@@ -21,7 +21,7 @@
 namespace TechDivision\Import\Product\Ee\Observers;
 
 use TechDivision\Import\Product\Ee\Utils\MemberNames;
-use TechDivision\Import\Product\Observers\ProductObserver;
+use TechDivision\Import\Product\Observers\ProductUpdateObserver;
 
 /**
  * Observer that create's the product itself for the Magento 2 EE edition.
@@ -32,7 +32,7 @@ use TechDivision\Import\Product\Observers\ProductObserver;
  * @link      https://github.com/techdivision/import-product-ee
  * @link      http://www.techdivision.com
  */
-class EeProductObserver extends ProductObserver
+class EeProductUpdateObserver extends ProductUpdateObserver
 {
 
     /**
@@ -52,28 +52,6 @@ class EeProductObserver extends ProductObserver
     }
 
     /**
-     * Prepare the attributes of the entity that has to be persisted.
-     *
-     * @return array The prepared attributes
-     */
-    protected function prepareAttributes()
-    {
-
-        // load the parent attributes
-        $parentAttr = parent::prepareAttributes();
-
-        // initialize the product values
-        $attr = array(
-            MemberNames::ENTITY_ID  => $this->nextIdentifier(),
-            MemberNames::CREATED_IN => 1,
-            MemberNames::UPDATED_IN => strtotime('+20 years')
-        );
-
-        // merge and return the attributes
-        return array_merge($parentAttr, $attr);
-    }
-
-    /**
      * Set's the row ID of the product that has been created recently.
      *
      * @param string $rowId The row ID
@@ -83,15 +61,5 @@ class EeProductObserver extends ProductObserver
     protected function setLastRowId($rowId)
     {
         $this->getSubject()->setLastRowId($rowId);
-    }
-
-    /**
-     * Return's the next available product entity ID.
-     *
-     * @return integer The next available product entity ID
-     */
-    protected function nextIdentifier()
-    {
-        return $this->getSubject()->nextIdentifier();
     }
 }
