@@ -60,7 +60,7 @@ class ProductVarcharRepository extends AbstractRepository
     /**
      * Load's and return's the varchar attribute with the passed row/attribute/store ID.
      *
-     * @param integer $row         The row ID of the attribute
+     * @param integer $rowId       The row ID of the attribute
      * @param integer $attributeId The attribute ID of the attribute
      * @param integer $storeId     The store ID of the attribute
      *

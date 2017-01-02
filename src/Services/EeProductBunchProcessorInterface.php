@@ -51,7 +51,7 @@ interface EeProductBunchProcessorInterface extends ProductBunchProcessorInterfac
     /**
      * Load's and return's the datetime attribute with the passed row/attribute/store ID.
      *
-     * @param integer $row         The row ID of the attribute
+     * @param integer $rowId       The row ID of the attribute
      * @param integer $attributeId The attribute ID of the attribute
      * @param integer $storeId     The store ID of the attribute
      *
@@ -62,7 +62,7 @@ interface EeProductBunchProcessorInterface extends ProductBunchProcessorInterfac
     /**
      * Load's and return's the decimal attribute with the passed row/attribute/store ID.
      *
-     * @param integer $row         The row ID of the attribute
+     * @param integer $rowId       The row ID of the attribute
      * @param integer $attributeId The attribute ID of the attribute
      * @param integer $storeId     The store ID of the attribute
      *
@@ -73,7 +73,7 @@ interface EeProductBunchProcessorInterface extends ProductBunchProcessorInterfac
     /**
      * Load's and return's the integer attribute with the passed row/attribute/store ID.
      *
-     * @param integer $row         The row ID of the attribute
+     * @param integer $rowId       The row ID of the attribute
      * @param integer $attributeId The attribute ID of the attribute
      * @param integer $storeId     The store ID of the attribute
      *
@@ -84,7 +84,7 @@ interface EeProductBunchProcessorInterface extends ProductBunchProcessorInterfac
     /**
      * Load's and return's the text attribute with the passed row/attribute/store ID.
      *
-     * @param integer $row         The row ID of the attribute
+     * @param integer $rowId       The row ID of the attribute
      * @param integer $attributeId The attribute ID of the attribute
      * @param integer $storeId     The store ID of the attribute
      *
@@ -95,7 +95,7 @@ interface EeProductBunchProcessorInterface extends ProductBunchProcessorInterfac
     /**
      * Load's and return's the varchar attribute with the passed row/attribute/store ID.
      *
-     * @param integer $row         The row ID of the attribute
+     * @param integer $rowId       The row ID of the attribute
      * @param integer $attributeId The attribute ID of the attribute
      * @param integer $storeId     The store ID of the attribute
      *
