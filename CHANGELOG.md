@@ -1,3 +1,13 @@
+# Version 1.0.0-alpha7
+
+## Bugfixes
+
+* Fixed add-update operation issue that prevents importing new data
+
+## Features
+
+* None
+
 # Version 1.0.0-alpha6
 
 ## Bugfixes

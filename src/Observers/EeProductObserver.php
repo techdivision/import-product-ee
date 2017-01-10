@@ -52,25 +52,24 @@ class EeProductObserver extends ProductObserver
     }
 
     /**
-     * Prepare the attributes of the entity that has to be persisted.
+     * Initialize the product with the passed attributes and returns an instance.
      *
-     * @return array The prepared attributes
+     * @param array $attr The product attributes
+     *
+     * @return array The initialized product
      */
-    protected function prepareAttributes()
+    protected function initializeProduct(array $attr)
     {
 
-        // load the parent attributes
-        $parentAttr = parent::prepareAttributes();
-
-        // initialize the product values
-        $attr = array(
+        // initialize the addtional Magento 2 EE product values
+        $additionalAttr = array(
             MemberNames::ENTITY_ID  => $this->nextIdentifier(),
             MemberNames::CREATED_IN => 1,
             MemberNames::UPDATED_IN => strtotime('+20 years')
         );
 
         // merge and return the attributes
-        return array_merge($parentAttr, $attr);
+        return array_merge($attr, $additionalAttr);
     }
 
     /**
