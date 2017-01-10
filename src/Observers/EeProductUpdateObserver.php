@@ -22,6 +22,7 @@ namespace TechDivision\Import\Product\Ee\Observers;
 
 use TechDivision\Import\Product\Ee\Utils\MemberNames;
 use TechDivision\Import\Product\Observers\ProductUpdateObserver;
+use TechDivision\Import\Utils\EntityStatus;
 
 /**
  * Observer that create's the product itself for the Magento 2 EE edition.
@@ -52,6 +53,36 @@ class EeProductUpdateObserver extends ProductUpdateObserver
     }
 
     /**
+     * Initialize the product with the passed attributes and returns an instance.
+     *
+     * @param array $attr The product attributes
+     *
+     * @return array The initialized product
+     */
+    protected function initializeProduct(array $attr)
+    {
+
+        // initialize the product attributes
+        $attr = parent::initializeProduct($attr);
+
+        // query whether or not, we found a new product
+        if ($attr[EntityStatus::MEMBER_NAME] === EntityStatus::STATUS_CREATE) {
+            // if yes, initialize the additional Magento 2 EE product values
+            $additionalAttr = array(
+                MemberNames::ENTITY_ID  => $this->nextIdentifier(),
+                MemberNames::CREATED_IN => 1,
+                MemberNames::UPDATED_IN => strtotime('+20 years')
+            );
+
+            // merge and return the attributes
+            $attr = array_merge($attr, $additionalAttr);
+        }
+
+        // otherwise simply return the attributes
+        return $attr;
+    }
+
+    /**
      * Set's the row ID of the product that has been created recently.
      *
      * @param string $rowId The row ID
@@ -61,5 +92,15 @@ class EeProductUpdateObserver extends ProductUpdateObserver
     protected function setLastRowId($rowId)
     {
         $this->getSubject()->setLastRowId($rowId);
+    }
+
+    /**
+     * Return's the next available product entity ID.
+     *
+     * @return integer The next available product entity ID
+     */
+    protected function nextIdentifier()
+    {
+        return $this->getSubject()->nextIdentifier();
     }
 }
