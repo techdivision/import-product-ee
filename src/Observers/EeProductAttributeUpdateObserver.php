@@ -49,7 +49,7 @@ class EeProductAttributeUpdateObserver extends ProductAttributeUpdateObserver
      *
      * @return array The initialized category product
      */
-    public function initializeAttribute(array $attr)
+    protected function initializeAttribute(array $attr)
     {
 
         // load the supported backend types
@@ -82,7 +82,7 @@ class EeProductAttributeUpdateObserver extends ProductAttributeUpdateObserver
      *
      * @return array|null The datetime attribute
      */
-    public function loadProductDatetimeAttributeByRowIdAndAttributeIdAndStoreId($rowId, $attributeId, $storeId)
+    protected function loadProductDatetimeAttributeByRowIdAndAttributeIdAndStoreId($rowId, $attributeId, $storeId)
     {
         return  $this->getSubject()->loadProductDatetimeAttributeByRowIdAndAttributeIdAndStoreId($rowId, $attributeId, $storeId);
     }
@@ -96,7 +96,7 @@ class EeProductAttributeUpdateObserver extends ProductAttributeUpdateObserver
      *
      * @return array|null The decimal attribute
      */
-    public function loadProductDecimalAttributeByRowIdAndAttributeIdAndStoreId($rowId, $attributeId, $storeId)
+    protected function loadProductDecimalAttributeByRowIdAndAttributeIdAndStoreId($rowId, $attributeId, $storeId)
     {
         return  $this->getSubject()->loadProductDecimalAttributeByRowIdAndAttributeIdAndStoreId($rowId, $attributeId, $storeId);
     }
@@ -110,7 +110,7 @@ class EeProductAttributeUpdateObserver extends ProductAttributeUpdateObserver
      *
      * @return array|null The integer attribute
      */
-    public function loadProductIntAttributeByRowIdAndAttributeIdAndStoreId($rowId, $attributeId, $storeId)
+    protected function loadProductIntAttributeByRowIdAndAttributeIdAndStoreId($rowId, $attributeId, $storeId)
     {
         return $this->getSubject()->loadProductIntAttributeByRowIdAndAttributeIdAndStoreId($rowId, $attributeId, $storeId);
     }
@@ -124,7 +124,7 @@ class EeProductAttributeUpdateObserver extends ProductAttributeUpdateObserver
      *
      * @return array|null The text attribute
      */
-    public function loadProductTextAttributeByRowIdAndAttributeIdAndStoreId($rowId, $attributeId, $storeId)
+    protected function loadProductTextAttributeByRowIdAndAttributeIdAndStoreId($rowId, $attributeId, $storeId)
     {
         return $this->getSubject()->loadProductTextAttributeByRowIdAndAttributeIdAndStoreId($rowId, $attributeId, $storeId);
     }
@@ -138,7 +138,7 @@ class EeProductAttributeUpdateObserver extends ProductAttributeUpdateObserver
      *
      * @return array|null The varchar attribute
      */
-    public function loadProductVarcharAttributeByRowIdAndAttributeIdAndStoreId($rowId, $attributeId, $storeId)
+    protected function loadProductVarcharAttributeByRowIdAndAttributeIdAndStoreId($rowId, $attributeId, $storeId)
     {
         return $this->getSubject()->loadProductVarcharAttributeByRowIdAndAttributeIdAndStoreId($rowId, $attributeId, $storeId);
     }

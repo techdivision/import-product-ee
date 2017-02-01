@@ -36,24 +36,18 @@ class EeCleanUpObserver extends CleanUpObserver
 {
 
     /**
-     * Will be invoked by the action on the events the listener has been registered for.
+     * Process the observer's business logic.
      *
-     * @param array $row The row to handle
-     *
-     * @return array The modified row
-     * @see \TechDivision\Import\Product\Observers\ImportObserverInterface::handle()
+     * @return array The processed row
      */
-    public function handle(array $row)
+    protected function process()
     {
 
-        // load the header information
-        $headers = $this->getHeaders();
-
         // add the SKU => entity ID mapping
-        $this->addSkuRowIdMapping($row[$headers[ColumnKeys::SKU]]);
+        $this->addSkuRowIdMapping($this->getValue(ColumnKeys::SKU));
 
         // invoke the parent method
-        return parent::handle($row);
+        parent::process();
     }
 
     /**
@@ -63,7 +57,7 @@ class EeCleanUpObserver extends CleanUpObserver
      *
      * @return void
      */
-    public function addSkuRowIdMapping($sku)
+    protected function addSkuRowIdMapping($sku)
     {
         $this->getSubject()->addSkuRowIdMapping($sku);
     }

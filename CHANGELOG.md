@@ -1,3 +1,13 @@
+# Version 1.0.0-alpha8
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Make observer methods protected instead of public
+
 # Version 1.0.0-alpha7
 
 ## Bugfixes

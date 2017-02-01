@@ -40,7 +40,7 @@ trait EeProductAttributeObserverTrait
      *
      * @return array The prepared attributes
      */
-    public function prepareAttributes()
+    protected function prepareAttributes()
     {
 
         // load the attribute value
@@ -85,7 +85,7 @@ trait EeProductAttributeObserverTrait
      *
      * @return integer The PK to create the relation with
      */
-    public function getPrimaryKey()
+    protected function getPrimaryKey()
     {
         return $this->getLastRowId();
     }
@@ -95,7 +95,7 @@ trait EeProductAttributeObserverTrait
      *
      * @return string The row Id
      */
-    public function getLastRowId()
+    protected function getLastRowId()
     {
         return $this->getSubject()->getLastRowId();
     }
