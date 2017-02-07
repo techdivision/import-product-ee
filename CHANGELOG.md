@@ -1,3 +1,13 @@
+# Version 1.0.0-alpha9
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Optimisations to use protected variables instead of methods
+
 # Version 1.0.0-alpha8
 
 ## Bugfixes
