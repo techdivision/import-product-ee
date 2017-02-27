@@ -22,6 +22,7 @@ namespace TechDivision\Import\Product\Ee\Observers;
 
 use TechDivision\Import\Utils\StoreViewCodes;
 use TechDivision\Import\Product\Ee\Utils\MemberNames;
+use TechDivision\Import\Ee\Observers\EeAttributeObserverTrait;
 
 /**
  * Trait that provides basic product attribute functionality.
@@ -34,6 +35,13 @@ use TechDivision\Import\Product\Ee\Utils\MemberNames;
  */
 trait EeProductAttributeObserverTrait
 {
+
+    /**
+     * The trait with the functionality to handle EE product attributs.
+     *
+     * @var \TechDivision\Import\Ee\Observers\EeAttributeObserverTrait
+     */
+    use EeAttributeObserverTrait;
 
     /**
      * Prepare the attributes of the entity that has to be persisted.
