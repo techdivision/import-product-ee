@@ -55,11 +55,11 @@ class EeBunchSubject extends BunchSubject
      * @var array
      */
     protected $backendTypes = array(
-        'datetime' => array('persistProductDatetimeAttribute', 'loadProductDatetimeAttributeByRowIdAndAttributeIdAndStoreId'),
-        'decimal'  => array('persistProductDecimalAttribute', 'loadProductDecimalAttributeByRowIdAndAttributeIdAndStoreId'),
-        'int'      => array('persistProductIntAttribute', 'loadProductIntAttributeByRowIdAndAttributeIdAndStoreId'),
-        'text'     => array('persistProductTextAttribute', 'loadProductTextAttributeByRowIdAndAttributeIdAndStoreId'),
-        'varchar'  => array('persistProductVarcharAttribute', 'loadProductVarcharAttributeByRowIdAndAttributeIdAndStoreId')
+        'datetime' => array('persistDatetimeAttribute', 'loadProductDatetimeAttributeByRowIdAndAttributeIdAndStoreId'),
+        'decimal'  => array('persistDecimalAttribute', 'loadProductDecimalAttributeByRowIdAndAttributeIdAndStoreId'),
+        'int'      => array('persistIntAttribute', 'loadProductIntAttributeByRowIdAndAttributeIdAndStoreId'),
+        'text'     => array('persistTextAttribute', 'loadProductTextAttributeByRowIdAndAttributeIdAndStoreId'),
+        'varchar'  => array('persistVarcharAttribute', 'loadProductVarcharAttributeByRowIdAndAttributeIdAndStoreId')
     );
 
     /**
