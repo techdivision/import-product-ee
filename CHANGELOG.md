@@ -1,3 +1,13 @@
+# Version 1.0.0-alpha11
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Stop processing attributes when attribute value is empty 
+
 # Version 1.0.0-alpha10
 
 ## Bugfixes
