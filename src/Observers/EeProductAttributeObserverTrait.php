@@ -56,7 +56,12 @@ trait EeProductAttributeObserverTrait
 
         // invoke the pre-cast callbacks
         foreach ($callbacks as $callback) {
-            $this->attributeValue = $callback->handle($this->attributeValue);
+            $this->attributeValue = $callback->handle($this->attributeCode, $this->attributeValue);
+        }
+
+        // query whether or not the attribute has been be processed by the callbacks
+        if ($this->attributeValue === null) {
+            return;
         }
 
         // load the ID of the product that has been created recently
