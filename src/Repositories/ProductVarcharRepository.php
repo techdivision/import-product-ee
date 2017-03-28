@@ -21,7 +21,6 @@
 namespace TechDivision\Import\Product\Ee\Repositories;
 
 use TechDivision\Import\Product\Ee\Utils\MemberNames;
-use TechDivision\Import\Repositories\AbstractRepository;
 
 /**
  * Repository implementation to load product varchar attribute data.
@@ -32,7 +31,7 @@ use TechDivision\Import\Repositories\AbstractRepository;
  * @link      https://github.com/techdivision/import-product-ee
  * @link      http://www.techdivision.com
  */
-class ProductVarcharRepository extends AbstractRepository
+class ProductVarcharRepository extends \TechDivision\Import\Product\Repositories\ProductVarcharRepository
 {
 
     /**
