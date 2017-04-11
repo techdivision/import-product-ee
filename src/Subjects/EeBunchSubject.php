@@ -1,7 +1,7 @@
 <?php
 
 /**
- * TechDivision\Import\Product\Ee\Subjects\BunchHandler
+ * TechDivision\Import\Product\Ee\Subjects\EeBunchSubject
  *
  * NOTICE OF LICENSE
  *
