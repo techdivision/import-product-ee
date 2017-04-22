@@ -86,6 +86,8 @@
         <service id="import_product_ee.observer.product" class="TechDivision\Import\Product\Ee\Observers\EeProductObserver"/>
         <service id="import_product_ee.observer.product.update" class="TechDivision\Import\Product\Ee\Observers\EeProductUpdateObserver"/>
 
+        <service id="configuration.import_product_ee.subject.bunch" synthetic="true" />
+
         <service id="import_product_ee.subject.bunch" class="TechDivision\Import\Product\Ee\Subjects\EeBunchSubject" shared="false">
             <argument type="service" id="configuration.import_product_ee.subject.bunch"/>
             <argument type="service" id="import.processor.registry"/>
