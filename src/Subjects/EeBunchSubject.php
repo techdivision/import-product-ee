@@ -1,7 +1,7 @@
 <?php
 
 /**
- * TechDivision\Import\Product\Ee\Subjects\BunchHandler
+ * TechDivision\Import\Product\Ee\Subjects\EeBunchSubject
  *
  * NOTICE OF LICENSE
  *
@@ -95,13 +95,15 @@ class EeBunchSubject extends BunchSubject
     /**
      * Clean up the global data after importing the bunch.
      *
+     * @param string $serial The serial of the actual import
+     *
      * @return void
      */
-    public function tearDown()
+    public function tearDown($serial)
     {
 
         // call parent method
-        parent::tearDown();
+        parent::tearDown($serial);
 
         // load the registry processor
         $registryProcessor = $this->getRegistryProcessor();
