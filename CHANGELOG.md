@@ -1,3 +1,14 @@
+# Version 1.0.0-beta3
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Add isUrlKeyOf() method to EeBunchSubject
+* Add AttributeSetObserver to media workflow in generic configuration file etc/techdivision-import.json
+
 # Version 1.0.0-beta2
 
 ## Bugfixes

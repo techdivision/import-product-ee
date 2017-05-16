@@ -21,6 +21,7 @@
 namespace TechDivision\Import\Product\Ee\Subjects;
 
 use TechDivision\Import\Utils\RegistryKeys;
+use TechDivision\Import\Product\Ee\Utils\MemberNames;
 use TechDivision\Import\Product\Subjects\BunchSubject;
 
 /**
@@ -91,6 +92,19 @@ class EeBunchSubject extends BunchSubject
         'deferred_stock_update'            => array('deferred_stock_update', 'int'),
         'use_config_deferred_stock_update' => array('use_config_deferred_stock_update', 'int'),
     );
+
+    /**
+     * Return's TRUE, if the passed URL key varchar value IS related with the passed PK.
+     *
+     * @param array   $productVarcharAttribute The varchar value to check
+     * @param integer $pk                      The primary key to check
+     *
+     * @return boolean TRUE if the URL key is related, else FALSE
+     */
+    protected function isUrlKeyOf($productVarcharAttribute, $pk)
+    {
+        return $productVarcharAttribute[MemberNames::ROW_ID] === $pk;
+    }
 
     /**
      * Clean up the global data after importing the bunch.
