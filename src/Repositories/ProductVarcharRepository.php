@@ -49,6 +49,9 @@ class ProductVarcharRepository extends \TechDivision\Import\Product\Repositories
     public function init()
     {
 
+        // invoke the parent method
+        parent::init();
+
         // load the utility class name
         $utilityClassName = $this->getUtilityClassName();
 
