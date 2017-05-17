@@ -94,16 +94,15 @@ class EeBunchSubject extends BunchSubject
     );
 
     /**
-     * Return's TRUE, if the passed URL key varchar value IS related with the passed PK.
+     * Return's TRUE, if the passed URL key varchar value IS related with the actual PK.
      *
-     * @param array   $productVarcharAttribute The varchar value to check
-     * @param integer $pk                      The primary key to check
+     * @param array $productVarcharAttribute The varchar value to check
      *
      * @return boolean TRUE if the URL key is related, else FALSE
      */
-    protected function isUrlKeyOf($productVarcharAttribute, $pk)
+    protected function isUrlKeyOf(array $productVarcharAttribute)
     {
-        return $productVarcharAttribute[MemberNames::ROW_ID] === $pk;
+        return $productVarcharAttribute[MemberNames::ROW_ID] === $this->getLastRowId();
     }
 
     /**
