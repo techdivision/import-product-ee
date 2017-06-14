@@ -53,7 +53,8 @@ class ProductDatetimeRepository extends \TechDivision\Import\Product\Repositorie
         $utilityClassName = $this->getUtilityClassName();
 
         // initialize the prepared statements
-        $this->productDatetimeStmt = $this->getConnection()->prepare($utilityClassName::PRODUCT_DATETIME);
+        $this->productDatetimeStmt =
+            $this->getConnection()->prepare($this->getUtilityClass()->find($utilityClassName::PRODUCT_DATETIME));
     }
 
     /**

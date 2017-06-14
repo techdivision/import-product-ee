@@ -56,7 +56,8 @@ class ProductVarcharRepository extends \TechDivision\Import\Product\Repositories
         $utilityClassName = $this->getUtilityClassName();
 
         // initialize the prepared statements
-        $this->productVarcharStmt = $this->getConnection()->prepare($utilityClassName::PRODUCT_VARCHAR);
+        $this->productVarcharStmt =
+            $this->getConnection()->prepare($this->getUtilityClass()->find($utilityClassName::PRODUCT_VARCHAR));
     }
 
     /**

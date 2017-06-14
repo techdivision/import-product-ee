@@ -53,7 +53,8 @@ class ProductDecimalRepository extends \TechDivision\Import\Product\Repositories
         $utilityClassName = $this->getUtilityClassName();
 
         // initialize the prepared statements
-        $this->productDecimalStmt = $this->getConnection()->prepare($utilityClassName::PRODUCT_DECIMAL);
+        $this->productDecimalStmt =
+            $this->getConnection()->prepare($this->getUtilityClass()->find($utilityClassName::PRODUCT_DECIMAL));
     }
 
     /**
