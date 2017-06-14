@@ -53,7 +53,8 @@ class ProductTextRepository extends \TechDivision\Import\Product\Repositories\Pr
         $utilityClassName = $this->getUtilityClassName();
 
         // initialize the prepared statements
-        $this->productTextStmt = $this->getConnection()->prepare($utilityClassName::PRODUCT_TEXT);
+        $this->productTextStmt =
+            $this->getConnection()->prepare($this->getUtilityClass()->find($utilityClassName::PRODUCT_TEXT));
     }
 
     /**

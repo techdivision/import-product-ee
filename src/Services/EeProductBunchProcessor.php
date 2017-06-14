@@ -20,6 +20,7 @@
 
 namespace TechDivision\Import\Product\Ee\Services;
 
+use TechDivision\Import\Connection\ConnectionInterface;
 use TechDivision\Import\Product\Services\ProductBunchProcessor;
 use TechDivision\Import\Product\Ee\Actions\SequenceProductAction;
 use TechDivision\Import\Actions\UrlRewriteAction;
@@ -70,7 +71,7 @@ class EeProductBunchProcessor extends ProductBunchProcessor implements EeProduct
     /**
      * Initialize the processor with the necessary assembler and repository instances.
      *
-     * @param \PDO                                                                        $connection                          The PDO connection to use
+     * @param \TechDivision\Import\Connection\ConnectionInterface                         $connection                          The connection to use
      * @param \TechDivision\Import\Product\Ee\Actions\SequenceProductAction               $sequenceProductAction               The sequence product action to use
      * @param \TechDivision\Import\Product\Repositories\ProductRepository                 $productRepository                   The product repository to use
      * @param \TechDivision\Import\Product\Repositories\ProductWebsiteRepository          $productWebsiteRepository            The product website repository to use
@@ -100,7 +101,7 @@ class EeProductBunchProcessor extends ProductBunchProcessor implements EeProduct
      * @param \TechDivision\Import\Product\Actions\UrlRewriteProductCategoryAction        $urlRewriteProductCategoryAction     The URL rewrite product category action to use
      */
     public function __construct(
-        \PDO $connection,
+        ConnectionInterface $connection,
         SequenceProductAction $sequenceProductAction,
         ProductRepository $productRepository,
         ProductWebsiteRepository $productWebsiteRepository,
