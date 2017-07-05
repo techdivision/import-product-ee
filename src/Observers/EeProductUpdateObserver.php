@@ -101,6 +101,6 @@ class EeProductUpdateObserver extends ProductUpdateObserver
      */
     protected function nextIdentifier()
     {
-        return $this->getSubject()->nextIdentifier();
+        return $this->getProductBunchProcessor()->nextIdentifier();
     }
 }

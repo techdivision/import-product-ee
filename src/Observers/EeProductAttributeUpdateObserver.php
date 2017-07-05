@@ -84,7 +84,7 @@ class EeProductAttributeUpdateObserver extends ProductAttributeUpdateObserver
      */
     protected function loadProductDatetimeAttributeByRowIdAndAttributeIdAndStoreId($rowId, $attributeId, $storeId)
     {
-        return  $this->getSubject()->loadProductDatetimeAttributeByRowIdAndAttributeIdAndStoreId($rowId, $attributeId, $storeId);
+        return  $this->getProductBunchProcessor()->loadProductDatetimeAttributeByRowIdAndAttributeIdAndStoreId($rowId, $attributeId, $storeId);
     }
 
     /**
@@ -98,7 +98,7 @@ class EeProductAttributeUpdateObserver extends ProductAttributeUpdateObserver
      */
     protected function loadProductDecimalAttributeByRowIdAndAttributeIdAndStoreId($rowId, $attributeId, $storeId)
     {
-        return  $this->getSubject()->loadProductDecimalAttributeByRowIdAndAttributeIdAndStoreId($rowId, $attributeId, $storeId);
+        return  $this->getProductBunchProcessor()->loadProductDecimalAttributeByRowIdAndAttributeIdAndStoreId($rowId, $attributeId, $storeId);
     }
 
     /**
@@ -112,7 +112,7 @@ class EeProductAttributeUpdateObserver extends ProductAttributeUpdateObserver
      */
     protected function loadProductIntAttributeByRowIdAndAttributeIdAndStoreId($rowId, $attributeId, $storeId)
     {
-        return $this->getSubject()->loadProductIntAttributeByRowIdAndAttributeIdAndStoreId($rowId, $attributeId, $storeId);
+        return $this->getProductBunchProcessor()->loadProductIntAttributeByRowIdAndAttributeIdAndStoreId($rowId, $attributeId, $storeId);
     }
 
     /**
@@ -126,7 +126,7 @@ class EeProductAttributeUpdateObserver extends ProductAttributeUpdateObserver
      */
     protected function loadProductTextAttributeByRowIdAndAttributeIdAndStoreId($rowId, $attributeId, $storeId)
     {
-        return $this->getSubject()->loadProductTextAttributeByRowIdAndAttributeIdAndStoreId($rowId, $attributeId, $storeId);
+        return $this->getProductBunchProcessor()->loadProductTextAttributeByRowIdAndAttributeIdAndStoreId($rowId, $attributeId, $storeId);
     }
 
     /**
@@ -140,6 +140,6 @@ class EeProductAttributeUpdateObserver extends ProductAttributeUpdateObserver
      */
     protected function loadProductVarcharAttributeByRowIdAndAttributeIdAndStoreId($rowId, $attributeId, $storeId)
     {
-        return $this->getSubject()->loadProductVarcharAttributeByRowIdAndAttributeIdAndStoreId($rowId, $attributeId, $storeId);
+        return $this->getProductBunchProcessor()->loadProductVarcharAttributeByRowIdAndAttributeIdAndStoreId($rowId, $attributeId, $storeId);
     }
 }
