@@ -79,16 +79,23 @@
         </service>
 
         <service id="import_product_ee.observer.clean.up" class="TechDivision\Import\Product\Ee\Observers\EeCleanUpObserver"/>
-        <service id="import_product_ee.observer.product.attribute" class="TechDivision\Import\Product\Ee\Observers\EeProductAttributeObserver"/>
-        <service id="import_product_ee.observer.product.attribute.update" class="TechDivision\Import\Product\Ee\Observers\EeProductAttributeUpdateObserver"/>
-        <service id="import_product_ee.observer.product" class="TechDivision\Import\Product\Ee\Observers\EeProductObserver"/>
-        <service id="import_product_ee.observer.product.update" class="TechDivision\Import\Product\Ee\Observers\EeProductUpdateObserver"/>
+        <service id="import_product_ee.observer.product.attribute" class="TechDivision\Import\Product\Ee\Observers\EeProductAttributeObserver">
+            <argument type="service" id="import_product_ee.processor.product.bunch"/>
+        </service>
+        <service id="import_product_ee.observer.product.attribute.update" class="TechDivision\Import\Product\Ee\Observers\EeProductAttributeUpdateObserver">
+            <argument type="service" id="import_product_ee.processor.product.bunch"/>
+        </service>
+        <service id="import_product_ee.observer.product" class="TechDivision\Import\Product\Ee\Observers\EeProductObserver">
+            <argument type="service" id="import_product_ee.processor.product.bunch"/>
+        </service>
+        <service id="import_product_ee.observer.product.update" class="TechDivision\Import\Product\Ee\Observers\EeProductUpdateObserver">
+            <argument type="service" id="import_product_ee.processor.product.bunch"/>
+        </service>
 
         <service id="import_product_ee.subject.bunch" class="TechDivision\Import\Product\Ee\Subjects\EeBunchSubject" shared="false">
             <argument type="service" id="import.processor.registry"/>
             <argument type="service" id="import.generator.core.config.data.uid"/>
             <argument type="service" id="loggers"/>
-            <argument type="service" id="import_product_ee.processor.product.bunch"/>
         </service>
 
     </services>
