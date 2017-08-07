@@ -88,7 +88,7 @@
         <service id="import_product_ee.observer.product" class="TechDivision\Import\Product\Ee\Observers\EeProductObserver">
             <argument type="service" id="import_product_ee.processor.product.bunch"/>
         </service>
-        <service id="import_product_ee.observer.product.update" class="TechDivision\Import\Product\Ee\Observers\EeProductUpdateObserver">
+        <service id="import_product_ee.observer.last.entity.and.row.id" class="TechDivision\Import\Product\Ee\Observers\LastEntityAndRowIdObserver">
             <argument type="service" id="import_product_ee.processor.product.bunch"/>
         </service>
 

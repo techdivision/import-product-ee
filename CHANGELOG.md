@@ -1,3 +1,14 @@
+# Version 1.0.0-beta11
+
+## Bugfixes
+
+* Fixed #75 [Invalid creation of product entities in a multi-store environment with replace operation](https://github.com/techdivision/import-product/issues/75)
+
+## Features
+
+* Add generic configurations for product price + inventory import
+* Add generic LastEntityAndRowIdObserver that loads the product by the SKU found in the CSV file and set the row ID as lastRowId
+
 # Version 1.0.0-beta10
 
 ## Bugfixes
