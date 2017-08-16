@@ -1,3 +1,13 @@
+# Version 1.0.0-beta12
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Refactoring for better URL rewrite + attribute handling
+
 # Version 1.0.0-beta11
 
 ## Bugfixes
