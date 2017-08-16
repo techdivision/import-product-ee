@@ -102,7 +102,7 @@ class EeBunchSubject extends BunchSubject
      */
     public function isUrlKeyOf(array $productVarcharAttribute)
     {
-        return $productVarcharAttribute[MemberNames::ROW_ID] === $this->getLastRowId();
+        return ($productVarcharAttribute[MemberNames::ROW_ID] === $this->getLastRowId()) && ((integer) $productVarcharAttribute[MemberNames::STORE_ID] === $this->getRowStoreId());
     }
 
     /**
