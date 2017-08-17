@@ -67,7 +67,7 @@ trait EeProductAttributeObserverTrait
         // load the ID of the product that has been created recently
         $lastEntityId = $this->getPrimaryKey();
 
-        // load the store ID
+        // load the store ID, use the admin store if NO store view code has been set
         $storeId = $this->getRowStoreId(StoreViewCodes::ADMIN);
 
         // cast the value based on the backend type
