@@ -60,7 +60,7 @@
             <argument type="service" id="import_product.repository.category.product"/>
             <argument type="service" id="import_product.repository.stock.status"/>
             <argument type="service" id="import_product.repository.stock.item"/>
-            <argument type="service" id="import.repository.url.rewrite"/>
+            <argument type="service" id="import_product.repository.url.rewrite"/>
             <argument type="service" id="import_product.repository.url.rewrite.product.category"/>
             <argument type="service" id="import.repository.eav.attribute.option.value"/>
             <argument type="service" id="import.repository.eav.attribute"/>

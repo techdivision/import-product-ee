@@ -1,3 +1,13 @@
+# Version 1.0.0-beta15
+
+## Features
+
+* Update class EeProductBunchProcessor (for integration testing purposes)
+
+## Bugfixes
+
+* None
+
 # Version 1.0.0-beta14
 
 ## Features
