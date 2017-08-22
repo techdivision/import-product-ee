@@ -1,3 +1,13 @@
+# Version 1.0.0-beta17
+
+## Features
+
+* None
+
+## Bugfixes
+
+* Removed invalid clear URL rewrite observer from default configuration file
+
 # Version 1.0.0-beta16
 
 ## Features
