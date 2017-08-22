@@ -60,8 +60,6 @@
             <argument type="service" id="import_product.repository.category.product"/>
             <argument type="service" id="import_product.repository.stock.status"/>
             <argument type="service" id="import_product.repository.stock.item"/>
-            <argument type="service" id="import_product.repository.url.rewrite"/>
-            <argument type="service" id="import_product.repository.url.rewrite.product.category"/>
             <argument type="service" id="import.repository.eav.attribute.option.value"/>
             <argument type="service" id="import.repository.eav.attribute"/>
             <argument type="service" id="import_product.action.category.product"/>
@@ -75,10 +73,13 @@
             <argument type="service" id="import_product.action.stock.item"/>
             <argument type="service" id="import_product.action.stock.status"/>
             <argument type="service" id="import.action.url.rewrite"/>
-            <argument type="service" id="import_product.action.url.rewrite.product.category"/>
         </service>
 
         <service id="import_product_ee.observer.clean.up" class="TechDivision\Import\Product\Ee\Observers\EeCleanUpObserver"/>
+        <service id="import_product_ee.observer.url.key" class="TechDivision\Import\Product\Ee\Observers\EeUrlKeyObserver">
+            <argument type="service" id="import_product_ee.processor.product.bunch"/>
+            <argument type="service" id="import_product.filter.convert.literal.url"/>
+        </service>
         <service id="import_product_ee.observer.product.attribute" class="TechDivision\Import\Product\Ee\Observers\EeProductAttributeObserver">
             <argument type="service" id="import_product_ee.processor.product.bunch"/>
         </service>
