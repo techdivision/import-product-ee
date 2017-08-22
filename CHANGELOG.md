@@ -1,3 +1,13 @@
+# Version 1.0.0-beta16
+
+## Features
+
+* Completely remove URL rewrite handling
+
+## Bugfixes
+
+* Fixed invalid comparision in method EeBunchSubject::isUrlKeyOf()
+
 # Version 1.0.0-beta15
 
 ## Features

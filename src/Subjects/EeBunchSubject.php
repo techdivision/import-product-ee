@@ -23,6 +23,7 @@ namespace TechDivision\Import\Product\Ee\Subjects;
 use TechDivision\Import\Utils\RegistryKeys;
 use TechDivision\Import\Product\Ee\Utils\MemberNames;
 use TechDivision\Import\Product\Subjects\BunchSubject;
+use TechDivision\Import\Utils\StoreViewCodes;
 
 /**
  * A SLSB that handles the process to import product bunches.
@@ -102,7 +103,8 @@ class EeBunchSubject extends BunchSubject
      */
     public function isUrlKeyOf(array $productVarcharAttribute)
     {
-        return ($productVarcharAttribute[MemberNames::ROW_ID] === $this->getLastRowId()) && ((integer) $productVarcharAttribute[MemberNames::STORE_ID] === $this->getRowStoreId());
+        return ((integer) $productVarcharAttribute[MemberNames::ROW_ID] === (integer) $this->getLastRowId()) &&
+               ((integer) $productVarcharAttribute[MemberNames::STORE_ID] === (integer) $this->getRowStoreId(StoreViewCodes::ADMIN));
     }
 
     /**
