@@ -1,3 +1,13 @@
+# Version 1.0.0-beta18
+
+## Features
+
+* None
+
+## Bugfixes
+
+* Add import_product_url_rewrite.observer.clear.url.rewrite to delete operation in techdivision-import.json
+
 # Version 1.0.0-beta17
 
 ## Features
