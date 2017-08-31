@@ -20,6 +20,7 @@
 
 namespace TechDivision\Import\Product\Ee\Observers;
 
+use TechDivision\Import\Ee\Observers\EeAttributeObserverTrait;
 use TechDivision\Import\Product\Observers\ProductAttributeObserver;
 
 /**
@@ -36,7 +37,7 @@ class EeProductAttributeObserver extends ProductAttributeObserver
     /**
      * The trait providing basic EE product attribute functionality.
      *
-     * @var \TechDivision\Import\Product\Ee\Observers\EeProductAttributeObserverTrait
+     * @var \TechDivision\Import\Ee\Observers\EeAttributeObserverTrait
      */
-    use EeProductAttributeObserverTrait;
+    use EeAttributeObserverTrait;
 }

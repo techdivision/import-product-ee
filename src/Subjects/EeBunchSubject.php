@@ -52,19 +52,6 @@ class EeBunchSubject extends BunchSubject
     protected $skuRowIdMapping = array();
 
     /**
-     * The mapping for the supported backend types (for the product entity) => persist methods.
-     *
-     * @var array
-     */
-    protected $backendTypes = array(
-        'datetime' => array('persistDatetimeAttribute', 'loadProductDatetimeAttributeByRowIdAndAttributeIdAndStoreId'),
-        'decimal'  => array('persistDecimalAttribute', 'loadProductDecimalAttributeByRowIdAndAttributeIdAndStoreId'),
-        'int'      => array('persistIntAttribute', 'loadProductIntAttributeByRowIdAndAttributeIdAndStoreId'),
-        'text'     => array('persistTextAttribute', 'loadProductTextAttributeByRowIdAndAttributeIdAndStoreId'),
-        'varchar'  => array('persistVarcharAttribute', 'loadProductVarcharAttributeByRowIdAndAttributeIdAndStoreId')
-    );
-
-    /**
      * Mappings for the table column => CSV column header.
      *
      * @var array
