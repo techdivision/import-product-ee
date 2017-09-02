@@ -1,3 +1,13 @@
+# Version 1.0.0-beta20
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Update configuration files for refactored file upload functionality
+
 # Version 1.0.0-beta19
 
 ## Bugfixes
