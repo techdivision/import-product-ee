@@ -1,3 +1,13 @@
+# Version 1.0.0-beta21
+
+## Bugfixes
+
+* Fixed invalid Magento Edition in etc/techdivision-import-price.json
+
+## Features
+
+* None
+
 # Version 1.0.0-beta20
 
 ## Bugfixes
