@@ -1,3 +1,13 @@
+# Version 1.0.0-beta22
+
+## Bugfixes
+
+* Add fix to ignore missing columns or columns with empty values when persisting inventory data
+
+## Features
+
+* None
+
 # Version 1.0.0-beta21
 
 ## Bugfixes
