@@ -1,3 +1,13 @@
+# Version 1.0.0-beta23
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Remove unncessary SQL statements for stock status create/update operation
+
 # Version 1.0.0-beta22
 
 ## Bugfixes
