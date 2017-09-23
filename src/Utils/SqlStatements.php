@@ -166,20 +166,6 @@ class SqlStatements extends \TechDivision\Import\Product\Utils\SqlStatements
     const UPDATE_PRODUCT_TEXT = 'update.product_text';
 
     /**
-     * The SQL statement to create a product's stock status.
-     *
-     * @var string
-     */
-    const CREATE_STOCK_ITEM = 'create.stock_item';
-
-    /**
-     * The SQL statement to create a product's stock status.
-     *
-     * @var string
-     */
-    const UPDATE_STOCK_ITEM = 'update.stock_item';
-
-    /**
      * The SQL statements.
      *
      * @var array
@@ -348,11 +334,7 @@ class SqlStatements extends \TechDivision\Import\Product\Utils\SqlStatements
                     attribute_id = :attribute_id,
                     store_id = :store_id,
                     value = :value
-              WHERE value_id = :value_id',
-        SqlStatements::CREATE_STOCK_ITEM =>
-            'INSERT INTO cataloginventory_stock_item (%s) VALUES (:%s)',
-        SqlStatements::UPDATE_STOCK_ITEM =>
-            'UPDATE cataloginventory_stock_item SET %s WHERE %s'
+              WHERE value_id = :value_id'
     );
 
     /**
