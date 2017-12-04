@@ -18,9 +18,9 @@
  * @link      http://www.techdivision.com
  */
 
-namespace TechDivision\Import\Product\Ee\Utils;
+namespace TechDivision\Import\Product\Ee\Repositories;
 
-use TechDivision\Import\Ee\Utils\SqlStatementKeys;
+use TechDivision\Import\Product\Ee\Utils\SqlStatementKeys;
 
 /**
  * Repository class with the SQL statements to use.

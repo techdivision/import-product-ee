@@ -20,8 +20,8 @@
 
 namespace TechDivision\Import\Product\Ee\Repositories;
 
-use TechDivision\Import\Ee\Utils\SqlStatementKeys;
 use TechDivision\Import\Product\Ee\Utils\MemberNames;
+use TechDivision\Import\Product\Ee\Utils\SqlStatementKeys;
 
 /**
  * Repository implementation to load product decimal attribute data.

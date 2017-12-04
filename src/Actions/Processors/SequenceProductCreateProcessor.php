@@ -20,7 +20,7 @@
 
 namespace TechDivision\Import\Product\Ee\Actions\Processors;
 
-use TechDivision\Import\Ee\Utils\SqlStatementKeys;
+use TechDivision\Import\Product\Ee\Utils\SqlStatementKeys;
 use TechDivision\Import\Actions\Processors\AbstractCreateProcessor;
 
 /**
