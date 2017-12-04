@@ -20,6 +20,7 @@
 
 namespace TechDivision\Import\Product\Ee\Repositories;
 
+use TechDivision\Import\Ee\Utils\SqlStatementKeys;
 use TechDivision\Import\Product\Ee\Utils\MemberNames;
 
 /**
@@ -52,12 +53,9 @@ class ProductVarcharRepository extends \TechDivision\Import\Product\Repositories
         // invoke the parent method
         parent::init();
 
-        // load the utility class name
-        $utilityClassName = $this->getUtilityClassName();
-
         // initialize the prepared statements
         $this->productVarcharStmt =
-            $this->getConnection()->prepare($this->getUtilityClass()->find($utilityClassName::PRODUCT_VARCHAR));
+            $this->getConnection()->prepare($this->loadStatement(SqlStatementKeys::PRODUCT_VARCHAR));
     }
 
     /**

@@ -20,6 +20,7 @@
 
 namespace TechDivision\Import\Product\Ee\Repositories;
 
+use TechDivision\Import\Ee\Utils\SqlStatementKeys;
 use TechDivision\Import\Product\Ee\Utils\MemberNames;
 
 /**
@@ -49,12 +50,9 @@ class ProductIntRepository extends \TechDivision\Import\Product\Repositories\Pro
     public function init()
     {
 
-        // load the utility class name
-        $utilityClassName = $this->getUtilityClassName();
-
         // initialize the prepared statements
         $this->productIntStmt =
-            $this->getConnection()->prepare($this->getUtilityClass()->find($utilityClassName::PRODUCT_INT));
+            $this->getConnection()->prepare($this->loadStatement(SqlStatementKeys::PRODUCT_INT));
     }
 
     /**

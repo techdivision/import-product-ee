@@ -20,6 +20,7 @@
 
 namespace TechDivision\Import\Product\Ee\Repositories;
 
+use TechDivision\Import\Ee\Utils\SqlStatementKeys;
 use TechDivision\Import\Product\Ee\Utils\MemberNames;
 
 /**
@@ -49,12 +50,9 @@ class ProductTextRepository extends \TechDivision\Import\Product\Repositories\Pr
     public function init()
     {
 
-        // load the utility class name
-        $utilityClassName = $this->getUtilityClassName();
-
         // initialize the prepared statements
         $this->productTextStmt =
-            $this->getConnection()->prepare($this->getUtilityClass()->find($utilityClassName::PRODUCT_TEXT));
+            $this->getConnection()->prepare($this->loadStatement(SqlStatementKeys::PRODUCT_TEXT));
     }
 
     /**
