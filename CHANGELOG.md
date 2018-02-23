@@ -1,3 +1,13 @@
+# Version 1.0.0-beta24
+
+## Bugfixes
+
+* Fixed invalid multiple product update
+
+## Features
+
+* Add product cache warmer functionality for optimized performance
+
 # Version 1.0.0-beta23
 
 ## Bugfixes

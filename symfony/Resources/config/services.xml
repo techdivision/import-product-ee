@@ -8,6 +8,10 @@
         <service id="import_product.utility.class.name" class="TechDivision\Import\Product\Ee\Utils\SqlStatements"/>
         <service id="import_product_ee.utility.class.name" class="TechDivision\Import\Product\Ee\Utils\SqlStatements"/>
 
+        <service id="import_product_ee.repository.product" class="TechDivision\Import\Product\Ee\Repositories\ProductRepository">
+            <argument type="service" id="connection"/>
+            <argument type="service" id="import_product_ee.utility.class.name"/>
+        </service>
         <service id="import_product_ee.repository.product.datetime" class="TechDivision\Import\Product\Ee\Repositories\ProductDatetimeRepository">
             <argument type="service" id="connection"/>
             <argument type="service" id="import_product_ee.utility.class.name"/>
@@ -27,6 +31,10 @@
         <service id="import_product_ee.repository.product.varchar" class="TechDivision\Import\Product\Ee\Repositories\ProductVarcharRepository">
             <argument type="service" id="connection"/>
             <argument type="service" id="import_product_ee.utility.class.name"/>
+        </service>
+
+        <service id="import_product_ee.repository.cache.warmer.product" class="TechDivision\Import\Product\Repositories\CacheWarmer\ProductCacheWarmer">
+            <argument type="service" id="import_product_ee.repository.product"/>
         </service>
 
         <service id="import_product_ee.action.processor.product.update" class="TechDivision\Import\Product\Ee\Actions\Processors\ProductUpdateProcessor">
@@ -50,7 +58,7 @@
         <service id="import_product_ee.processor.product.bunch" class="TechDivision\Import\Product\Ee\Services\EeProductBunchProcessor">
             <argument type="service" id="connection"/>
             <argument type="service" id="import_product_ee.action.sequence.product"/>
-            <argument type="service" id="import_product.repository.product"/>
+            <argument type="service" id="import_product_ee.repository.product"/>
             <argument type="service" id="import_product.repository.product.website"/>
             <argument type="service" id="import_product_ee.repository.product.datetime"/>
             <argument type="service" id="import_product_ee.repository.product.decimal"/>

@@ -33,48 +33,6 @@ class SqlStatements extends \TechDivision\Import\Product\Utils\SqlStatements
 {
 
     /**
-     * The SQL statement to load the actual product with the passed SKU.
-     *
-     * @var string
-     */
-    const PRODUCT = 'product';
-
-    /**
-     * The SQL statement to load the product datetime attribute with the passed row/attribute/store ID.
-     *
-     * @var string
-     */
-    const PRODUCT_DATETIME = 'product_datetime';
-
-    /**
-     * The SQL statement to load the product decimal attribute with the passed row/attribute/store ID.
-     *
-     * @var string
-     */
-    const PRODUCT_DECIMAL = 'product_decimal';
-
-    /**
-     * The SQL statement to load the product integer attribute with the passed row/attribute/store ID.
-     *
-     * @var string
-     */
-    const PRODUCT_INT = 'product_int';
-
-    /**
-     * The SQL statement to load the product text attribute with the passed row/attribute/store ID.
-     *
-     * @var string
-     */
-    const PRODUCT_TEXT = 'product_text';
-
-    /**
-     * The SQL statement to load the product varchar attribute with the passed row/attribute/store ID.
-     *
-     * @var string
-     */
-    const PRODUCT_VARCHAR = 'product_varchar';
-
-    /**
      * The SQL statement to create a new sequence product value.
      *
      * @var string
@@ -176,6 +134,11 @@ class SqlStatements extends \TechDivision\Import\Product\Utils\SqlStatements
                FROM catalog_product_entity
               WHERE sku = :sku
                 AND updated_in > unix_timestamp(now())
+           ORDER BY created_in ASC',
+        SqlStatements::PRODUCTS =>
+            'SELECT * FROM catalog_product_entity
+              WHERE updated_in > unix_timestamp(now())
+           GROUP BY sku
            ORDER BY created_in ASC',
         SqlStatements::PRODUCT_DATETIME =>
             'SELECT *
