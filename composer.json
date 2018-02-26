@@ -2,7 +2,7 @@
     "name": "techdivision/import-product-ee",
     "description": "M2IF library providing basic Magento 2 EE product import functionality",
     "minimum-stability": "alpha",
-    "license": "OSL-3",
+    "license": "OSL-3.0",
     "require": {
         "techdivision/import": "dev-di as 1.0.0-beta57",
         "techdivision/import-ee": "dev-di as 1.0.0-beta7",
