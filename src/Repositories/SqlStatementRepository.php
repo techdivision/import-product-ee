@@ -40,50 +40,50 @@ class SqlStatementRepository extends \TechDivision\Import\Product\Repositories\S
      * @var array
      */
     private $statements = array(
-        SqlStatements::PRODUCT =>
+        SqlStatementKeys::PRODUCT =>
             'SELECT *
                FROM catalog_product_entity
               WHERE sku = :sku
                 AND updated_in > unix_timestamp(now())
            ORDER BY created_in ASC',
-        SqlStatements::PRODUCTS =>
+        SqlStatementKeys::PRODUCTS =>
             'SELECT * FROM catalog_product_entity
               WHERE updated_in > unix_timestamp(now())
            GROUP BY sku
            ORDER BY created_in ASC',
-        SqlStatements::PRODUCT_DATETIME =>
+        SqlStatementKeys::PRODUCT_DATETIME =>
             'SELECT *
                FROM catalog_product_entity_datetime
               WHERE row_id = :row_id
                 AND attribute_id = :attribute_id
                 AND store_id = :store_id',
-        SqlStatements::PRODUCT_DECIMAL =>
+        SqlStatementKeys::PRODUCT_DECIMAL =>
             'SELECT *
                FROM catalog_product_entity_decimal
               WHERE row_id = :row_id
                 AND attribute_id = :attribute_id
                 AND store_id = :store_id',
-        SqlStatements::PRODUCT_INT =>
+        SqlStatementKeys::PRODUCT_INT =>
             'SELECT *
                FROM catalog_product_entity_int
               WHERE row_id = :row_id
                 AND attribute_id = :attribute_id
                 AND store_id = :store_id',
-        SqlStatements::PRODUCT_TEXT =>
+        SqlStatementKeys::PRODUCT_TEXT =>
             'SELECT *
                FROM catalog_product_entity_text
               WHERE row_id = :row_id
                 AND attribute_id = :attribute_id
                 AND store_id = :store_id',
-        SqlStatements::PRODUCT_VARCHAR =>
+        SqlStatementKeys::PRODUCT_VARCHAR =>
             'SELECT *
                FROM catalog_product_entity_varchar
               WHERE row_id = :row_id
                 AND attribute_id = :attribute_id
                 AND store_id = :store_id',
-        SqlStatements::CREATE_SEQUENCE_PRODUCT =>
+        SqlStatementKeys::CREATE_SEQUENCE_PRODUCT =>
             'INSERT INTO sequence_product VALUES ()',
-        SqlStatements::CREATE_PRODUCT =>
+        SqlStatementKeys::CREATE_PRODUCT =>
             'INSERT
                INTO catalog_product_entity
                     (entity_id,
@@ -106,7 +106,7 @@ class SqlStatementRepository extends \TechDivision\Import\Product\Repositories\S
                      :required_options,
                      :type_id,
                      :attribute_set_id)',
-        SqlStatements::UPDATE_PRODUCT =>
+        SqlStatementKeys::UPDATE_PRODUCT =>
             'UPDATE catalog_product_entity
                 SET entity_id = :entity_id,
                     created_in = :created_in,
@@ -119,7 +119,7 @@ class SqlStatementRepository extends \TechDivision\Import\Product\Repositories\S
                     type_id = :type_id,
                     attribute_set_id = :attribute_set_id
               WHERE row_id = :row_id',
-        SqlStatements::CREATE_PRODUCT_DATETIME =>
+        SqlStatementKeys::CREATE_PRODUCT_DATETIME =>
             'INSERT
                INTO catalog_product_entity_datetime
                     (row_id,
@@ -130,14 +130,14 @@ class SqlStatementRepository extends \TechDivision\Import\Product\Repositories\S
                      :attribute_id,
                      :store_id,
                      :value)',
-        SqlStatements::UPDATE_PRODUCT_DATETIME =>
+        SqlStatementKeys::UPDATE_PRODUCT_DATETIME =>
             'UPDATE catalog_product_entity_datetime
                 SET row_id = :row_id,
                     attribute_id = :attribute_id,
                     store_id = :store_id,
                     value = :value
               WHERE value_id = :value_id',
-        SqlStatements::CREATE_PRODUCT_DECIMAL =>
+        SqlStatementKeys::CREATE_PRODUCT_DECIMAL =>
             'INSERT
                INTO catalog_product_entity_decimal
                     (row_id,
@@ -148,14 +148,14 @@ class SqlStatementRepository extends \TechDivision\Import\Product\Repositories\S
                      :attribute_id,
                      :store_id,
                      :value)',
-        SqlStatements::UPDATE_PRODUCT_DECIMAL =>
+        SqlStatementKeys::UPDATE_PRODUCT_DECIMAL =>
             'UPDATE catalog_product_entity_decimal
                 SET row_id = :row_id,
                     attribute_id = :attribute_id,
                     store_id = :store_id,
                     value = :value
               WHERE value_id = :value_id',
-        SqlStatements::CREATE_PRODUCT_INT =>
+        SqlStatementKeys::CREATE_PRODUCT_INT =>
             'INSERT
                INTO catalog_product_entity_int
                     (row_id,
@@ -166,14 +166,14 @@ class SqlStatementRepository extends \TechDivision\Import\Product\Repositories\S
                      :attribute_id,
                      :store_id,
                      :value)',
-        SqlStatements::UPDATE_PRODUCT_INT =>
+        SqlStatementKeys::UPDATE_PRODUCT_INT =>
             'UPDATE catalog_product_entity_int
                 SET row_id = :row_id,
                     attribute_id = :attribute_id,
                     store_id = :store_id,
                     value = :value
               WHERE value_id = :value_id',
-        SqlStatements::CREATE_PRODUCT_VARCHAR =>
+        SqlStatementKeys::CREATE_PRODUCT_VARCHAR =>
             'INSERT
                INTO catalog_product_entity_varchar
                     (row_id,
@@ -184,14 +184,14 @@ class SqlStatementRepository extends \TechDivision\Import\Product\Repositories\S
                      :attribute_id,
                      :store_id,
                      :value)',
-        SqlStatements::UPDATE_PRODUCT_VARCHAR =>
+        SqlStatementKeys::UPDATE_PRODUCT_VARCHAR =>
             'UPDATE catalog_product_entity_varchar
                 SET row_id = :row_id,
                     attribute_id = :attribute_id,
                     store_id = :store_id,
                     value = :value
               WHERE value_id = :value_id',
-        SqlStatements::CREATE_PRODUCT_TEXT =>
+        SqlStatementKeys::CREATE_PRODUCT_TEXT =>
             'INSERT
                INTO catalog_product_entity_text
                     (row_id,
@@ -202,7 +202,7 @@ class SqlStatementRepository extends \TechDivision\Import\Product\Repositories\S
                      :attribute_id,
                      :store_id,
                      :value)',
-        SqlStatements::UPDATE_PRODUCT_TEXT =>
+        SqlStatementKeys::UPDATE_PRODUCT_TEXT =>
             'UPDATE catalog_product_entity_text
                 SET row_id = :row_id,
                     attribute_id = :attribute_id,
