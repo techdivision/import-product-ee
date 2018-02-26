@@ -20,9 +20,10 @@
 
 namespace TechDivision\Import\Product\Ee\Observers;
 
+use TechDivision\Import\Utils\EntityStatus;
+use TechDivision\Import\Product\Utils\ColumnKeys;
 use TechDivision\Import\Product\Ee\Utils\MemberNames;
 use TechDivision\Import\Product\Observers\ProductObserver;
-use TechDivision\Import\Utils\EntityStatus;
 
 /**
  * Observer that create's the product itself for the Magento 2 EE edition.
@@ -43,6 +44,11 @@ class EeProductObserver extends ProductObserver
      */
     protected function process()
     {
+
+        // query whether or not, we've found a new SKU => means we've found a new product
+        if ($this->hasBeenProcessed($this->getValue(ColumnKeys::SKU))) {
+            return;
+        }
 
         // prepare the static entity values
         $product = $this->initializeProduct($this->prepareAttributes());

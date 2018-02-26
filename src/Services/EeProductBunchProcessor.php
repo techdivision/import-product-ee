@@ -24,7 +24,7 @@ use TechDivision\Import\Actions\UrlRewriteAction;
 use TechDivision\Import\Connection\ConnectionInterface;
 use TechDivision\Import\Product\Services\ProductBunchProcessor;
 use TechDivision\Import\Product\Ee\Actions\SequenceProductAction;
-use TechDivision\Import\Product\Repositories\ProductRepository;
+use TechDivision\Import\Product\Ee\Repositories\ProductRepository;
 use TechDivision\Import\Product\Repositories\ProductWebsiteRepository;
 use TechDivision\Import\Product\Ee\Repositories\ProductDatetimeRepository;
 use TechDivision\Import\Product\Ee\Repositories\ProductDecimalRepository;
@@ -71,7 +71,7 @@ class EeProductBunchProcessor extends ProductBunchProcessor implements EeProduct
      *
      * @param \TechDivision\Import\Connection\ConnectionInterface                 $connection                        The connection to use
      * @param \TechDivision\Import\Product\Ee\Actions\SequenceProductAction       $sequenceProductAction             The sequence product action to use
-     * @param \TechDivision\Import\Product\Repositories\ProductRepository         $productRepository                 The product repository to use
+     * @param \TechDivision\Import\Product\Ee\Repositories\ProductRepository      $productRepository                 The product repository to use
      * @param \TechDivision\Import\Product\Repositories\ProductWebsiteRepository  $productWebsiteRepository          The product website repository to use
      * @param \TechDivision\Import\Product\Repositories\ProductDatetimeRepository $productDatetimeRepository         The product datetime repository to use
      * @param \TechDivision\Import\Product\Repositories\ProductDecimalRepository  $productDecimalRepository          The product decimal repository to use
