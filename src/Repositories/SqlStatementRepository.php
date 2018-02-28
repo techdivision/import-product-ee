@@ -51,35 +51,30 @@ class SqlStatementRepository extends \TechDivision\Import\Product\Repositories\S
               WHERE updated_in > unix_timestamp(now())
            GROUP BY sku
            ORDER BY created_in ASC',
-        SqlStatementKeys::PRODUCT_DATETIME =>
+        SqlStatementKeys::PRODUCT_DATETIMES =>
             'SELECT *
                FROM catalog_product_entity_datetime
-              WHERE row_id = :row_id
-                AND attribute_id = :attribute_id
+              WHERE row_id = :pk
                 AND store_id = :store_id',
-        SqlStatementKeys::PRODUCT_DECIMAL =>
+        SqlStatementKeys::PRODUCT_DECIMALS =>
             'SELECT *
                FROM catalog_product_entity_decimal
-              WHERE row_id = :row_id
-                AND attribute_id = :attribute_id
+              WHERE row_id = :pk
                 AND store_id = :store_id',
-        SqlStatementKeys::PRODUCT_INT =>
+        SqlStatementKeys::PRODUCT_INTS =>
             'SELECT *
                FROM catalog_product_entity_int
-              WHERE row_id = :row_id
-                AND attribute_id = :attribute_id
+              WHERE row_id = :pk
                 AND store_id = :store_id',
-        SqlStatementKeys::PRODUCT_TEXT =>
+        SqlStatementKeys::PRODUCT_TEXTS =>
             'SELECT *
                FROM catalog_product_entity_text
-              WHERE row_id = :row_id
-                AND attribute_id = :attribute_id
+              WHERE row_id = :pk
                 AND store_id = :store_id',
-        SqlStatementKeys::PRODUCT_VARCHAR =>
+        SqlStatementKeys::PRODUCT_VARCHARS =>
             'SELECT *
                FROM catalog_product_entity_varchar
-              WHERE row_id = :row_id
-                AND attribute_id = :attribute_id
+              WHERE row_id = :pk
                 AND store_id = :store_id',
         SqlStatementKeys::CREATE_SEQUENCE_PRODUCT =>
             'INSERT INTO sequence_product VALUES ()',
