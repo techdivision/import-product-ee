@@ -53,94 +53,12 @@ class EeProductAttributeUpdateObserver extends ProductAttributeUpdateObserver
     protected function initializeAttribute(array $attr)
     {
 
-        // load the supported backend types
-        $backendTypes = $this->getBackendTypes();
-
-        // initialize the persist method for the found backend type
-        list (, $loadMethod) = $backendTypes[$this->backendType];
-
-        // load row/store/attribute ID
-        $rowId = $attr[MemberNames::ROW_ID];
-        $storeId = $attr[MemberNames::STORE_ID];
-        $attributeId = $attr[MemberNames::ATTRIBUTE_ID];
-
-        // try to load the attribute with the passed row/attribute/store ID
-        // and merge it with the attributes
-        if ($entity = $this->$loadMethod($rowId, $attributeId, $storeId)) {
-            return $this->mergeEntity($entity, $attr);
+        // try to load the attribute with the passed attribute ID and merge it with the attributes
+        if (isset($this->attributes[$attributeId = (integer) $attr[MemberNames::ATTRIBUTE_ID]])) {
+            return $this->mergeEntity($this->attributes[$attributeId], $attr);
         }
 
         // otherwise simply return the attributes
         return $attr;
-    }
-
-    /**
-     * Load's and return's the datetime attribute with the passed row/attribute/store ID.
-     *
-     * @param integer $pk          The row ID of the attribute
-     * @param integer $attributeId The attribute ID of the attribute
-     * @param integer $storeId     The store ID of the attribute
-     *
-     * @return array|null The datetime attribute
-     */
-    protected function loadDatetimeAttribute($pk, $attributeId, $storeId)
-    {
-        return  $this->getProductBunchProcessor()->loadProductDatetimeAttributeByRowIdAndAttributeIdAndStoreId($pk, $attributeId, $storeId);
-    }
-
-    /**
-     * Load's and return's the decimal attribute with the passed row/attribute/store ID.
-     *
-     * @param integer $pk          The row ID of the attribute
-     * @param integer $attributeId The attribute ID of the attribute
-     * @param integer $storeId     The store ID of the attribute
-     *
-     * @return array|null The decimal attribute
-     */
-    protected function loadDecimalAttribute($pk, $attributeId, $storeId)
-    {
-        return  $this->getProductBunchProcessor()->loadProductDecimalAttributeByRowIdAndAttributeIdAndStoreId($pk, $attributeId, $storeId);
-    }
-
-    /**
-     * Load's and return's the integer attribute with the passed row/attribute/store ID.
-     *
-     * @param integer $pk          The row ID of the attribute
-     * @param integer $attributeId The attribute ID of the attribute
-     * @param integer $storeId     The store ID of the attribute
-     *
-     * @return array|null The integer attribute
-     */
-    protected function loadIntAttribute($pk, $attributeId, $storeId)
-    {
-        return $this->getProductBunchProcessor()->loadProductIntAttributeByRowIdAndAttributeIdAndStoreId($pk, $attributeId, $storeId);
-    }
-
-    /**
-     * Load's and return's the text attribute with the passed row/attribute/store ID.
-     *
-     * @param integer $pk          The row ID of the attribute
-     * @param integer $attributeId The attribute ID of the attribute
-     * @param integer $storeId     The store ID of the attribute
-     *
-     * @return array|null The text attribute
-     */
-    protected function loadTextAttribute($pk, $attributeId, $storeId)
-    {
-        return $this->getProductBunchProcessor()->loadProductTextAttributeByRowIdAndAttributeIdAndStoreId($pk, $attributeId, $storeId);
-    }
-
-    /**
-     * Load's and return's the varchar attribute with the passed row/attribute/store ID.
-     *
-     * @param integer $pk          The row ID of the attribute
-     * @param integer $attributeId The attribute ID of the attribute
-     * @param integer $storeId     The store ID of the attribute
-     *
-     * @return array|null The varchar attribute
-     */
-    protected function loadVarcharAttribute($pk, $attributeId, $storeId)
-    {
-        return $this->getProductBunchProcessor()->loadProductVarcharAttributeByRowIdAndAttributeIdAndStoreId($pk, $attributeId, $storeId);
     }
 }

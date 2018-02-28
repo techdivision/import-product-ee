@@ -1,7 +1,7 @@
 <?php
 
 /**
- * TechDivision\Import\Product\Ee\Services\EeProductBunchProcessorInterface
+ * TechDivision\Import\Product\Ee\Utils\MemberNames
  *
  * NOTICE OF LICENSE
  *
@@ -18,12 +18,10 @@
  * @link      http://www.techdivision.com
  */
 
-namespace TechDivision\Import\Product\Ee\Services;
-
-use TechDivision\Import\Product\Services\ProductBunchProcessorInterface;
+namespace TechDivision\Import\Product\Ee\Utils;
 
 /**
- * A SLSB providing methods to load product data using a PDO connection.
+ * Utility class containing parameter names for prepared statements.
  *
  * @author    Tim Wagner <t.wagner@techdivision.com>
  * @copyright 2016 TechDivision GmbH <info@techdivision.com>
@@ -31,20 +29,13 @@ use TechDivision\Import\Product\Services\ProductBunchProcessorInterface;
  * @link      https://github.com/techdivision/import-product-ee
  * @link      http://www.techdivision.com
  */
-interface EeProductBunchProcessorInterface extends ProductBunchProcessorInterface
+class ParamNames extends \TechDivision\Import\Product\Utils\ParamNames
 {
 
     /**
-     * Return's the action with the sequence product CRUD methods.
+     * Name for the parameter name 'row_id'.
      *
-     * @return \TechDivision\Import\Product\Ee\Actions\SequenceProductAction The action instance
+     * @var string
      */
-    public function getSequenceProductAction();
-
-    /**
-     * Return's the next available product entity ID.
-     *
-     * @return integer The next available product entity ID
-     */
-    public function nextIdentifier();
+    const ROW_ID = 'row_id';
 }
