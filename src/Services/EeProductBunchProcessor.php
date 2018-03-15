@@ -36,16 +36,15 @@ use TechDivision\Import\Product\Repositories\StockStatusRepository;
 use TechDivision\Import\Product\Repositories\StockItemRepository;
 use TechDivision\Import\Repositories\EavAttributeOptionValueRepository;
 use TechDivision\Import\Repositories\EavAttributeRepository;
-use TechDivision\Import\Product\Actions\CategoryProductAction;
+use TechDivision\Import\Product\Actions\CategoryProductActionInterface;
 use TechDivision\Import\Product\Actions\ProductDatetimeActionInterface;
 use TechDivision\Import\Product\Actions\ProductDecimalActionInterface;
 use TechDivision\Import\Product\Actions\ProductIntActionInterface;
 use TechDivision\Import\Product\Actions\ProductAction;
 use TechDivision\Import\Product\Actions\ProductTextActionInterface;
 use TechDivision\Import\Product\Actions\ProductVarcharActionInterface;
-use TechDivision\Import\Product\Actions\ProductWebsiteAction;
-use TechDivision\Import\Product\Actions\StockItemAction;
-use TechDivision\Import\Product\Actions\StockStatusAction;
+use TechDivision\Import\Product\Actions\ProductWebsiteActionInterface;
+use TechDivision\Import\Product\Actions\StockItemActionInterface;
 use TechDivision\Import\Product\Assemblers\ProductAttributeAssemblerInterface;
 
 /**
@@ -80,20 +79,18 @@ class EeProductBunchProcessor extends ProductBunchProcessor implements EeProduct
      * @param \TechDivision\Import\Product\Repositories\ProductTextRepository            $productTextRepository             The product text repository to use
      * @param \TechDivision\Import\Product\Repositories\ProductVarcharRepository         $productVarcharRepository          The product varchar repository to use
      * @param \TechDivision\Import\Product\Repositories\CategoryProductRepository        $categoryProductRepository         The category product repository to use
-     * @param \TechDivision\Import\Product\Repositories\StockStatusRepository            $stockStatusRepository             The stock status repository to use
      * @param \TechDivision\Import\Product\Repositories\StockItemRepository              $stockItemRepository               The stock item repository to use
      * @param \TechDivision\Import\Repositories\EavAttributeOptionValueRepository        $eavAttributeOptionValueRepository The EAV attribute option value repository to use
      * @param \TechDivision\Import\Repositories\EavAttributeRepository                   $eavAttributeRepository            The EAV attribute repository to use
-     * @param \TechDivision\Import\Product\Actions\CategoryProductAction                 $categoryProductAction             The category product action to use
+     * @param \TechDivision\Import\Product\Actions\CategoryProductActionInterface        $categoryProductAction             The category product action to use
      * @param \TechDivision\Import\Product\Actions\ProductDatetimeActionInterface        $productDatetimeAction             The product datetime action to use
      * @param \TechDivision\Import\Product\Actions\ProductDecimalActionInterface         $productDecimalAction              The product decimal action to use
      * @param \TechDivision\Import\Product\Actions\ProductIntActionInterface             $productIntAction                  The product integer action to use
      * @param \TechDivision\Import\Product\Actions\ProductAction                         $productAction                     The product action to use
      * @param \TechDivision\Import\Product\Actions\ProductTextActionInterface            $productTextAction                 The product text action to use
-     * @param \TechDivision\Import\Product\Actions\ProductVarcharActioInterfacen         $productVarcharAction              The product varchar action to use
-     * @param \TechDivision\Import\Product\Actions\ProductWebsiteAction                  $productWebsiteAction              The product website action to use
-     * @param \TechDivision\Import\Product\Actions\StockItemAction                       $stockItemAction                   The stock item action to use
-     * @param \TechDivision\Import\Product\Actions\StockStatusAction                     $stockStatusAction                 The stock status action to use
+     * @param \TechDivision\Import\Product\Actions\ProductVarcharActioInterface          $productVarcharAction              The product varchar action to use
+     * @param \TechDivision\Import\Product\Actions\ProductWebsiteActionInterface         $productWebsiteAction              The product website action to use
+     * @param \TechDivision\Import\Product\Actions\StockItemActionInterface              $stockItemAction                   The stock item action to use
      * @param \TechDivision\Import\Actions\UrlRewriteAction                              $urlRewriteAction                  The URL rewrite action to use
      * @param \TechDivision\Import\Product\Assemblers\ProductAttributeAssemblerInterface $productAttributeAssembler         The assembler to load the product attributes with
      */
@@ -108,20 +105,18 @@ class EeProductBunchProcessor extends ProductBunchProcessor implements EeProduct
         ProductTextRepository $productTextRepository,
         ProductVarcharRepository $productVarcharRepository,
         CategoryProductRepository $categoryProductRepository,
-        StockStatusRepository $stockStatusRepository,
         StockItemRepository $stockItemRepository,
         EavAttributeOptionValueRepository $eavAttributeOptionValueRepository,
         EavAttributeRepository $eavAttributeRepository,
-        CategoryProductAction $categoryProductAction,
+        CategoryProductActionInterface $categoryProductAction,
         ProductDatetimeActionInterface $productDatetimeAction,
         ProductDecimalActionInterface $productDecimalAction,
         ProductIntActionInterface $productIntAction,
         ProductAction $productAction,
         ProductTextActionInterface $productTextAction,
         ProductVarcharActionInterface $productVarcharAction,
-        ProductWebsiteAction $productWebsiteAction,
-        StockItemAction $stockItemAction,
-        StockStatusAction $stockStatusAction,
+        ProductWebsiteActionInterface $productWebsiteAction,
+        StockItemActionInterface $stockItemAction,
         UrlRewriteAction $urlRewriteAction,
         ProductAttributeAssemblerInterface $productAttributeAssembler
     ) {
@@ -140,7 +135,6 @@ class EeProductBunchProcessor extends ProductBunchProcessor implements EeProduct
             $productTextRepository,
             $productVarcharRepository,
             $categoryProductRepository,
-            $stockStatusRepository,
             $stockItemRepository,
             $eavAttributeOptionValueRepository,
             $eavAttributeRepository,
@@ -153,7 +147,6 @@ class EeProductBunchProcessor extends ProductBunchProcessor implements EeProduct
             $productVarcharAction,
             $productWebsiteAction,
             $stockItemAction,
-            $stockStatusAction,
             $urlRewriteAction,
             $productAttributeAssembler
         );
