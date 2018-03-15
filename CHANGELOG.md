@@ -1,3 +1,13 @@
+# Version 1.0.0-beta27
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Replace type hints for actions in product bunch processor with interfaces
+
 # Version 1.0.0-beta26
 
 ## Bugfixes
