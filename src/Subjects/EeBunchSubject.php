@@ -104,14 +104,14 @@ class EeBunchSubject extends BunchSubject
     public function tearDown($serial)
     {
 
-        // call parent method
-        parent::tearDown($serial);
-
         // load the registry processor
         $registryProcessor = $this->getRegistryProcessor();
 
         // update the status up the actual import with SKU => row ID mapping
-        $registryProcessor->mergeAttributesRecursive($this->serial, array(RegistryKeys::SKU_ROW_ID_MAPPING => $this->skuRowIdMapping));
+        $registryProcessor->mergeAttributesRecursive($serial, array(RegistryKeys::SKU_ROW_ID_MAPPING => $this->skuRowIdMapping));
+
+        // call parent method
+        parent::tearDown($serial);
     }
 
     /**
