@@ -37,7 +37,7 @@ interface EeProductBunchProcessorInterface extends ProductBunchProcessorInterfac
     /**
      * Return's the action with the sequence product CRUD methods.
      *
-     * @return \TechDivision\Import\Product\Ee\Actions\SequenceProductAction The action instance
+     * @return \TechDivision\Import\Product\Ee\Actions\SequenceProductActionInterface The action instance
      */
     public function getSequenceProductAction();
 
