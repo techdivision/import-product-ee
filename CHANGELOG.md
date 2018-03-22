@@ -1,3 +1,14 @@
+# Version 1.0.0-beta29
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Add missing interfaces for actions and repositories
+* Replace class type hints for EeProductBunchProcessor with interfaces
+
 # Version 1.0.0-beta28
 
 ## Bugfixes

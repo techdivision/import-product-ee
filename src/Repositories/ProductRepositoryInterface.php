@@ -20,8 +20,6 @@
 
 namespace TechDivision\Import\Product\Ee\Repositories;
 
-use TechDivision\Import\Product\Ee\Utils\MemberNames;
-
 /**
  * Repository implementation to load product data.
  *
@@ -31,7 +29,7 @@ use TechDivision\Import\Product\Ee\Utils\MemberNames;
  * @link      https://github.com/techdivision/import
  * @link      http://www.techdivision.com
  */
-class ProductRepository extends \TechDivision\Import\Product\Repositories\ProductRepository implements ProductRepositoryInterface
+interface ProductRepositoryInterface extends \TechDivision\Import\Product\Repositories\ProductRepositoryInterface
 {
 
     /**
@@ -39,8 +37,5 @@ class ProductRepository extends \TechDivision\Import\Product\Repositories\Produc
      *
      * @return string The name of the entity's primary key
      */
-    public function getPrimaryKeyName()
-    {
-        return MemberNames::ROW_ID;
-    }
+    public function getPrimaryKeyName();
 }
