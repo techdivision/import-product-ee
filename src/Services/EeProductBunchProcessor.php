@@ -23,6 +23,7 @@ namespace TechDivision\Import\Product\Ee\Services;
 use TechDivision\Import\Connection\ConnectionInterface;
 use TechDivision\Import\Actions\UrlRewriteActionInterface;
 use TechDivision\Import\Repositories\EavAttributeRepositoryInterface;
+use TechDivision\Import\Repositories\EavEntityTypeRepositoryInterface;
 use TechDivision\Import\Repositories\EavAttributeOptionValueRepositoryInterface;
 use TechDivision\Import\Product\Services\ProductBunchProcessor;
 use TechDivision\Import\Product\Actions\ProductActionInterface;
@@ -81,6 +82,7 @@ class EeProductBunchProcessor extends ProductBunchProcessor implements EeProduct
      * @param \TechDivision\Import\Product\Repositories\StockItemRepositoryInterface       $stockItemRepository               The stock item repository to use
      * @param \TechDivision\Import\Repositories\EavAttributeOptionValueRepositoryInterface $eavAttributeOptionValueRepository The EAV attribute option value repository to use
      * @param \TechDivision\Import\Repositories\EavAttributeRepositoryInterface            $eavAttributeRepository            The EAV attribute repository to use
+     * @param \TechDivision\Import\Repositories\EavEntityTypeRepositoryInterface           $eavEntityTypeRepository           The EAV entity type repository to use
      * @param \TechDivision\Import\Product\Actions\CategoryProductActionInterface          $categoryProductAction             The category product action to use
      * @param \TechDivision\Import\Product\Actions\ProductDatetimeActionInterface          $productDatetimeAction             The product datetime action to use
      * @param \TechDivision\Import\Product\Actions\ProductDecimalActionInterface           $productDecimalAction              The product decimal action to use
@@ -107,6 +109,7 @@ class EeProductBunchProcessor extends ProductBunchProcessor implements EeProduct
         StockItemRepositoryInterface $stockItemRepository,
         EavAttributeOptionValueRepositoryInterface $eavAttributeOptionValueRepository,
         EavAttributeRepositoryInterface $eavAttributeRepository,
+        EavEntityTypeRepositoryInterface $eavEntityTypeRepository,
         CategoryProductActionInterface $categoryProductAction,
         ProductDatetimeActionInterface $productDatetimeAction,
         ProductDecimalActionInterface $productDecimalAction,
@@ -137,6 +140,7 @@ class EeProductBunchProcessor extends ProductBunchProcessor implements EeProduct
             $stockItemRepository,
             $eavAttributeOptionValueRepository,
             $eavAttributeRepository,
+            $eavEntityTypeRepository,
             $categoryProductAction,
             $productDatetimeAction,
             $productDecimalAction,

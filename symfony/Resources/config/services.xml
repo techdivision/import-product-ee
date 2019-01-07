@@ -49,6 +49,7 @@
             <argument type="service" id="import_product.repository.stock.item"/>
             <argument type="service" id="import.repository.eav.attribute.option.value"/>
             <argument type="service" id="import.repository.eav.attribute"/>
+            <argument type="service" id="import.repository.eav.entity.type"/>
             <argument type="service" id="import_product.action.category.product"/>
             <argument type="service" id="import_product.action.product.datetime"/>
             <argument type="service" id="import_product.action.product.decimal"/>
