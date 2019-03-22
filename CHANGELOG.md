@@ -1,3 +1,14 @@
+# Version 7.0.1
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Update default configuration for grouped product import
+* Refactor default configuration, replace the import_product_link.observer.link.update with import_product_link.observer.link for update operation
+
 # Version 7.0.0
 
 ## Bugfixes
