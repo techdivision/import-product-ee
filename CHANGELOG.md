@@ -1,3 +1,14 @@
+# Version 8.0.0
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Switch to latest techdivision/import-ee 6.0.* and techdivision/import-product 8.0.* version as dependency
+* Replace DI specific ActionInterfaces with generic ActionInterface in EeProductBunchProcessor
+
 # Version 7.0.1
 
 ## Bugfixes

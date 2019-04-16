@@ -20,21 +20,12 @@
 
 namespace TechDivision\Import\Product\Ee\Services;
 
+use TechDivision\Import\Actions\ActionInterface;
 use TechDivision\Import\Connection\ConnectionInterface;
-use TechDivision\Import\Actions\UrlRewriteActionInterface;
 use TechDivision\Import\Repositories\EavAttributeRepositoryInterface;
 use TechDivision\Import\Repositories\EavEntityTypeRepositoryInterface;
 use TechDivision\Import\Repositories\EavAttributeOptionValueRepositoryInterface;
 use TechDivision\Import\Product\Services\ProductBunchProcessor;
-use TechDivision\Import\Product\Actions\ProductActionInterface;
-use TechDivision\Import\Product\Actions\StockItemActionInterface;
-use TechDivision\Import\Product\Actions\ProductIntActionInterface;
-use TechDivision\Import\Product\Actions\ProductTextActionInterface;
-use TechDivision\Import\Product\Actions\ProductDecimalActionInterface;
-use TechDivision\Import\Product\Actions\ProductVarcharActionInterface;
-use TechDivision\Import\Product\Actions\ProductWebsiteActionInterface;
-use TechDivision\Import\Product\Actions\CategoryProductActionInterface;
-use TechDivision\Import\Product\Actions\ProductDatetimeActionInterface;
 use TechDivision\Import\Product\Ee\Actions\SequenceProductActionInterface;
 use TechDivision\Import\Product\Ee\Repositories\ProductRepositoryInterface;
 use TechDivision\Import\Product\Assemblers\ProductAttributeAssemblerInterface;
@@ -83,16 +74,16 @@ class EeProductBunchProcessor extends ProductBunchProcessor implements EeProduct
      * @param \TechDivision\Import\Repositories\EavAttributeOptionValueRepositoryInterface $eavAttributeOptionValueRepository The EAV attribute option value repository to use
      * @param \TechDivision\Import\Repositories\EavAttributeRepositoryInterface            $eavAttributeRepository            The EAV attribute repository to use
      * @param \TechDivision\Import\Repositories\EavEntityTypeRepositoryInterface           $eavEntityTypeRepository           The EAV entity type repository to use
-     * @param \TechDivision\Import\Product\Actions\CategoryProductActionInterface          $categoryProductAction             The category product action to use
-     * @param \TechDivision\Import\Product\Actions\ProductDatetimeActionInterface          $productDatetimeAction             The product datetime action to use
-     * @param \TechDivision\Import\Product\Actions\ProductDecimalActionInterface           $productDecimalAction              The product decimal action to use
-     * @param \TechDivision\Import\Product\Actions\ProductIntActionInterface               $productIntAction                  The product integer action to use
-     * @param \TechDivision\Import\Product\Actions\ProductActionInterface                  $productAction                     The product action to use
-     * @param \TechDivision\Import\Product\Actions\ProductTextActionInterface              $productTextAction                 The product text action to use
-     * @param \TechDivision\Import\Product\Actions\ProductVarcharActionInterface           $productVarcharAction              The product varchar action to use
-     * @param \TechDivision\Import\Product\Actions\ProductWebsiteActionInterface           $productWebsiteAction              The product website action to use
-     * @param \TechDivision\Import\Product\Actions\StockItemActionInterface                $stockItemAction                   The stock item action to use
-     * @param \TechDivision\Import\Actions\UrlRewriteActionInterface                       $urlRewriteAction                  The URL rewrite action to use
+     * @param \TechDivision\Import\Actions\ActionInterface                                 $categoryProductAction             The category product action to use
+     * @param \TechDivision\Import\Actions\ActionInterface                                 $productDatetimeAction             The product datetime action to use
+     * @param \TechDivision\Import\Actions\ActionInterface                                 $productDecimalAction              The product decimal action to use
+     * @param \TechDivision\Import\Actions\ActionInterface                                 $productIntAction                  The product integer action to use
+     * @param \TechDivision\Import\Actions\ActionInterface                                 $productAction                     The product action to use
+     * @param \TechDivision\Import\Actions\ActionInterface                                 $productTextAction                 The product text action to use
+     * @param \TechDivision\Import\Actions\ActionInterface                                 $productVarcharAction              The product varchar action to use
+     * @param \TechDivision\Import\Actions\ActionInterface                                 $productWebsiteAction              The product website action to use
+     * @param \TechDivision\Import\Actions\ActionInterface                                 $stockItemAction                   The stock item action to use
+     * @param \TechDivision\Import\Actions\ActionInterface                                 $urlRewriteAction                  The URL rewrite action to use
      * @param \TechDivision\Import\Product\Assemblers\ProductAttributeAssemblerInterface   $productAttributeAssembler         The assembler to load the product attributes with
      */
     public function __construct(
@@ -110,16 +101,16 @@ class EeProductBunchProcessor extends ProductBunchProcessor implements EeProduct
         EavAttributeOptionValueRepositoryInterface $eavAttributeOptionValueRepository,
         EavAttributeRepositoryInterface $eavAttributeRepository,
         EavEntityTypeRepositoryInterface $eavEntityTypeRepository,
-        CategoryProductActionInterface $categoryProductAction,
-        ProductDatetimeActionInterface $productDatetimeAction,
-        ProductDecimalActionInterface $productDecimalAction,
-        ProductIntActionInterface $productIntAction,
-        ProductActionInterface $productAction,
-        ProductTextActionInterface $productTextAction,
-        ProductVarcharActionInterface $productVarcharAction,
-        ProductWebsiteActionInterface $productWebsiteAction,
-        StockItemActionInterface $stockItemAction,
-        UrlRewriteActionInterface $urlRewriteAction,
+        ActionInterface $categoryProductAction,
+        ActionInterface $productDatetimeAction,
+        ActionInterface $productDecimalAction,
+        ActionInterface $productIntAction,
+        ActionInterface $productAction,
+        ActionInterface $productTextAction,
+        ActionInterface $productVarcharAction,
+        ActionInterface $productWebsiteAction,
+        ActionInterface $stockItemAction,
+        ActionInterface $urlRewriteAction,
         ProductAttributeAssemblerInterface $productAttributeAssembler
     ) {
 
