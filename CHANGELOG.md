@@ -1,3 +1,13 @@
+# Version 8.0.2
+
+## Bugfixes
+
+* Remove invalid pre-import configuration node
+
+## Features
+
+* None
+
 # Version 8.0.1
 
 ## Bugfixes
