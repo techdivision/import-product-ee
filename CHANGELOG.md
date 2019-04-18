@@ -1,3 +1,14 @@
+# Version 8.0.3
+
+## Bugfixes
+
+* Fixed invalid DI name
+* Fixed issue with invalid bundle composite observer configuration
+
+## Features
+
+* None
+
 # Version 8.0.2
 
 ## Bugfixes

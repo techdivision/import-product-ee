@@ -157,7 +157,7 @@
                 <argument id="import_product_ee.observer.url.key" type="service"/>
             </call>
             <call method="addObserver">
-                <argument id="mport_product.observer.file.upload" type="service"/>
+                <argument id="import_product.observer.file.upload" type="service"/>
             </call>
             <call method="addObserver">
                 <argument id="import_product.observer.quality.and.stock.status" type="service"/>
@@ -215,19 +215,19 @@
         </service>
         <service id="import_product_ee.observer.composite.bundle.replace" class="TechDivision\Import\Observers\GenericCompositeObserver">
             <call method="addObserver">
-                <argument id="import_product_bundle.observer.bundle.option" type="service"/>
+                <argument id="import_product_bundle_ee.observer.bundle.option" type="service"/>
             </call>
             <call method="addObserver">
-                <argument id="import_product_bundle.observer.bundle.option.value" type="service"/>
+                <argument id="import_product_bundle_ee.observer.bundle.option.value" type="service"/>
             </call>
             <call method="addObserver">
-                <argument id="import_product_bundle.observer.bundle.selection" type="service"/>
+                <argument id="import_product_bundle_ee.observer.bundle.selection" type="service"/>
             </call>
             <call method="addObserver">
                 <argument id="import_product_bundle.observer.bundle.selection.price" type="service"/>
             </call>
             <call method="addObserver">
-                <argument id="import_product_bundle.observer.bundle.product.relation" type="service"/>
+                <argument id="import_product_bundle_ee.observer.bundle.product.relation" type="service"/>
             </call>
         </service>
         <service id="import_product_ee.observer.composite.media.replace" class="TechDivision\Import\Observers\GenericCompositeObserver">
