@@ -167,7 +167,6 @@
               },
               "observers": [
                 {
-                  "pre-import" : [
                   "import": [
                     "import_product_ee.observer.composite.media.replace"
                   ]
