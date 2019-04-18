@@ -3,6 +3,7 @@
 ## Bugfixes
 
 * Fixed invalid DI name
+* Fixed issue with invalid bundle composite observer configuration
 
 ## Features
 
