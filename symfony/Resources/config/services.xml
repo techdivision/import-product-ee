@@ -157,7 +157,7 @@
                 <argument id="import_product_ee.observer.url.key" type="service"/>
             </call>
             <call method="addObserver">
-                <argument id="mport_product.observer.file.upload" type="service"/>
+                <argument id="import_product.observer.file.upload" type="service"/>
             </call>
             <call method="addObserver">
                 <argument id="import_product.observer.quality.and.stock.status" type="service"/>
