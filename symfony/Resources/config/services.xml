@@ -11,6 +11,7 @@
         <service id="import_product_ee.repository.product" class="TechDivision\Import\Product\Ee\Repositories\ProductRepository">
             <argument type="service" id="connection"/>
             <argument type="service" id="import_product_ee.repository.sql.statement"/>
+            <argument type="service" id="import.cache.adapter.configurable"/>
         </service>
 
         <service id="import_product_ee.repository.cache.warmer.product" class="TechDivision\Import\Product\Repositories\CacheWarmer\ProductCacheWarmer">
