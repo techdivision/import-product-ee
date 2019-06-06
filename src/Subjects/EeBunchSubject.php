@@ -108,7 +108,7 @@ class EeBunchSubject extends BunchSubject
         $registryProcessor = $this->getRegistryProcessor();
 
         // update the status up the actual import with SKU => row ID mapping
-        $registryProcessor->mergeAttributesRecursive($serial, array(RegistryKeys::SKU_ROW_ID_MAPPING => $this->skuRowIdMapping));
+        $registryProcessor->mergeAttributesRecursive(RegistryKeys::STATUS, array(RegistryKeys::SKU_ROW_ID_MAPPING => $this->skuRowIdMapping));
 
         // call parent method
         parent::tearDown($serial);
