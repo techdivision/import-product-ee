@@ -1,3 +1,13 @@
+# Version 11.0.0
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Switch to latest techdivision/import-ee 9.0.* and techdivision/import-product 11.0.* version as dependency
+
 # Version 10.0.1
 
 ## Bugfixes
