@@ -1,6 +1,6 @@
 {
   "magento-edition": "EE",
-  "magento-version": "2.3.0",
+  "magento-version": "2.3.2",
   "operation-name" : "add-update",
   "archive-artefacts" : true,
   "debug-mode" : false,

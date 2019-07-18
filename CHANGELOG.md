@@ -1,3 +1,13 @@
+# Version 13.0.3
+
+## Bugfixes
+
+* Fixed invalid Magento Version in default configuration file for Magento 2.3.2
+
+## Features
+
+* None
+
 # Version 13.0.2
 
 ## Bugfixes
