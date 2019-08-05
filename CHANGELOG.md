@@ -1,3 +1,13 @@
+# Version 15.0.1
+
+## Bugfixes
+
+* Fixed invalid alias for DI alias import_product_ee.observer.composite.bundle.replace
+
+## Features
+
+* None
+
 # Version 15.0.0
 
 ## Bugfixes

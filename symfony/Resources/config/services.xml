@@ -198,7 +198,7 @@
         <service id="import_product_ee.observer.composite.variant.replace" alias="import_product_variant_ee.observer.composite.replace">
             <deprecated>The alias "%alias_id%" for the "%service_id%" service is deprecated since techdivision/import-product 15.0.0 and will be removed in 16.0.0.</deprecated>
         </service>
-        <service id="import_product_bundle_ee.observer.composite.bundle.replace" alias="import_product_bundle_ee.observer.composite.replace">
+        <service id="import_product_ee.observer.composite.bundle.replace" alias="import_product_bundle_ee.observer.composite.replace">
             <deprecated>The alias "%alias_id%" for the "%service_id%" service is deprecated since techdivision/import-product 15.0.0 and will be removed in 16.0.0.</deprecated>
         </service>
         <service id="import_product_ee.observer.composite.media.replace" alias="import_product_media_ee.observer.composite.replace">
