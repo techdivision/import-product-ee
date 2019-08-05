@@ -1,3 +1,14 @@
+# Version 15.0.0
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Remove unnecessary dedicated default product import configuration file for Magento 2.3.2
+* Switch to latest techdivision/import-ee 12.* and techdivision/import-product 16.* version as dependency
+
 # Version 14.0.0
 
 ## Bugfixes
