@@ -21,9 +21,10 @@
 namespace TechDivision\Import\Product\Ee\Subjects;
 
 use TechDivision\Import\Utils\RegistryKeys;
+use TechDivision\Import\Utils\StoreViewCodes;
 use TechDivision\Import\Product\Ee\Utils\MemberNames;
 use TechDivision\Import\Product\Subjects\BunchSubject;
-use TechDivision\Import\Utils\StoreViewCodes;
+use TechDivision\Import\Product\Ee\Exceptions\MapSkuToRowIdException;
 
 /**
  * A SLSB that handles the process to import product bunches.
@@ -139,12 +140,37 @@ class EeBunchSubject extends BunchSubject
     /**
      * Add the passed SKU => row ID mapping.
      *
-     * @param string $sku The SKU
+     * @param string       $sku   The SKU
+     * @param integer|null $rowId The optional entity ID, the last processed entity ID is used, if not set
      *
      * @return void
      */
-    public function addSkuRowIdMapping($sku)
+    public function addSkuRowIdMapping($sku, $rowId = null)
     {
-        $this->skuRowIdMapping[$sku] = $this->getLastRowId();
+        $this->skuRowIdMapping[$sku] = $rowId == null ? $this->getLastRowId() : $rowId;
+    }
+
+    /**
+     * Return the row ID for the passed SKU.
+     *
+     * @param string $sku The SKU to return the row ID for
+     *
+     * @return integer The mapped row ID
+     * @throws \TechDivision\Import\Product\Ee\Exceptions\MapSkuToRowIdException Is thrown if the SKU is not mapped yet
+     */
+    public function mapSkuToRowId($sku)
+    {
+
+        // query weather or not the SKU has been mapped
+        if (isset($this->skuRowIdMapping[$sku])) {
+            return $this->skuRowIdMapping[$sku];
+        }
+
+        // throw an exception if the SKU has not been mapped yet
+        throw new MapSkuToRowIdException(
+            $this->appendExceptionSuffix(
+                sprintf('Found not mapped entity ID for SKU %s', $sku)
+            )
+        );
     }
 }

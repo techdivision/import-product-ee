@@ -14,7 +14,7 @@
  * @author    Tim Wagner <t.wagner@techdivision.com>
  * @copyright 2016 TechDivision GmbH <info@techdivision.com>
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
- * @link      https://github.com/techdivision/import-product
+ * @link      https://github.com/techdivision/import-product-ee
  * @link      http://www.techdivision.com
  */
 
@@ -29,7 +29,7 @@ use TechDivision\Import\Product\Observers\LastEntityIdObserver;
  * @author    Tim Wagner <t.wagner@techdivision.com>
  * @copyright 2016 TechDivision GmbH <info@techdivision.com>
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
- * @link      https://github.com/techdivision/import-product
+ * @link      https://github.com/techdivision/import-product-ee
  * @link      http://www.techdivision.com
  */
 class LastEntityAndRowIdObserver extends LastEntityIdObserver

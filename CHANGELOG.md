@@ -1,3 +1,15 @@
+# Version 14.0.0
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Add new generic SKU to row ID mapping observer
+* Extend addSkuRowIdMapping with a new optional rowId param
+* Switch to latest techdivision/import-product 15.* version as dependency
+
 # Version 13.0.4
 
 ## Bugfixes
