@@ -1,3 +1,13 @@
+# Version 16.0.0
+
+## Bugfixes
+
+* Switch to latest techdivision/import-ee 13.* and techdivision/import-product 17.* version as dependency
+
+## Features
+
+* None
+
 # Version 15.0.1
 
 ## Bugfixes
