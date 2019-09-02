@@ -1,3 +1,13 @@
+# Version 17.0.0
+
+## Bugfixes
+
+* Fixed techdivision/import-category-ee#34
+
+## Features
+
+* Switch to latest techdivision/import-product 18.* version as dependency
+
 # Version 16.0.0
 
 ## Bugfixes
