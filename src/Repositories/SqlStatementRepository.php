@@ -42,45 +42,45 @@ class SqlStatementRepository extends \TechDivision\Import\Product\Repositories\S
     private $statements = array(
         SqlStatementKeys::PRODUCT =>
             'SELECT *
-               FROM catalog_product_entity
+               FROM ${table:catalog_product_entity}
               WHERE sku = :sku
                 AND updated_in > unix_timestamp(now())
            ORDER BY created_in ASC',
         SqlStatementKeys::PRODUCTS =>
-            'SELECT * FROM catalog_product_entity
+            'SELECT * FROM ${table:catalog_product_entity}
               WHERE updated_in > unix_timestamp(now())
            GROUP BY sku
            ORDER BY created_in ASC',
         SqlStatementKeys::PRODUCT_DATETIMES =>
             'SELECT *
-               FROM catalog_product_entity_datetime
+               FROM ${table:catalog_product_entity_datetime}
               WHERE row_id = :pk
                 AND store_id = :store_id',
         SqlStatementKeys::PRODUCT_DECIMALS =>
             'SELECT *
-               FROM catalog_product_entity_decimal
+               FROM ${table:catalog_product_entity_decimal}
               WHERE row_id = :pk
                 AND store_id = :store_id',
         SqlStatementKeys::PRODUCT_INTS =>
             'SELECT *
-               FROM catalog_product_entity_int
+               FROM ${table:catalog_product_entity_int}
               WHERE row_id = :pk
                 AND store_id = :store_id',
         SqlStatementKeys::PRODUCT_TEXTS =>
             'SELECT *
-               FROM catalog_product_entity_text
+               FROM ${table:catalog_product_entity_text}
               WHERE row_id = :pk
                 AND store_id = :store_id',
         SqlStatementKeys::PRODUCT_VARCHARS =>
             'SELECT *
-               FROM catalog_product_entity_varchar
+               FROM ${table:catalog_product_entity_varchar}
               WHERE row_id = :pk
                 AND store_id = :store_id',
         SqlStatementKeys::CREATE_SEQUENCE_PRODUCT =>
-            'INSERT INTO sequence_product VALUES ()',
+            'INSERT INTO ${table:sequence_product} VALUES ()',
         SqlStatementKeys::CREATE_PRODUCT =>
             'INSERT
-               INTO catalog_product_entity
+               INTO ${table:catalog_product_entity}
                     (entity_id,
                      created_in,
                      updated_in,
@@ -102,7 +102,7 @@ class SqlStatementRepository extends \TechDivision\Import\Product\Repositories\S
                      :type_id,
                      :attribute_set_id)',
         SqlStatementKeys::UPDATE_PRODUCT =>
-            'UPDATE catalog_product_entity
+            'UPDATE ${table:catalog_product_entity}
                 SET entity_id = :entity_id,
                     created_in = :created_in,
                     updated_in = :updated_in,
@@ -116,7 +116,7 @@ class SqlStatementRepository extends \TechDivision\Import\Product\Repositories\S
               WHERE row_id = :row_id',
         SqlStatementKeys::CREATE_PRODUCT_DATETIME =>
             'INSERT
-               INTO catalog_product_entity_datetime
+               INTO ${table:catalog_product_entity_datetime}
                     (row_id,
                      attribute_id,
                      store_id,
@@ -126,7 +126,7 @@ class SqlStatementRepository extends \TechDivision\Import\Product\Repositories\S
                      :store_id,
                      :value)',
         SqlStatementKeys::UPDATE_PRODUCT_DATETIME =>
-            'UPDATE catalog_product_entity_datetime
+            'UPDATE ${table:catalog_product_entity_datetime}
                 SET row_id = :row_id,
                     attribute_id = :attribute_id,
                     store_id = :store_id,
@@ -134,7 +134,7 @@ class SqlStatementRepository extends \TechDivision\Import\Product\Repositories\S
               WHERE value_id = :value_id',
         SqlStatementKeys::CREATE_PRODUCT_DECIMAL =>
             'INSERT
-               INTO catalog_product_entity_decimal
+               INTO ${table:catalog_product_entity_decimal}
                     (row_id,
                      attribute_id,
                      store_id,
@@ -144,7 +144,7 @@ class SqlStatementRepository extends \TechDivision\Import\Product\Repositories\S
                      :store_id,
                      :value)',
         SqlStatementKeys::UPDATE_PRODUCT_DECIMAL =>
-            'UPDATE catalog_product_entity_decimal
+            'UPDATE ${table:catalog_product_entity_decimal}
                 SET row_id = :row_id,
                     attribute_id = :attribute_id,
                     store_id = :store_id,
@@ -152,7 +152,7 @@ class SqlStatementRepository extends \TechDivision\Import\Product\Repositories\S
               WHERE value_id = :value_id',
         SqlStatementKeys::CREATE_PRODUCT_INT =>
             'INSERT
-               INTO catalog_product_entity_int
+               INTO ${table:catalog_product_entity_int}
                     (row_id,
                      attribute_id,
                      store_id,
@@ -162,7 +162,7 @@ class SqlStatementRepository extends \TechDivision\Import\Product\Repositories\S
                      :store_id,
                      :value)',
         SqlStatementKeys::UPDATE_PRODUCT_INT =>
-            'UPDATE catalog_product_entity_int
+            'UPDATE ${table:catalog_product_entity_int}
                 SET row_id = :row_id,
                     attribute_id = :attribute_id,
                     store_id = :store_id,
@@ -170,7 +170,7 @@ class SqlStatementRepository extends \TechDivision\Import\Product\Repositories\S
               WHERE value_id = :value_id',
         SqlStatementKeys::CREATE_PRODUCT_VARCHAR =>
             'INSERT
-               INTO catalog_product_entity_varchar
+               INTO ${table:catalog_product_entity_varchar}
                     (row_id,
                      attribute_id,
                      store_id,
@@ -180,7 +180,7 @@ class SqlStatementRepository extends \TechDivision\Import\Product\Repositories\S
                      :store_id,
                      :value)',
         SqlStatementKeys::UPDATE_PRODUCT_VARCHAR =>
-            'UPDATE catalog_product_entity_varchar
+            'UPDATE ${table:catalog_product_entity_varchar}
                 SET row_id = :row_id,
                     attribute_id = :attribute_id,
                     store_id = :store_id,
@@ -188,7 +188,7 @@ class SqlStatementRepository extends \TechDivision\Import\Product\Repositories\S
               WHERE value_id = :value_id',
         SqlStatementKeys::CREATE_PRODUCT_TEXT =>
             'INSERT
-               INTO catalog_product_entity_text
+               INTO ${table:catalog_product_entity_text}
                     (row_id,
                      attribute_id,
                      store_id,
@@ -198,7 +198,7 @@ class SqlStatementRepository extends \TechDivision\Import\Product\Repositories\S
                      :store_id,
                      :value)',
         SqlStatementKeys::UPDATE_PRODUCT_TEXT =>
-            'UPDATE catalog_product_entity_text
+            'UPDATE ${table:catalog_product_entity_text}
                 SET row_id = :row_id,
                     attribute_id = :attribute_id,
                     store_id = :store_id,
@@ -207,17 +207,17 @@ class SqlStatementRepository extends \TechDivision\Import\Product\Repositories\S
     );
 
     /**
-     * Initialize the the SQL statements.
+     * Initializes the SQL statement repository with the primary key and table prefix utility.
+     *
+     * @param \IteratorAggregate<\TechDivision\Import\Utils\SqlCompilerInterface> $compilers The array with the compiler instances
      */
-    public function __construct()
+    public function __construct(\IteratorAggregate $compilers)
     {
 
-        // call the parent constructor
-        parent::__construct();
+        // pass primary key + table prefix utility to parent instance
+        parent::__construct($compilers);
 
-        // merge the class statements
-        foreach ($this->statements as $key => $statement) {
-            $this->preparedStatements[$key] = $statement;
-        }
+        // compile the SQL statements
+        $this->compile($this->statements);
     }
 }
