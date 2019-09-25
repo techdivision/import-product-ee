@@ -73,6 +73,7 @@
         <service id="import_product_ee.observer.url.key" class="TechDivision\Import\Product\Ee\Observers\EeUrlKeyObserver">
             <argument type="service" id="import_product_ee.processor.product.bunch"/>
             <argument type="service" id="import_product.filter.convert.literal.url"/>
+            <argument type="service" id="import_category.util.url.key"/>
         </service>
         <service id="import_product_ee.observer.product.attribute" class="TechDivision\Import\Product\Ee\Observers\EeProductAttributeObserver">
             <argument type="service" id="import_product_ee.processor.product.bunch"/>
