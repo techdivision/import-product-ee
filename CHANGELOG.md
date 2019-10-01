@@ -8,6 +8,7 @@
 
 * Refactor URL key handling
 * Add techdivision/import-cli-simple#216
+* Add techdivision/import-configuration-jms#25
 * Remove unnecessary identifiers from configuration
 * Switch to latest techdivision/import-ee 14.* and techdivision/import-product 19.* version as dependency
 
