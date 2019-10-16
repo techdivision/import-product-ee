@@ -6,7 +6,8 @@
           "general/general/initialize",
           "general/general/global-data",
           "general/general/move-files",
-          "ce/catalog_product/delete",
+          "ee/catalog_product/delete",
+          "general/catalog_product/delete.msi",
           "general/general/archive-artefacts",
           "general/general/clean-up"
         ],
@@ -18,6 +19,13 @@
           "ee/catalog_category/convert",
           "ee/catalog_category/add-update",
           "ee/catalog_product/replace",
+          "ee/catalog_product/replace.variants",
+          "ee/catalog_product/replace.bundles",
+          "ee/catalog_product/replace.links",
+          "ee/catalog_product/replace.grouped",
+          "ee/catalog_product/replace.media",
+          "general/catalog_product/replace.msi",
+          "general/catalog_product/replace.url-rewrites",
           "general/general/archive-artefacts",
           "general/general/clean-up"
         ],
@@ -29,6 +37,13 @@
           "ee/catalog_category/convert",
           "ee/catalog_category/add-update",
           "ee/catalog_product/add-update",
+          "ee/catalog_product/add-update.variants",
+          "ee/catalog_product/add-update.bundles",
+          "ee/catalog_product/add-update.links",
+          "ee/catalog_product/add-update.grouped",
+          "ee/catalog_product/add-update.media",
+          "general/catalog_product/add-update.msi",
+          "general/catalog_product/add-update.url-rewrites",
           "general/general/archive-artefacts",
           "general/general/clean-up"
         ]
@@ -41,9 +56,6 @@
         {
           "name": "delete",
           "plugins": [
-            {
-              "id": "import.plugin.global.data"
-            },
             {
               "id": "import.plugin.subject",
               "subjects": [
@@ -59,36 +71,14 @@
                       ]
                     }
                   ]
-                },
-                {
-                  "id": "import_product_msi.subject.bunch",
-                  "file-resolver": {
-                    "prefix": "inventory-msi"
-                  },
-                  "observers": [
-                    {
-                      "import": [
-                        "import_product_msi.observer.composite.delete"
-                      ]
-                    }
-                  ]
                 }
               ]
-            },
-            {
-              "id": "import.plugin.archive"
             }
           ]
         },
         {
           "name": "replace",
           "plugins": [
-            {
-              "id": "import.plugin.cache.warmer"
-            },
-            {
-              "id": "import.plugin.global.data"
-            },
             {
               "id": "import.plugin.subject",
               "subjects": [
@@ -107,7 +97,17 @@
                       ]
                     }
                   ]
-                },
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "replace.variants",
+          "plugins": [
+            {
+              "id": "import.plugin.subject",
+              "subjects": [
                 {
                   "id": "import_product_variant_ee.subject.variant",
                   "file-resolver": {
@@ -120,7 +120,17 @@
                       ]
                     }
                   ]
-                },
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "replace.bundles",
+          "plugins": [
+            {
+              "id": "import.plugin.subject",
+              "subjects": [
                 {
                   "id": "import_product_bundle_ee.subject.bundle",
                   "file-resolver": {
@@ -133,7 +143,17 @@
                       ]
                     }
                   ]
-                },
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "replace.grouped",
+          "plugins": [
+            {
+              "id": "import.plugin.subject",
+              "subjects": [
                 {
                   "id": "import_product_grouped_ee.subject.grouped",
                   "file-resolver": {
@@ -146,20 +166,17 @@
                       ]
                     }
                   ]
-                },
-                {
-                  "id": "import_product_media_ee.subject.media",
-                  "file-resolver": {
-                    "prefix": "media"
-                  },
-                  "observers": [
-                    {
-                      "import": [
-                        "import_product_media_ee.observer.composite.replace"
-                      ]
-                    }
-                  ]
-                },
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "replace.links",
+          "plugins": [
+            {
+              "id": "import.plugin.subject",
+              "subjects": [
                 {
                   "id": "import_product_link_ee.subject.link",
                   "file-resolver": {
@@ -172,49 +189,37 @@
                       ]
                     }
                   ]
-                },
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "replace.media",
+          "plugins": [
+            {
+              "id": "import.plugin.subject",
+              "subjects": [
                 {
-                  "id": "import_product_url_rewrite.subject.url.rewrite",
+                  "id": "import_product_media_ee.subject.media",
                   "file-resolver": {
-                    "prefix": "url-rewrite"
+                    "prefix": "media"
                   },
                   "observers": [
                     {
                       "import": [
-                        "import_product_url_rewrite.observer.url.rewrite"
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "id": "import_product_msi.subject.bunch",
-                  "file-resolver": {
-                    "prefix": "inventory-msi"
-                  },
-                  "observers": [
-                    {
-                      "import": [
-                        "import_product_msi.observer.composite.replace"
+                        "import_product_media_ee.observer.composite.replace"
                       ]
                     }
                   ]
                 }
               ]
-            },
-            {
-              "id": "import.plugin.archive"
             }
           ]
         },
         {
           "name": "add-update",
           "plugins": [
-            {
-              "id": "import.plugin.cache.warmer"
-            },
-            {
-              "id": "import.plugin.global.data"
-            },
             {
               "id": "import.plugin.subject",
               "subjects": [
@@ -242,7 +247,17 @@
                       ]
                     }
                   ]
-                },
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "add-update.variants",
+          "plugins": [
+            {
+              "id": "import.plugin.subject",
+              "subjects": [
                 {
                   "id": "import_product_variant_ee.subject.variant",
                   "file-resolver": {
@@ -255,7 +270,17 @@
                       ]
                     }
                   ]
-                },
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "add-update.bundles",
+          "plugins": [
+            {
+              "id": "import.plugin.subject",
+              "subjects": [
                 {
                   "id": "import_product_bundle_ee.subject.bundle",
                   "file-resolver": {
@@ -268,7 +293,17 @@
                       ]
                     }
                   ]
-                },
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "add-update.grouped",
+          "plugins": [
+            {
+              "id": "import.plugin.subject",
+              "subjects": [
                 {
                   "id": "import_product_grouped_ee.subject.grouped",
                   "file-resolver": {
@@ -281,7 +316,17 @@
                       ]
                     }
                   ]
-                },
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "add-update.media",
+          "plugins": [
+            {
+              "id": "import.plugin.subject",
+              "subjects": [
                 {
                   "id": "import_product_media_ee.subject.media",
                   "file-resolver": {
@@ -294,7 +339,17 @@
                       ]
                     }
                   ]
-                },
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "add-update.links",
+          "plugins": [
+            {
+              "id": "import.plugin.subject",
+              "subjects": [
                 {
                   "id": "import_product_link_ee.subject.link",
                   "file-resolver": {
@@ -307,40 +362,8 @@
                       ]
                     }
                   ]
-                },
-                {
-                  "id": "import_product_url_rewrite.subject.url.rewrite",
-                  "file-resolver": {
-                    "prefix": "url-rewrite"
-                  },
-                  "params": {
-                    "clean-up-url-rewrites": false
-                  },
-                  "observers": [
-                    {
-                      "import": [
-                        "import_product_url_rewrite.observer.url.rewrite.update"
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "id": "import_product_msi.subject.bunch",
-                  "file-resolver": {
-                    "prefix": "inventory-msi"
-                  },
-                  "observers": [
-                    {
-                      "import": [
-                        "import_product_msi.observer.composite.add_update"
-                      ]
-                    }
-                  ]
                 }
               ]
-            },
-            {
-              "id": "import.plugin.archive"
             }
           ]
         }

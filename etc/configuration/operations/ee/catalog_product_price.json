@@ -21,9 +21,6 @@
           "name": "add-update",
           "plugins": [
             {
-              "id": "import.plugin.global.data"
-            },
-            {
               "id": "import.plugin.subject",
               "subjects": [
                 {
@@ -47,9 +44,6 @@
                   ]
                 }
               ]
-            },
-            {
-              "id": "import.plugin.archive"
             }
           ]
         }
