@@ -6,6 +6,7 @@
           "general/general/move-files",
           "general/general/cache-warmer",
           "general/general/global-data",
+          "general/catalog_product_price/validate",
           "ee/catalog_product_price/add-update"
         ]
       }
