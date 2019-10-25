@@ -2,6 +2,12 @@
   "shortcuts": {
     "ee": {
       "catalog_product": {
+        "validate": [
+          "general/general/global-data",
+          "general/general/move-files",
+          "general/catalog_product/collect-data",
+          "general/catalog_product/validate"
+        ],
         "delete": [
           "general/general/global-data",
           "general/general/move-files",
@@ -12,6 +18,7 @@
           "general/general/global-data",
           "general/general/cache-warmer",
           "general/general/move-files",
+          "general/catalog_product/collect-data",
           "general/catalog_product/validate",
           "general/catalog_category/convert",
           "ee/catalog_category/add-update",
@@ -31,6 +38,7 @@
           "general/general/global-data",
           "general/general/cache-warmer",
           "general/general/move-files",
+          "general/catalog_product/collect-data",
           "general/catalog_product/validate",
           "general/catalog_category/convert",
           "ee/catalog_category/add-update",
