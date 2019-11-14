@@ -5,44 +5,53 @@
 
     <services>
 
+        <!--
+         | ATTENTION START OVERRIDE HERE!
+         |-->
+
+        <!--
+         | The DI repository configuration
+         |-->
         <service id="import_product.repository.sql.statement" class="TechDivision\Import\Product\Ee\Repositories\SqlStatementRepository">
             <argument type="service" id="import.util.sql.compilers"/>
         </service>
-        <service id="import_product_ee.repository.sql.statement" class="TechDivision\Import\Product\Ee\Repositories\SqlStatementRepository">
-            <argument type="service" id="import.util.sql.compilers"/>
-        </service>
-        <service id="import_product_ee.repository.product" class="TechDivision\Import\Product\Ee\Repositories\ProductRepository">
-            <argument type="service" id="connection"/>
-            <argument type="service" id="import_product_ee.repository.sql.statement"/>
-            <argument type="service" id="cache.configurable"/>
+
+        <!--
+         | The DI action configuration
+         |-->
+        <service id="import_product.action.product" class="TechDivision\Import\Actions\GenericIdentifierAction">
+            <argument type="service" id="import_product.action.processor.product.create"/>
+            <argument type="service" id="import_product.action.processor.product.update"/>
+            <argument type="service" id="import_product.action.processor.product.delete"/>
+            <argument type="constant">TechDivision\Import\Product\Ee\Utils\MemberNames::ROW_ID</argument>
         </service>
 
-        <service id="import_product_ee.repository.cache.warmer.product" class="TechDivision\Import\Product\Repositories\CacheWarmer\ProductCacheWarmer">
-            <argument type="service" id="import_product_ee.repository.product"/>
-        </service>
+        <!--
+         | ATTENTION STOP OVERRIDE HERE!
+         |-->
 
-        <service id="import_product_ee.action.processor.product.update" class="TechDivision\Import\Product\Ee\Actions\Processors\ProductUpdateProcessor">
-            <argument type="service" id="connection"/>
-            <argument type="service" id="import_product_ee.repository.sql.statement"/>
-        </service>
+        <!--
+         | The DI action configuration
+         |-->
         <service id="import_product_ee.action.processor.sequence.product.create" class="TechDivision\Import\Product\Ee\Actions\Processors\SequenceProductCreateProcessor">
             <argument type="service" id="connection"/>
-            <argument type="service" id="import_product_ee.repository.sql.statement"/>
+            <argument type="service" id="import_product.repository.sql.statement"/>
         </service>
 
+        <!--
+         | The DI action configuration
+         |-->
         <service id="import_product_ee.action.sequence.product" class="TechDivision\Import\Product\Ee\Actions\SequenceProductAction">
             <argument type="service" id="import_product_ee.action.processor.sequence.product.create"/>
         </service>
-        <service id="import_product.action.product" class="TechDivision\Import\Actions\GenericIdentifierAction">
-            <argument type="service" id="import_product.action.processor.product.create"/>
-            <argument type="service" id="import_product_ee.action.processor.product.update"/>
-            <argument type="service" id="import_product.action.processor.product.delete"/>
-        </service>
 
+        <!--
+         | The DI configuration for the EE bunch processor
+         |-->
         <service id="import_product_ee.processor.product.bunch" class="TechDivision\Import\Product\Ee\Services\EeProductBunchProcessor">
             <argument type="service" id="connection"/>
             <argument type="service" id="import_product_ee.action.sequence.product"/>
-            <argument type="service" id="import_product_ee.repository.product"/>
+            <argument type="service" id="import_product.repository.product"/>
             <argument type="service" id="import_product.repository.product.website"/>
             <argument type="service" id="import_product.repository.product.datetime"/>
             <argument type="service" id="import_product.repository.product.decimal"/>
@@ -67,6 +76,9 @@
             <argument type="service" id="import_product.assembler.product.attribute"/>
         </service>
 
+        <!--
+         | The DI observer configuration
+         |-->
         <service id="import_product_ee.observer.clean.up" class="TechDivision\Import\Product\Ee\Observers\EeCleanUpObserver">
             <argument type="service" id="import_product_ee.processor.product.bunch"/>
         </service>
@@ -288,6 +300,9 @@
             <deprecated>The alias "%alias_id%" for the "%service_id%" service is deprecated since techdivision/import-product 15.0.0 and will be removed in 16.0.0.</deprecated>
         </service>
 
+        <!--
+         | The DI subject configuration
+         |-->
         <service id="import_product_ee.subject.bunch" class="TechDivision\Import\Product\Ee\Subjects\EeBunchSubject" shared="false">
             <argument type="service" id="import.processor.registry"/>
             <argument type="service" id="import.generator.core.config.data.uid"/>

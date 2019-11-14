@@ -54,14 +54,26 @@ class SqlStatementRepository extends \TechDivision\Import\Product\Repositories\S
         SqlStatementKeys::PRODUCT_DATETIMES =>
             'SELECT *
                FROM ${table:catalog_product_entity_datetime}
+           ORDER BY row_id, store_id',
+        SqlStatementKeys::PRODUCT_DATETIMES_BY_PK_AND_STORE_ID =>
+        'SELECT *
+               FROM ${table:catalog_product_entity_datetime}
               WHERE row_id = :pk
                 AND store_id = :store_id',
         SqlStatementKeys::PRODUCT_DECIMALS =>
             'SELECT *
                FROM ${table:catalog_product_entity_decimal}
+           ORDER BY row_id, store_id',
+        SqlStatementKeys::PRODUCT_DECIMALS_BY_PK_AND_STORE_ID =>
+        'SELECT *
+               FROM ${table:catalog_product_entity_decimal}
               WHERE row_id = :pk
                 AND store_id = :store_id',
         SqlStatementKeys::PRODUCT_INTS =>
+            'SELECT *
+               FROM ${table:catalog_product_entity_int}
+           ORDER BY row_id, store_id',
+        SqlStatementKeys::PRODUCT_INTS_BY_PK_AND_STORE_ID =>
             'SELECT *
                FROM ${table:catalog_product_entity_int}
               WHERE row_id = :pk
@@ -69,9 +81,17 @@ class SqlStatementRepository extends \TechDivision\Import\Product\Repositories\S
         SqlStatementKeys::PRODUCT_TEXTS =>
             'SELECT *
                FROM ${table:catalog_product_entity_text}
+           ORDER BY row_id, store_id',
+        SqlStatementKeys::PRODUCT_TEXTS_BY_PK_AND_STORE_ID =>
+            'SELECT *
+               FROM ${table:catalog_product_entity_text}
               WHERE row_id = :pk
                 AND store_id = :store_id',
         SqlStatementKeys::PRODUCT_VARCHARS =>
+            'SELECT *
+               FROM ${table:catalog_product_entity_varchar}
+           ORDER BY row_id, store_id',
+        SqlStatementKeys::PRODUCT_VARCHARS_BY_PK_AND_STORE_ID =>
             'SELECT *
                FROM ${table:catalog_product_entity_varchar}
               WHERE row_id = :pk

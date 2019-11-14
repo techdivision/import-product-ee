@@ -22,7 +22,6 @@ namespace TechDivision\Import\Product\Ee\Observers;
 
 use TechDivision\Import\Ee\Utils\SqlConstants;
 use TechDivision\Import\Utils\EntityStatus;
-use TechDivision\Import\Product\Utils\ColumnKeys;
 use TechDivision\Import\Product\Ee\Utils\MemberNames;
 use TechDivision\Import\Product\Observers\ProductObserver;
 
@@ -39,24 +38,24 @@ class EeProductObserver extends ProductObserver
 {
 
     /**
-     * Process the observer's business logic.
+     * Merge's and return's the entity with the passed attributes and set's the
+     * passed status.
      *
-     * @return array The processed row
+     * @param array       $entity        The entity to merge the attributes into
+     * @param array       $attr          The attributes to be merged
+     * @param string|null $changeSetName The change set name to use
+     *
+     * @return array The merged entity
      */
-    protected function process()
+    protected function mergeEntity(array $entity, array $attr, $changeSetName = null)
     {
 
-        // query whether or not, we've found a new SKU => means we've found a new product
-        if ($this->hasBeenProcessed($this->getValue(ColumnKeys::SKU))) {
-            return;
-        }
+        // temporary persist the entity and row ID
+        $this->setLastRowId($entity[MemberNames::ROW_ID]);
+        $this->setLastEntityId($entity[MemberNames::ENTITY_ID]);
 
-        // prepare the static entity values
-        $product = $this->initializeProduct($this->prepareAttributes());
-
-        // insert the entity and set the entity ID, SKU and attribute set
-        $this->setLastRowId($this->persistProduct($product));
-        $this->setLastEntityId($product[MemberNames::ENTITY_ID]);
+        // merge and return the entity
+        return parent::mergeEntity($entity, $attr, $changeSetName);
     }
 
     /**
@@ -87,6 +86,20 @@ class EeProductObserver extends ProductObserver
 
         // otherwise simply return the attributes
         return $attr;
+    }
+
+    /**
+     * Persist's the passed product data.
+     *
+     * @param array $product The product data to persist
+     *
+     * @return void
+     */
+    protected function persistProduct($product)
+    {
+        // persist the entity and set the entity ID, SKU and attribute set
+        $this->setLastRowId($this->getProductBunchProcessor()->persistProduct($product));
+        $this->setLastEntityId($product[MemberNames::ENTITY_ID]);
     }
 
     /**

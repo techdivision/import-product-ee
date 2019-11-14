@@ -27,8 +27,8 @@ use TechDivision\Import\Repositories\EavEntityTypeRepositoryInterface;
 use TechDivision\Import\Repositories\EavAttributeOptionValueRepositoryInterface;
 use TechDivision\Import\Product\Services\ProductBunchProcessor;
 use TechDivision\Import\Product\Ee\Actions\SequenceProductActionInterface;
-use TechDivision\Import\Product\Ee\Repositories\ProductRepositoryInterface;
 use TechDivision\Import\Product\Assemblers\ProductAttributeAssemblerInterface;
+use TechDivision\Import\Product\Repositories\ProductRepositoryInterface;
 use TechDivision\Import\Product\Repositories\StockItemRepositoryInterface;
 use TechDivision\Import\Product\Repositories\ProductIntRepositoryInterface;
 use TechDivision\Import\Product\Repositories\ProductTextRepositoryInterface;
@@ -62,7 +62,7 @@ class EeProductBunchProcessor extends ProductBunchProcessor implements EeProduct
      *
      * @param \TechDivision\Import\Connection\ConnectionInterface                          $connection                        The connection to use
      * @param \TechDivision\Import\Product\Ee\Actions\SequenceProductActionInterface       $sequenceProductAction             The sequence product action to use
-     * @param \TechDivision\Import\Product\Ee\Repositories\ProductRepositoryInterface      $productRepository                 The product repository to use
+     * @param \TechDivision\Import\Product\Repositories\ProductRepositoryInterface         $productRepository                 The product repository to use
      * @param \TechDivision\Import\Product\Repositories\ProductWebsiteRepositoryInterface  $productWebsiteRepository          The product website repository to use
      * @param \TechDivision\Import\Product\Repositories\ProductDatetimeRepositoryInterface $productDatetimeRepository         The product datetime repository to use
      * @param \TechDivision\Import\Product\Repositories\ProductDecimalRepositoryInterface  $productDecimalRepository          The product decimal repository to use
