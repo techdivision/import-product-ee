@@ -20,6 +20,8 @@
 
 namespace TechDivision\Import\Product\Ee\Actions;
 
+use PHPUnit\Framework\TestCase;
+
 /**
  * Test class for the sequence product action implementation.
  *
@@ -29,7 +31,7 @@ namespace TechDivision\Import\Product\Ee\Actions;
  * @link      https://github.com/techdivision/import-product-media
  * @link      http://www.techdivision.com
  */
-class SequenceProductActionTest extends \PHPUnit_Framework_TestCase
+class SequenceProductActionTest extends TestCase
 {
 
     /**
