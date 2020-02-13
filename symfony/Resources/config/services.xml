@@ -31,6 +31,18 @@
          |-->
 
         <!--
+         | The DI configuration for the utilities
+         |-->
+        <service id="import_product_ee.util.rma.keys" class="TechDivision\Import\Product\Ee\Utils\RmaKeys"/>
+
+        <!--
+         | The DI callback configuration
+         |-->
+        <service id="import_product_ee.callback.rma" class="TechDivision\Import\Product\Ee\Callbacks\RmaCallback">
+            <argument type="service" id="import_product_ee.util.rma.keys"/>
+        </service>
+
+        <!--
          | The DI action configuration
          |-->
         <service id="import_product_ee.action.processor.sequence.product.create" class="TechDivision\Import\Product\Ee\Actions\Processors\SequenceProductCreateProcessor">

@@ -1,3 +1,13 @@
+# Version 19.0.0
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Fixed techdivision/import-product-ee#57
+
 # Version 18.0.0
 
 ## Bugfixes

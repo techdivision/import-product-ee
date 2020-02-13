@@ -83,6 +83,25 @@ class EeBunchSubject extends BunchSubject
     );
 
     /**
+     * The default callback mappings for the Magento EE standard product attributes.
+     *
+     * @var array
+     */
+    protected $defaultEeCallbackMappings = array(
+        'is_returnable' => array('import_product_ee.callback.rma')
+    );
+
+    /**
+     * Return's the default callback mappings.
+     *
+     * @return array The default callback mappings
+     */
+    public function getDefaultCallbackMappings()
+    {
+        return array_merge(parent::getDefaultCallbackMappings(), $this->defaultEeCallbackMappings);
+    }
+
+    /**
      * Return's TRUE, if the passed URL key varchar value IS related with the actual PK.
      *
      * @param array $productVarcharAttribute The varchar value to check
