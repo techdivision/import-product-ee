@@ -1,3 +1,13 @@
+# Version 19.0.1
+
+## Bugfixes
+
+* Fixed issue with delta import when SKUs of simples, that are related with grouped, are in database but will not be loaded
+
+## Features
+
+* None
+
 # Version 19.0.0
 
 ## Bugfixes
