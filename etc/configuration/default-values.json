@@ -1,7 +1,11 @@
 {
   "default-values": {
     "catalog_product": {
-      "is_returnable": "Use Config"
+      "product_online": 1,
+      "attribute_set_name": "Default",
+      "visibility": "Catalog, Search",
+      "is_returnable": "Use Config",
+      "url_key": null
     }
   }
 }

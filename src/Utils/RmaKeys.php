@@ -44,6 +44,18 @@ class RmaKeys implements RmaKeysInterface
     );
 
     /**
+     * Query's whether or not the passed key is valid or not.
+     *
+     * @param string $key The key to query for
+     *
+     * @return bool TRUE if the passed key is valid, else FALSE
+     */
+    public function isValid(string $key) : bool
+    {
+        return isset($this->returnable[$key]);
+    }
+
+    /**
      * Return's the value for the passed key.
      *
      * @param string $key The key to return the value for
@@ -53,5 +65,15 @@ class RmaKeys implements RmaKeysInterface
     public function get(string $key) : int
     {
         return isset($this->returnable[$key]) ? $this->returnable[$key] : $this->returnable[RmaKeysInterface::USE_CONFIG];
+    }
+
+    /**
+     * Return all available keys.
+     *
+     * @return array The array with the available keys
+     */
+    public function getAll() : array
+    {
+        return $this->returnable;
     }
 }

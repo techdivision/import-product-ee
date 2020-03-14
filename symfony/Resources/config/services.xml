@@ -41,6 +41,9 @@
         <service id="import_product_ee.callback.rma" class="TechDivision\Import\Product\Ee\Callbacks\RmaCallback">
             <argument type="service" id="import_product_ee.util.rma.keys"/>
         </service>
+        <service id="import_product_ee.callback.rma.validator" class="TechDivision\Import\Product\Ee\Callbacks\RmaValidatorCallback">
+            <argument type="service" id="import_product_ee.util.rma.keys"/>
+        </service>
 
         <!--
          | The DI action configuration

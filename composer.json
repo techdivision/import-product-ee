@@ -28,7 +28,13 @@
         "psr-4": {
             "TechDivision\\Import\\Product\\Ee\\": [
                 "src/",
-                "symfony/",
+                "symfony/"
+            ]
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "TechDivision\\Import\\Product\\Ee\\": [
                 "tests/unit"
             ]
         }
