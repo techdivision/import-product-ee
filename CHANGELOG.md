@@ -1,3 +1,13 @@
+# Version 21.0.2
+
+## Bugfixes
+
+* Fixed invalid JSON configuration file
+
+## Features
+
+* None
+
 # Version 21.0.1
 
 ## Bugfixes
