@@ -1,3 +1,13 @@
+# Version 21.0.1
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Add default configuration for media + images file dirctory
+
 # Version 21.0.0
 
 ## Bugfixes

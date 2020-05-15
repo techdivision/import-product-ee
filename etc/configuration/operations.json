@@ -165,7 +165,9 @@
                     "prefix": "product-import"
                   },
                   "params": {
-                    "copy-images": false
+                    "copy-images": false,
+                    "media-directory" : "pub/media/catalog/product",
+                    "images-file-directory" : "var/importexport/media/catalog/product",
                   },
                   "observers": [
                     {
@@ -300,7 +302,9 @@
                     "prefix": "product-import"
                   },
                   "params": {
-                    "copy-images": false,
+                    "copy-images": false,,
+                    "media-directory" : "pub/media/catalog/product",
+                    "images-file-directory" : "var/importexport/media/catalog/product",
                     "clean-up-media-gallery": true,
                     "clean-up-empty-image-columns": true,
                     "clean-up-website-product-relations": true,
