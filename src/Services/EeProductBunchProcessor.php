@@ -20,6 +20,7 @@
 
 namespace TechDivision\Import\Product\Ee\Services;
 
+use TechDivision\Import\Loaders\LoaderInterface;
 use TechDivision\Import\Actions\ActionInterface;
 use TechDivision\Import\Connection\ConnectionInterface;
 use TechDivision\Import\Repositories\EavAttributeRepositoryInterface;
@@ -85,6 +86,7 @@ class EeProductBunchProcessor extends ProductBunchProcessor implements EeProduct
      * @param \TechDivision\Import\Actions\ActionInterface                                 $stockItemAction                   The stock item action to use
      * @param \TechDivision\Import\Actions\ActionInterface                                 $urlRewriteAction                  The URL rewrite action to use
      * @param \TechDivision\Import\Product\Assemblers\ProductAttributeAssemblerInterface   $productAttributeAssembler         The assembler to load the product attributes with
+     * @param \TechDivision\Import\Loaders\LoaderInterface                                 $rawEntityLoader                   The raw entity loader instance
      */
     public function __construct(
         ConnectionInterface $connection,
@@ -111,7 +113,8 @@ class EeProductBunchProcessor extends ProductBunchProcessor implements EeProduct
         ActionInterface $productWebsiteAction,
         ActionInterface $stockItemAction,
         ActionInterface $urlRewriteAction,
-        ProductAttributeAssemblerInterface $productAttributeAssembler
+        ProductAttributeAssemblerInterface $productAttributeAssembler,
+        LoaderInterface $rawEntityLoader
     ) {
 
         // set the sequence product action
@@ -142,7 +145,8 @@ class EeProductBunchProcessor extends ProductBunchProcessor implements EeProduct
             $productWebsiteAction,
             $stockItemAction,
             $urlRewriteAction,
-            $productAttributeAssembler
+            $productAttributeAssembler,
+            $rawEntityLoader
         );
     }
 
