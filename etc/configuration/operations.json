@@ -225,28 +225,6 @@
             }
           }
         },
-        "replace.grouped": {
-          "plugins": {
-            "subject": {
-              "id": "import.plugin.subject",
-              "subjects": [
-                {
-                  "id": "import_product_grouped_ee.subject.grouped",
-                  "file-resolver": {
-                    "prefix": "grouped"
-                  },
-                  "observers": [
-                    {
-                      "import": [
-                        "import_product_grouped_ee.observer.composite.replace"
-                      ]
-                    }
-                  ]
-                }
-              ]
-            }
-          }
-        },
         "replace.links": {
           "plugins": {
             "subject": {
@@ -269,6 +247,28 @@
             }
           }
         },
+        "replace.grouped": {
+          "plugins": {
+            "subject": {
+              "id": "import.plugin.subject",
+              "subjects": [
+                {
+                  "id": "import_product_grouped_ee.subject.grouped",
+                  "file-resolver": {
+                    "prefix": "grouped"
+                  },
+                  "observers": [
+                    {
+                      "import": [
+                        "import_product_grouped_ee.observer.composite.replace"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        },
         "replace.media": {
           "plugins": {
             "subject": {
@@ -278,6 +278,10 @@
                   "id": "import_product_media_ee.subject.media",
                   "file-resolver": {
                     "prefix": "media"
+                  },
+                  "params": {
+                    "media-directory" : "pub/media/catalog/product",
+                    "images-file-directory" : "var/importexport/media/catalog/product"
                   },
                   "observers": [
                     {
@@ -337,6 +341,9 @@
                   "file-resolver": {
                     "prefix": "variants"
                   },
+                  "params": {
+                    "clean-up-empty-columns": []
+                  },
                   "observers": [
                     {
                       "import": [
@@ -359,10 +366,35 @@
                   "file-resolver": {
                     "prefix": "bundles"
                   },
+                  "params": {
+                    "clean-up-empty-columns": []
+                  },
                   "observers": [
                     {
                       "import": [
                         "import_product_bundle_ee.observer.composite.add_update"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        },
+        "add-update.links": {
+          "plugins": {
+            "subject": {
+              "id": "import.plugin.subject",
+              "subjects": [
+                {
+                  "id": "import_product_link_ee.subject.link",
+                  "file-resolver": {
+                    "prefix": "links"
+                  },
+                  "observers": [
+                    {
+                      "import": [
+                        "import_product_link_ee.observer.composite.add_update"
                       ]
                     }
                   ]
@@ -403,32 +435,15 @@
                   "file-resolver": {
                     "prefix": "media"
                   },
-                  "observers": [
-                    {
-                      "import": [
-                        "import_product_media_ee.observer.composite.add_update"
-                      ]
-                    }
-                  ]
-                }
-              ]
-            }
-          }
-        },
-        "add-update.links": {
-          "plugins": {
-            "subject": {
-              "id": "import.plugin.subject",
-              "subjects": [
-                {
-                  "id": "import_product_link_ee.subject.link",
-                  "file-resolver": {
-                    "prefix": "links"
+                  "params": {
+                    "media-directory" : "pub/media/catalog/product",
+                    "images-file-directory" : "var/importexport/media/catalog/product",
+                    "clean-up-empty-columns": []
                   },
                   "observers": [
                     {
                       "import": [
-                        "import_product_link_ee.observer.composite.add_update"
+                        "import_product_media_ee.observer.composite.add_update"
                       ]
                     }
                   ]
