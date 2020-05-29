@@ -13,7 +13,7 @@
          | The DI repository configuration
          |-->
         <service id="import_product.repository.sql.statement" class="TechDivision\Import\Product\Ee\Repositories\SqlStatementRepository">
-            <argument type="service" id="import_product.util.sql.compilers"/>
+            <argument type="service" id="import.util.sql.compilers"/>
         </service>
 
         <!--
