@@ -50,7 +50,7 @@ class RmaKeys implements RmaKeysInterface
      *
      * @return bool TRUE if the passed key is valid, else FALSE
      */
-    public function isValid(string $key) : bool
+    public function isValid(?string $key) : bool
     {
         return isset($this->returnable[$key]);
     }
@@ -62,7 +62,7 @@ class RmaKeys implements RmaKeysInterface
      *
      * @return int The value
      */
-    public function get(string $key) : int
+    public function get(?string $key) : int
     {
         return isset($this->returnable[$key]) ? $this->returnable[$key] : $this->returnable[RmaKeysInterface::USE_CONFIG];
     }

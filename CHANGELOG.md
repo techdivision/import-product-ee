@@ -1,3 +1,13 @@
+# Version 23.0.0
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Add #PAC-130
+
 # Version 22.0.0
 
 ## Bugfixes

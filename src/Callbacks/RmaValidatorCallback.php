@@ -54,6 +54,18 @@ class RmaValidatorCallback implements CallbackInterface
     }
 
     /**
+     * Query whether or not the passed value IS empty and empty values are allowed.
+     *
+     * @param string $attributeValue The attribute value to query for
+     *
+     * @return boolean TRUE if empty values are allowed and the passed value IS empty
+     */
+    protected function isNullable($attributeValue)
+    {
+        return $attributeValue === '' || $attributeValue === null;
+    }
+
+    /**
      * Will be invoked by the observer it has been registered for.
      *
      * @param string|null $attributeCode  The code of the attribute that has to be validated
@@ -66,7 +78,7 @@ class RmaValidatorCallback implements CallbackInterface
     {
 
         // query whether or not the passed attribute code matches and the value is a valid RMA key
-        if (strtolower($attributeCode) === ColumnKeys::IS_RETURNABLE && $this->rmaKeys->isValid($attributeValue)) {
+        if (strtolower($attributeCode) === ColumnKeys::IS_RETURNABLE && ($this->isNullable($attributeValue) || $this->rmaKeys->isValid($attributeValue))) {
             return;
         }
 
