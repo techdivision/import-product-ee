@@ -1,3 +1,13 @@
+# Version 24.0.1
+
+## Bugfixes
+
+* Fixed invalid subject initialization
+
+## Features
+
+* None
+
 # Version 24.0.0
 
 ## Bugfixes
