@@ -1,3 +1,13 @@
+# Version 25.0.3
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Add missing operation `general/catalog_product/add-update.msi` to `ee/catalog_product_inventory/add-update` shortcut to also process the MSI artefact
+
 # Version 25.0.2
 
 ## Bugfixes
