@@ -102,19 +102,6 @@ class EeBunchSubject extends BunchSubject
     }
 
     /**
-     * Return's TRUE, if the passed URL key varchar value IS related with the actual PK.
-     *
-     * @param array $productVarcharAttribute The varchar value to check
-     *
-     * @return boolean TRUE if the URL key is related, else FALSE
-     */
-    public function isUrlKeyOf(array $productVarcharAttribute)
-    {
-        return ((integer) $productVarcharAttribute[MemberNames::ROW_ID] === (integer) $this->getLastRowId()) &&
-               ((integer) $productVarcharAttribute[MemberNames::STORE_ID] === (integer) $this->getRowStoreId(StoreViewCodes::ADMIN));
-    }
-
-    /**
      * Clean up the global data after importing the bunch.
      *
      * @param string $serial The serial of the actual import

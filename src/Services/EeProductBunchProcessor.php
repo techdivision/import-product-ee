@@ -23,6 +23,7 @@ namespace TechDivision\Import\Product\Ee\Services;
 use TechDivision\Import\Loaders\LoaderInterface;
 use TechDivision\Import\Actions\ActionInterface;
 use TechDivision\Import\Connection\ConnectionInterface;
+use TechDivision\Import\Repositories\UrlRewriteRepositoryInterface;
 use TechDivision\Import\Repositories\EavAttributeRepositoryInterface;
 use TechDivision\Import\Repositories\EavEntityTypeRepositoryInterface;
 use TechDivision\Import\Repositories\EavAttributeOptionValueRepositoryInterface;
@@ -87,6 +88,7 @@ class EeProductBunchProcessor extends ProductBunchProcessor implements EeProduct
      * @param \TechDivision\Import\Actions\ActionInterface                                 $urlRewriteAction                  The URL rewrite action to use
      * @param \TechDivision\Import\Product\Assemblers\ProductAttributeAssemblerInterface   $productAttributeAssembler         The assembler to load the product attributes with
      * @param \TechDivision\Import\Loaders\LoaderInterface                                 $rawEntityLoader                   The raw entity loader instance
+     * @param \TechDivision\Import\Repositories\UrlRewriteRepositoryInterface              $urlRewriteRepository              The URL rewrite repository to use
      */
     public function __construct(
         ConnectionInterface $connection,
@@ -114,7 +116,8 @@ class EeProductBunchProcessor extends ProductBunchProcessor implements EeProduct
         ActionInterface $stockItemAction,
         ActionInterface $urlRewriteAction,
         ProductAttributeAssemblerInterface $productAttributeAssembler,
-        LoaderInterface $rawEntityLoader
+        LoaderInterface $rawEntityLoader,
+        UrlRewriteRepositoryInterface $urlRewriteRepository
     ) {
 
         // set the sequence product action
@@ -146,7 +149,8 @@ class EeProductBunchProcessor extends ProductBunchProcessor implements EeProduct
             $stockItemAction,
             $urlRewriteAction,
             $productAttributeAssembler,
-            $rawEntityLoader
+            $rawEntityLoader,
+            $urlRewriteRepository
         );
     }
 
