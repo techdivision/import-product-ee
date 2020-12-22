@@ -96,6 +96,15 @@ class SqlStatementRepository extends \TechDivision\Import\Product\Repositories\S
                FROM ${table:catalog_product_entity_varchar}
               WHERE row_id = :pk
                 AND store_id = :store_id',
+        SqlStatementKeys::PRODUCT_VARCHAR_BY_ATTRIBUTE_CODE_AND_ENTITY_TYPE_ID_AND_STORE_ID_AND_PK =>
+            'SELECT t1.*
+               FROM ${table:catalog_product_entity_varchar} t1,
+                    ${table:eav_attribute} t2
+              WHERE t2.attribute_code = :attribute_code
+                AND t2.entity_type_id = :entity_type_id
+                AND t1.attribute_id = t2.attribute_id
+                AND t1.store_id = :store_id
+                AND t1.row_id = :pk',
         SqlStatementKeys::CREATE_SEQUENCE_PRODUCT =>
             'INSERT INTO ${table:sequence_product} VALUES ()',
         SqlStatementKeys::CREATE_PRODUCT =>

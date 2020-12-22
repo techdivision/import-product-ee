@@ -63,4 +63,14 @@ class EeUrlKeyObserver extends UrlKeyObserver
     {
         $this->getSubject()->setLastRowId($rowId);
     }
+
+    /**
+     * Return's the PK to create the product => attribute relation.
+     *
+     * @return integer The PK to create the relation with
+     */
+    protected function getPrimaryKey()
+    {
+        return $this->getSubject()->getLastRowId();
+    }
 }
