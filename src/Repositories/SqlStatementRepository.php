@@ -103,8 +103,9 @@ class SqlStatementRepository extends \TechDivision\Import\Product\Repositories\S
               WHERE t2.attribute_code = :attribute_code
                 AND t2.entity_type_id = :entity_type_id
                 AND t1.attribute_id = t2.attribute_id
-                AND t1.store_id = :store_id
-                AND t1.row_id = :pk',
+                AND (t1.store_id = :store_id OR t1.store_id = 0)
+                AND t1.row_id = :pk
+           ORDER BY t1.store_id DESC',
         SqlStatementKeys::CREATE_SEQUENCE_PRODUCT =>
             'INSERT INTO ${table:sequence_product} VALUES ()',
         SqlStatementKeys::CREATE_PRODUCT =>
