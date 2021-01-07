@@ -19,7 +19,7 @@
         <!--
          | The DI action configuration
          |-->
-        <service id="import_product.action.product" class="TechDivision\Import\Actions\GenericIdentifierAction">
+        <service id="import_product.action.product" class="TechDivision\Import\Dbal\Actions\GenericIdentifierAction">
             <argument type="service" id="import_product.action.processor.product.create"/>
             <argument type="service" id="import_product.action.processor.product.update"/>
             <argument type="service" id="import_product.action.processor.product.delete"/>
@@ -87,7 +87,7 @@
             <argument type="service" id="import_product.action.product.varchar"/>
             <argument type="service" id="import_product.action.product.website"/>
             <argument type="service" id="import_product.action.stock.item"/>
-            <argument type="service" id="import.action.url.rewrite"/>
+            <argument type="service" id="import_product.action.url.rewrite"/>
             <argument type="service" id="import_product.assembler.product.attribute"/>
             <argument type="service" id="import_product.loader.raw.entity"/>
             <argument type="service" id="import.repository.url.rewrite"/>
@@ -103,6 +103,7 @@
             <argument type="service" id="import_product_ee.processor.product.bunch"/>
             <argument type="service" id="import_product.filter.convert.literal.url"/>
             <argument type="service" id="import_product.util.url.key"/>
+            <argument type="service" id="import.generator.reverse.sequence"/>
         </service>
         <service id="import_product_ee.observer.product.attribute" class="TechDivision\Import\Product\Ee\Observers\EeProductAttributeObserver">
             <argument type="service" id="import_product_ee.processor.product.bunch"/>

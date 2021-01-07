@@ -21,6 +21,7 @@
 namespace TechDivision\Import\Product\Ee\Actions;
 
 use PHPUnit\Framework\TestCase;
+use TechDivision\Import\Dbal\Actions\Processors\ProcessorInterface;
 
 /**
  * Test class for the sequence product action implementation.
@@ -43,7 +44,7 @@ class SequenceProductActionTest extends TestCase
     {
 
         // create a create processor mock instance
-        $mockCreateProcessor = $this->getMockBuilder($processorInterface = 'TechDivision\Import\Actions\Processors\ProcessorInterface')
+        $mockCreateProcessor = $this->getMockBuilder($processorInterface = ProcessorInterface::class)
                                     ->setMethods(get_class_methods($processorInterface))
                                     ->getMock();
         $mockCreateProcessor->expects($this->once())
@@ -52,7 +53,7 @@ class SequenceProductActionTest extends TestCase
                             ->willReturn(null);
 
         // create a mock for the sequence product action
-        $mockAction = $this->getMockBuilder('TechDivision\Import\Product\Ee\Actions\SequenceProductAction')
+        $mockAction = $this->getMockBuilder(SequenceProductAction::class)
                            ->setMethods(array('getCreateProcessor'))
                            ->getMock();
         $mockAction->expects($this->once())
