@@ -1,4 +1,4 @@
-name: Pacemaker Import Product EE Library
+name: techdivision/import-product-ee
 
 on:
   push:
