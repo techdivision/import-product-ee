@@ -21,8 +21,6 @@
 namespace TechDivision\Import\Product\Ee\Subjects;
 
 use TechDivision\Import\Utils\RegistryKeys;
-use TechDivision\Import\Utils\StoreViewCodes;
-use TechDivision\Import\Product\Ee\Utils\MemberNames;
 use TechDivision\Import\Product\Subjects\BunchSubject;
 use TechDivision\Import\Product\Ee\Exceptions\MapSkuToRowIdException;
 

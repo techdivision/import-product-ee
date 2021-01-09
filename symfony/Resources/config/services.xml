@@ -19,7 +19,7 @@
         <!--
          | The DI action configuration
          |-->
-        <service id="import_product.action.product" class="TechDivision\Import\Dbal\Actions\GenericIdentifierAction">
+        <service id="import_product.action.product" class="TechDivision\Import\Dbal\Collection\Actions\GenericIdentifierAction">
             <argument type="service" id="import_product.action.processor.product.create"/>
             <argument type="service" id="import_product.action.processor.product.update"/>
             <argument type="service" id="import_product.action.processor.product.delete"/>
