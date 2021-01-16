@@ -21,8 +21,6 @@
 namespace TechDivision\Import\Product\Ee\Subjects;
 
 use TechDivision\Import\Utils\RegistryKeys;
-use TechDivision\Import\Utils\StoreViewCodes;
-use TechDivision\Import\Product\Ee\Utils\MemberNames;
 use TechDivision\Import\Product\Subjects\BunchSubject;
 use TechDivision\Import\Product\Ee\Exceptions\MapSkuToRowIdException;
 
@@ -99,19 +97,6 @@ class EeBunchSubject extends BunchSubject
     public function getDefaultCallbackMappings()
     {
         return array_merge(parent::getDefaultCallbackMappings(), $this->defaultEeCallbackMappings);
-    }
-
-    /**
-     * Return's TRUE, if the passed URL key varchar value IS related with the actual PK.
-     *
-     * @param array $productVarcharAttribute The varchar value to check
-     *
-     * @return boolean TRUE if the URL key is related, else FALSE
-     */
-    public function isUrlKeyOf(array $productVarcharAttribute)
-    {
-        return ((integer) $productVarcharAttribute[MemberNames::ROW_ID] === (integer) $this->getLastRowId()) &&
-               ((integer) $productVarcharAttribute[MemberNames::STORE_ID] === (integer) $this->getRowStoreId(StoreViewCodes::ADMIN));
     }
 
     /**
