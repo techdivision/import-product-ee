@@ -104,7 +104,6 @@
             <argument type="service" id="import_product.filter.convert.literal.url"/>
             <argument type="service" id="import_product.util.url.key"/>
             <argument type="service" id="import.generator.reverse.sequence"/>
-            <argument type="service" id="import.utils.category.path"/>
         </service>
         <service id="import_product_ee.observer.product.attribute" class="TechDivision\Import\Product\Ee\Observers\EeProductAttributeObserver">
             <argument type="service" id="import_product_ee.processor.product.bunch"/>
@@ -157,6 +156,9 @@
          |-->
         <service id="import_product_ee.observer.composite.base.delete" class="TechDivision\Import\Observers\GenericCompositeObserver">
             <call method="addObserver">
+                <argument id="import_product.observer.normalize.categories" type="service"/>
+            </call>
+            <call method="addObserver">
                 <argument id="import_product_url_rewrite.observer.clear.url.rewrite" type="service"/>
             </call>
             <call method="addObserver">
@@ -168,6 +170,9 @@
          | The DI configuration for the composite observers of the replace operation.
          |-->
         <service id="import_product_ee.observer.composite.base.replace" class="TechDivision\Import\Observers\GenericCompositeObserver">
+            <call method="addObserver">
+                <argument id="import_product.observer.normalize.categories" type="service"/>
+            </call>
             <call method="addObserver">
                 <argument id="import_product_url_rewrite.observer.clear.url.rewrite" type="service"/>
             </call>
@@ -234,6 +239,9 @@
          | The DI configuration for the composite observers of the add-update operation.
          |-->
         <service id="import_product_ee.observer.composite.base.add_update" class="TechDivision\Import\Observers\GenericCompositeObserver">
+            <call method="addObserver">
+                <argument id="import_product.observer.normalize.categories" type="service"/>
+            </call>
             <call method="addObserver">
                 <argument id="import.observer.attribute.set" type="service"/>
             </call>
