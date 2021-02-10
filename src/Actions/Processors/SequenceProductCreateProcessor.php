@@ -21,7 +21,7 @@
 namespace TechDivision\Import\Product\Ee\Actions\Processors;
 
 use TechDivision\Import\Product\Ee\Utils\SqlStatementKeys;
-use TechDivision\Import\Actions\Processors\AbstractCreateProcessor;
+use TechDivision\Import\Dbal\Collection\Actions\Processors\AbstractBaseProcessor;
 
 /**
  * The sequence product create processor implementation.
@@ -32,7 +32,7 @@ use TechDivision\Import\Actions\Processors\AbstractCreateProcessor;
  * @link      https://github.com/wagnert/csv-import
  * @link      http://www.appserver.io
  */
-class SequenceProductCreateProcessor extends AbstractCreateProcessor
+class SequenceProductCreateProcessor extends AbstractBaseProcessor
 {
 
     /**
