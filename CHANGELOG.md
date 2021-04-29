@@ -2,13 +2,14 @@
 
 ## Bugfixes
 
-* None
+* Fixed invalid behaviour of #PAC-307: Add fallback for URL key to value of default store view when initial import has been done without store view rows
 
 ## Features
 
 * Add techdivision/import-product-variant#22
 * Add default configuration for tier price import
 * Add missing operation `general/catalog_product/add-update.msi` to `ee/catalog_product_inventory/add-update` shortcut to also process the MSI artefact
+* Add missing validation for min_qty, min_sale_qty, max_sale_qty, notify_stock_qty, qty_increments, weight fields
 
 # Version 25.0.1
 
