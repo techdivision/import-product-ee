@@ -15,7 +15,7 @@
 namespace TechDivision\Import\Product\Ee\Observers;
 
 use TechDivision\Import\Ee\Utils\SqlConstants;
-use TechDivision\Import\Utils\EntityStatus;
+use TechDivision\Import\Dbal\Utils\EntityStatus;
 use TechDivision\Import\Product\Ee\Utils\MemberNames;
 use TechDivision\Import\Product\Observers\ProductObserver;
 

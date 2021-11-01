@@ -6,6 +6,7 @@
 
 ## Features
 
+* Refactoring deprecated classes. see https://github.com/techdivision/import-cli-simple/blob/master/UPGRADE-4.0.0.md
 * Add techdivision/import-product-variant#22
 * Add default configuration for tier price import
 * Add missing operation `general/catalog_product/add-update.msi` to `ee/catalog_product_inventory/add-update` shortcut to also process the MSI artefact
