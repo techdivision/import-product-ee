@@ -131,9 +131,9 @@
                       "qty_increments" : [ "import.callback.validator.number" ],
                       "weight" : [ "import.callback.validator.number" ],
                       "is_returnable": [ "import_product_ee.callback.rma.validator" ],
-                      "configurable_variations" : [ "import_product.callback.validator.related" ],
-                      "bundle_values" : [ "import_product.callback.validator.related" ],
-                      "associated_skus" : [ "import_product.callback.validator.related" ]
+                      "configurable_variations" : [ "import_product.callback.validator.pipe.related" ],
+                      "bundle_values" : [ "import_product.callback.validator.pipe.related" ],
+                      "associated_skus" : [ "import_product.callback.validator.comma.related" ]
                     }
                   ]
                 }
