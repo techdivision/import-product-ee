@@ -130,7 +130,10 @@
                       "notify_stock_qty" : [ "import.callback.validator.number" ],
                       "qty_increments" : [ "import.callback.validator.number" ],
                       "weight" : [ "import.callback.validator.number" ],
-                      "is_returnable": [ "import_product_ee.callback.rma.validator" ]
+                      "is_returnable": [ "import_product_ee.callback.rma.validator" ],
+                      "configurable_variations" : [ "import_product.callback.validator.related" ],
+                      "bundle_values" : [ "import_product.callback.validator.related" ],
+                      "associated_skus" : [ "import_product.callback.validator.related" ]
                     }
                   ]
                 }
