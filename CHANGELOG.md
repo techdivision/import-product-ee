@@ -12,6 +12,7 @@
 * Add missing operation `general/catalog_product/add-update.msi` to `ee/catalog_product_inventory/add-update` shortcut to also process the MSI artefact
 * Add missing validation for min_qty, min_sale_qty, max_sale_qty, notify_stock_qty, qty_increments, weight fields
 * Add PAC-299: create validation callback for sku relations for grouped, configurables and bundles
+* PAC-541: Update composer with php Version ">=^7.3"
 
 # Version 25.0.1
 
