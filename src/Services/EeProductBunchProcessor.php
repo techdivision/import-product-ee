@@ -83,6 +83,7 @@ class EeProductBunchProcessor extends ProductBunchProcessor implements EeProduct
      * @param \TechDivision\Import\Product\Assemblers\ProductAttributeAssemblerInterface   $productAttributeAssembler         The assembler to load the product attributes with
      * @param \TechDivision\Import\Loaders\LoaderInterface                                 $rawEntityLoader                   The raw entity loader instance
      * @param \TechDivision\Import\Repositories\UrlRewriteRepositoryInterface              $urlRewriteRepository              The URL rewrite repository to use
+     * @param \TechDivision\Import\Dbal\Actions\ActionInterface                            $stockItemStatusAction             The stock item status action to use
      */
     public function __construct(
         ConnectionInterface $connection,
@@ -111,7 +112,8 @@ class EeProductBunchProcessor extends ProductBunchProcessor implements EeProduct
         ActionInterface $urlRewriteAction,
         ProductAttributeAssemblerInterface $productAttributeAssembler,
         LoaderInterface $rawEntityLoader,
-        UrlRewriteRepositoryInterface $urlRewriteRepository
+        UrlRewriteRepositoryInterface $urlRewriteRepository,
+        ActionInterface $stockItemStatusAction = null
     ) {
 
         // set the sequence product action
@@ -144,7 +146,8 @@ class EeProductBunchProcessor extends ProductBunchProcessor implements EeProduct
             $urlRewriteAction,
             $productAttributeAssembler,
             $rawEntityLoader,
-            $urlRewriteRepository
+            $urlRewriteRepository,
+            $stockItemStatusAction
         );
     }
 

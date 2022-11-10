@@ -91,6 +91,7 @@
             <argument type="service" id="import_product.assembler.product.attribute"/>
             <argument type="service" id="import_product.loader.raw.entity"/>
             <argument type="service" id="import.repository.url.rewrite"/>
+            <argument type="service" id="import_product.action.stock.status.item"/>
         </service>
 
         <!--

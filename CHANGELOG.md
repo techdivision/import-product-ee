@@ -1,3 +1,14 @@
+# Version 26.1.0
+
+## Bugfixes
+
+* Fix stock status in legacy mode since Magento 2.4.4
+    * Extend Interface `ProductBunchProcessorInterface` with method `persistStockItemStatus()`
+
+## Features
+
+* none
+
 # Version 26.0.0
 
 ## Bugfixes
