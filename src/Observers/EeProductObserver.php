@@ -18,6 +18,7 @@ use TechDivision\Import\Ee\Utils\SqlConstants;
 use TechDivision\Import\Dbal\Utils\EntityStatus;
 use TechDivision\Import\Product\Ee\Utils\MemberNames;
 use TechDivision\Import\Product\Observers\ProductObserver;
+use TechDivision\Import\Product\Utils\ColumnKeys;
 
 /**
  * Observer that create's the product itself for the Magento 2 EE edition.
@@ -48,6 +49,7 @@ class EeProductObserver extends ProductObserver
         $this->setLastRowId($entity[MemberNames::ROW_ID]);
         $this->setLastEntityId($entity[MemberNames::ENTITY_ID]);
 
+        $this->addPrimarySkuToRowPkMapping($entity[MemberNames::SKU], $entity[MemberNames::ROW_ID]);
         // merge and return the entity
         return parent::mergeEntity($entity, $attr, $changeSetName);
     }

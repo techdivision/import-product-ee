@@ -14,6 +14,7 @@
 
 namespace TechDivision\Import\Product\Ee\Subjects;
 
+use TechDivision\Import\Product\Utils\RegistryKeys as ProductRegistryKeys;
 use TechDivision\Import\Utils\RegistryKeys;
 use TechDivision\Import\Product\Subjects\BunchSubject;
 use TechDivision\Import\Product\Ee\Exceptions\MapSkuToRowIdException;
@@ -107,7 +108,13 @@ class EeBunchSubject extends BunchSubject
         $registryProcessor = $this->getRegistryProcessor();
 
         // update the status up the actual import with SKU => row ID mapping
-        $registryProcessor->mergeAttributesRecursive(RegistryKeys::STATUS, array(RegistryKeys::SKU_ROW_ID_MAPPING => $this->skuRowIdMapping));
+        $registryProcessor->mergeAttributesRecursive(
+            RegistryKeys::STATUS,
+            array(
+                RegistryKeys::SKU_ROW_ID_MAPPING => $this->skuRowIdMapping,
+                ProductRegistryKeys::PRIMARY_SKU_TO_ROW_PK_MAPPINGS => $this->primarySkuToRowPkMappings
+            )
+        );
 
         // call parent method
         parent::tearDown($serial);
