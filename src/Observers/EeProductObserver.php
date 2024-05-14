@@ -49,11 +49,22 @@ class EeProductObserver extends ProductObserver
         $this->setLastRowId($entity[MemberNames::ROW_ID]);
         $this->setLastEntityId($entity[MemberNames::ENTITY_ID]);
 
-        $this->addPrimarySkuToRowPkMapping($entity[MemberNames::SKU], $entity[MemberNames::ROW_ID]);
         // merge and return the entity
         return parent::mergeEntity($entity, $attr, $changeSetName);
     }
 
+    /**
+     * mapping the sku with row_id
+     *
+     * @return void
+     */
+    protected function savePrimarySkuMapping()
+    {
+        $this->addPrimarySkuToRowPkMapping(
+            $this->getValue(ColumnKeys::SKU),
+            isset($product[MemberNames::ROW_ID]) ? $product[MemberNames::ROW_ID] : $this->getSubject()->getLastRowId()
+        );
+    }
     /**
      * Initialize the product with the passed attributes and returns an instance.
      *

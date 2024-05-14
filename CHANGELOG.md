@@ -1,3 +1,9 @@
+# Version  26.1.2
+
+## Bugfixes
+
+* Optimize the code logic to get PrimarySku with PkMapping
+
 # Version 26.1.1
 
 ## Bugfixes
