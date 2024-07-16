@@ -1,3 +1,16 @@
+# Version  26.1.3
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Add #PAC-354 new feature:
+    * extend the validation for catalog_product entity
+        * `"import.callback.store.in.website.validator"`
+      
+
 # Version  26.1.2
 
 ## Bugfixes
