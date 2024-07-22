@@ -1,3 +1,9 @@
+# Version 26.1.5
+
+## Bugfixes
+
+* Fix validation file error
+
 # Version 26.1.4
 
 ## Bugfixes
