@@ -8,6 +8,35 @@
 * Add PHP ">=8.1" support
 * Remove PHP 7.3 support
 
+# Version 26.1.5
+
+## Bugfixes
+
+* Fix validation file error
+
+# Version 26.1.4
+
+## Bugfixes
+
+* remove from the validation for catalog_product entity the callback
+  * `"import.callback.store.in.website.validator"`
+
+## Features
+
+* None
+
+# Version  26.1.3
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Add #PAC-354 new feature:
+    * extend the validation for catalog_product entity
+        * `"import.callback.store.in.website.validator"`
+
 # Version  26.1.2
 
 ## Bugfixes
