@@ -1,3 +1,13 @@
+# Version  27.0.0
+
+## Features
+
+### PHP 8.1 Compatibility
+
+* Update dependencies
+* Add PHP ">=8.1" support
+* Remove PHP 7.3 support
+
 # Version  26.1.2
 
 ## Bugfixes
