@@ -1,3 +1,13 @@
+# Version  27.0.0
+
+## Features
+
+### PHP 8.1 Compatibility
+
+* Update dependencies
+* Add PHP ">=8.1" support
+* Remove PHP 7.3 support
+
 # Version 26.1.5
 
 ## Bugfixes
@@ -26,7 +36,6 @@
 * Add #PAC-354 new feature:
     * extend the validation for catalog_product entity
         * `"import.callback.store.in.website.validator"`
-      
 
 # Version  26.1.2
 
