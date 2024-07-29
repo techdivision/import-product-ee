@@ -301,6 +301,9 @@
                 <argument id="import_product_grouped.observer.product.grouped" type="service"/>
             </call>
             <call method="addObserver">
+                <argument id="import_product_grouped_ee.observer.clean.up.product.grouped" type="service"/>
+            </call>
+            <call method="addObserver">
                 <argument id="import_product_tier_price.observer.product.tier_price" type="service"/>
             </call>
             <call method="addObserver">
