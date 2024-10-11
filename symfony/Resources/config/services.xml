@@ -323,6 +323,10 @@
             <argument type="service" id="import_product.utils.entity.type.code.mapping"/>
         </service>
 
+        <service id="import_product_ee.store.in.website.validator.observer" class="TechDivision\Import\Product\Ee\Observers\EeStoreWebsiteValidatorObserver">
+            <argument type="service" id="import_product_ee.processor.product.bunch"/>
+            <argument type="service" id="import.processor.import"/>
+        </service>
     </services>
 
 </container>
