@@ -40,7 +40,7 @@ class RmaKeys implements RmaKeysInterface
     /**
      * Query's whether or not the passed key is valid or not.
      *
-     * @param string $key The key to query for
+     * @param string|null $key The key to query for
      *
      * @return bool TRUE if the passed key is valid, else FALSE
      */
@@ -52,7 +52,7 @@ class RmaKeys implements RmaKeysInterface
     /**
      * Return's the value for the passed key.
      *
-     * @param string $key The key to return the value for
+     * @param string|null $key The key to return the value for
      *
      * @return int The value
      */
