@@ -55,7 +55,7 @@ class RmaCallback extends AbstractProductImportCallback
      *
      * @return int The converted value
      */
-    public function handle(AttributeCodeAndValueAwareObserverInterface $observer = null) : int
+    public function handle(?AttributeCodeAndValueAwareObserverInterface $observer = null) : int
     {
 
         // set the observer
